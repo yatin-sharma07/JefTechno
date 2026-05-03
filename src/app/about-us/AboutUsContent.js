@@ -1,869 +1,1094 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react'
-import gsap from 'gsap'
+import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Link from 'next/link'
-import ContactUs from '../../components/ContactUs';
-import { usePathname } from 'next/navigation';
+import Link from "next/link";
+import ContactUs from "../../components/ContactUs";
+import { usePathname } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutUsContent = () => {
+  const [showPanel, setShowPanel] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const intervalRef = useRef(null);
+  const progressRef = useRef(null);
+  const TAB_DURATION = 5000;
 
+  const whatWeDoData = [
+    {
+      label: "PRODUCTS",
+      content:
+        "Type-tested lightning protection components and systems (to IEC 62305:2024, with CLPS components tested to 200 kA on the 10/350 μs waveform — double the IEC standard requirement), earthing and grounding system solutions, surge protective devices, and lightning risk assessment tools including the automated JEF Shield platform.",
+    },
+    {
+      label: "AUDIT SERVICES",
+      content:
+        "Comprehensive electrical safety audits conducted by specialist engineers — covering lightning protection, earthing systems, surge protection, and overall electrical installation integrity. Each audit delivers a detailed technical assessment with actionable findings, benchmarked against current international standards.",
+    },
+    {
+      label: "CONSULTING SERVICES",
+      content:
+        "End-to-end consulting for the design, specification, and independent verification of electrical protection systems. From concept through commissioning, JEF's consultants provide the technical authority that complex infrastructure projects require — particularly where regulatory compliance, insurance requirements, or asset criticality demand an independent expert position.",
+    },
+  ];
 
+  useEffect(() => {
+    document.body.style.overflow = showPanel ? "hidden" : "auto";
+  }, [showPanel]);
 
+  const startProgress = (tabIndex) => {
+    setProgress(0);
+    clearInterval(intervalRef.current);
+    clearInterval(progressRef.current);
 
-    useEffect(() => {
-        gsap.utils.toArray('.Y-axis-text-Title').forEach((element) => {
-            gsap.fromTo(
-                element,
-                { opacity: 0, y: 50 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    scrollTrigger: {
-                        trigger: element,
-                        stagger: 0.6,
-                        start: 'top 100%',
-                        toggleActions: 'play none none none',
-                    },
-                }
-            );
-        });
-    }, []);
+    const startTime = Date.now();
 
+    progressRef.current = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const pct = Math.min((elapsed / TAB_DURATION) * 100, 100);
+      setProgress(pct);
+    }, 16);
 
+    intervalRef.current = setTimeout(() => {
+      clearInterval(progressRef.current);
+      setActiveTab((prev) => {
+        const next = (prev + 1) % whatWeDoData.length;
+        startProgress(next);
+        return next;
+      });
+    }, TAB_DURATION);
+  };
 
+  useEffect(() => {
+    startProgress(0);
+    return () => {
+      clearInterval(intervalRef.current);
+      clearInterval(progressRef.current);
+    };
+  }, []);
 
-    useEffect(() => {
-        gsap.utils.toArray('.Y-axis-text').forEach((element) => {
-            gsap.fromTo(
-                element,
-                { opacity: 0, y: 50 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    scrollTrigger: {
-                        trigger: element,
-                        stagger: 0.6,
-                        start: 'top 70%',
-                        toggleActions: 'play none none none',
-                    },
-                }
-            );
-        });
-    }, []);
+  const handleTabClick = (index) => {
+    clearTimeout(intervalRef.current);
+    clearInterval(progressRef.current);
+    setActiveTab(index);
+    startProgress(index);
+  };
 
-
-    //  Card Sliderr --------------------------
-
-    useEffect(() => {
-        gsap.fromTo(
-            gsap.utils.toArray('.Y-axis-card-anm'),
-            { opacity: 0, y: 50 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                stagger: 0.3, // 0.3s delay between each card animation
-                scrollTrigger: {
-                    start: 'top 70%',
-                    trigger: '.card-slider',
-                    toggleActions: 'play none none none',
-                },
-            }
-        );
-    }, []);
-
-
-    useEffect(() => {
-        gsap.fromTo(
-            gsap.utils.toArray('.X-axis-anm'),
-            { opacity: 0, x: 150 },
-            {
-                x: 0,
-                opacity: 1,
-                duration: 1,
-                stagger: 0.3, // 0.3s delay between each card animation
-                scrollTrigger: {
-                    start: 'top 80%',
-                    trigger: '.Img-slider',
-                    toggleActions: 'play none none none',
-                },
-            }
-        );
-    }, []);
-
-
-
-    // ContactUs Data
-
-
-
-    const visionData = [
+  useEffect(() => {
+    gsap.utils.toArray(".Y-axis-text-Title").forEach((element) => {
+      gsap.fromTo(
+        element,
+        { opacity: 0, y: 50 },
         {
-            icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/e16ee975eb679a5915e4c081858a20a90389fd8b30454bd57483da22afade137?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
-            title: "PRODUCTS",
-            description: " Type-tested lightning protection components and systems (to IEC 62305:2024, with CLPS components tested to 200 kA on the 10/350 µs waveform — double the IEC standard requirement), earthing and grounding system solutions, surge protective devices, and lightning risk assessment tools including the automated JEF Shield platform.",
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: element,
+            stagger: 0.6,
+            start: "top 100%",
+            toggleActions: "play none none none",
+          },
         },
-          {
-            icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/046a00e721b213a29322e89fd6ebaa8d2b511514f4b267d8a196e97e597db69f?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
-        title: "AUDIT SERVICES",
-            description: " Electrical and Fire Safety Audit powered by Sameeksha® (the world’s first automated safety audit tool, developed and patented by JEF); Earthing Health Assessment of live installations; and Instrumentation Earthing Audit for I&C systems in process plants and generating stations."
-        },
+      );
+    });
+  }, []);
+
+  useEffect(() => {
+    gsap.utils.toArray(".Y-axis-text").forEach((element) => {
+      gsap.fromTo(
+        element,
+        { opacity: 0, y: 50 },
         {
-            icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/2137e57fab69bcc7f6fe80e5f7e438b0cdfa992da4b7bf36e2da2159fb80627e?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
-        title: "CONSULTING SERVICES",
-            description: "  Power System Studies (load flow, short circuit, motor starting, harmonics, transient stability, protection coordination, arc flash, insulation coordination) using ETAP, PSCAD/EMTDC, PSS/E, DIgSILENT, SKM, and DSA Tools; and EMI/EMC Studies including AC interference analysis for pipelines."
-        }
-      
-    ];
-const technologyData = [
-  {
-    title: "SAMEEKSHA®",
-    description:
-      "world’s first automated safety audit tool. 6,500+ reports, 630,000+ data points, 230,000+ images, zero data mix-up. Patented.",
-  },
-  {
-    title: "JEF SHIELD",
-    description:
-      "Automated LPS risk assessment and design to IEC 62305-2. Complete report, drawings, and BOM in under 90 seconds.",
-  },
-  {
-    title: "JEF E-BUILD",
-    description:
-      "Real-time LPS installation monitoring and remote certification.",
-  },
-];
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: element,
+            stagger: 0.6,
+            start: "top 70%",
+            toggleActions: "play none none none",
+          },
+        },
+      );
+    });
+  }, []);
 
-const locationData = [
-  {
-    title: "Bengaluru, India (Global HQ)",
-    description:
-      "jeftechno.com — full product, audit, and consulting capability across India and internationally.",
-  },
-  {
-    title: "Abu Dhabi, UAE (GCC Hub)",
-    description:
-      "jefuae.com — power system studies, instrumentation earthing, EMI/EMC, and earthing studies, specialising in oil and gas.",
-  },
-  {
-    title: "USA",
-    description:
-      "North American presence, US patent portfolio, and engagement with US engineering standards and clients.",
-  },
-];
+  //  Card Sliderr --------------------------
 
-    return (
-        <>
-            <section className='overflow-hidden'>
-                <main className="flex relative flex-col h-screen w-full max-md:py-24 max-md:max-w-full">
-                    <img
-                        loading="lazy"
-                        src="./AboutUs/AboutUsMainBG.png"
-                        alt="AboutUsMainbg"
-                        className="object-cover absolute inset-0 size-full"
-                    />
-                    <section className="flex relative px-4 inset-y-3/4 lg:-mt-[2%] 2xl:mt-0 lg:inset-x-24 flex-col mt-4 w-full max-w-[1310px] max-md:mb-2.5 max-md:max-w-full">
-                        <h1 className="md:text-5xl Y-axis-text-Title text-4xl font-bold tracking-wider text-white max-md:max-w-full max-md:text-4xl">
-                            JEF GROUP OF COMPANIES
-                        </h1>
-                        <div className="flex gap-6 items-center self-start mt-8 text-lg uppercase text-neutral-900  max-md:mt-10">
-                            <Link href={'/get-in-touch'}>
-                                <button className="uppercase Y-axis-text-Title px-5 lg:px-10 self-stretch  py-2 lg:py-3 my-auto bg-white border border-solid border-zinc-900 border-opacity-10 text-lg hover:bg-red-700 hover:text-white 2xl:min-h-[64px] rounded-[50px]">
-                                    Get in touch
-                                </button>
-                            </Link>
-                        </div>
-                    </section>
-                </main>
+  useEffect(() => {
+    gsap.fromTo(
+      gsap.utils.toArray(".Y-axis-card-anm"),
+      { opacity: 0, y: 50 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.3, // 0.3s delay between each card animation
+        scrollTrigger: {
+          start: "top 70%",
+          trigger: ".card-slider",
+          toggleActions: "play none none none",
+        },
+      },
+    );
+  }, []);
 
-            </section>
+  useEffect(() => {
+    gsap.fromTo(
+      gsap.utils.toArray(".X-axis-anm"),
+      { opacity: 0, x: 150 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.3, // 0.3s delay between each card animation
+        scrollTrigger: {
+          start: "top 80%",
+          trigger: ".Img-slider",
+          toggleActions: "play none none none",
+        },
+      },
+    );
+  }, []);
 
-            <section>
-                < Navigation />
-            </section>
+  // ContactUs Data
 
+  // const visionData = [
+  //   {
+  //     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/e16ee975eb679a5915e4c081858a20a90389fd8b30454bd57483da22afade137?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
+  //     title: "PRODUCTS",
+  //     description:
+  //       " Type-tested lightning protection components and systems (to IEC 62305:2024, with CLPS components tested to 200 kA on the 10/350 µs waveform — double the IEC standard requirement), earthing and grounding system solutions, surge protective devices, and lightning risk assessment tools including the automated JEF Shield platform.",
+  //   },
+  //   {
+  //     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/046a00e721b213a29322e89fd6ebaa8d2b511514f4b267d8a196e97e597db69f?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
+  //     title: "AUDIT SERVICES",
+  //     description:
+  //       " Electrical and Fire Safety Audit powered by Sameeksha® (the world’s first automated safety audit tool, developed and patented by JEF); Earthing Health Assessment of live installations; and Instrumentation Earthing Audit for I&C systems in process plants and generating stations.",
+  //   },
+  //   {
+  //     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/2137e57fab69bcc7f6fe80e5f7e438b0cdfa992da4b7bf36e2da2159fb80627e?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
+  //     title: "CONSULTING SERVICES",
+  //     description:
+  //       "  Power System Studies (load flow, short circuit, motor starting, harmonics, transient stability, protection coordination, arc flash, insulation coordination) using ETAP, PSCAD/EMTDC, PSS/E, DIgSILENT, SKM, and DSA Tools; and EMI/EMC Studies including AC interference analysis for pipelines.",
+  //   },
+  // ];
 
+  const technologyData = [
+    {
+      title: "SAMEEKSHA®",
+      description:
+        "world’s first automated safety audit tool. 6,500+ reports, 630,000+ data points, 230,000+ images, zero data mix-up. Patented.",
+    },
+    {
+      title: "JEF SHIELD",
+      description:
+        "Automated LPS risk assessment and design to IEC 62305-2. Complete report, drawings, and BOM in under 90 seconds.",
+    },
+    {
+      title: "JEF E-BUILD",
+      description:
+        "Real-time LPS installation monitoring and remote certification.",
+    },
+  ];
 
-            <section className="flex overflow-hidden flex-col justify-center items-center px-20 py-24 bg-[#312D2D] max-md:px-5">
-                <div className="flex flex-col w-full max-w-[1380px] max-md:max-w-full">
-                    <header className="flex Y-axis-text flex-col self-center max-w-full text-center text-white ">
-                        <h1 className="flex justify-center items-center px-48 w-full text-3xl font-normal leading-none uppercase tracking-[3.36px] max-md:px-5 max-md:max-w-full ">
-                            <span className="text-red-600 self-stretch pb-px my-auto min-w-[240px] max-md:text-4xl">
-                                Who we are ?
-                            </span>
-                        </h1>
-                      <p className="pb-px mt-8 w-full text-lg font-light max-md:max-w-full">
-  JEF is a specialist electrical engineering company with an uncompromising focus on the safety and reliability of electrical systems. Founded in Bengaluru in 1994, we have built our global presence the hard way — one technically demanding project at a time, in industries and environments where the standard of engineering is determined by the consequences of getting it wrong.
-</p>
+  const locationData = [
+    {
+      title: "Bengaluru, India (Global HQ)",
+      description:
+        "jeftechno.com — full product, audit, and consulting capability across India and internationally.",
+    },
+    {
+      title: "Abu Dhabi, UAE (GCC Hub)",
+      description:
+        "jefuae.com — power system studies, instrumentation earthing, EMI/EMC, and earthing studies, specialising in oil and gas.",
+    },
+    {
+      title: "USA",
+      description:
+        "North American presence, US patent portfolio, and engagement with US engineering standards and clients.",
+    },
+  ];
 
-<p className="pb-px mt-8 w-full text-lg font-light max-md:max-w-full">
-  Three decades of this work, across 30 countries and 10k customers, have produced something that cannot be replicated quickly: a depth of methodology, a body of proprietary technology, and a team capable of operating at the frontier of what electrical engineering analysis and assessment can deliver. Our 9 granted patents — across India, the United States, and the European Union — reflect the same conviction that has guided the company since 1994: that the right response to a gap in what the industry delivers is to build something better.
-</p>
+  return (
+    <>
+      <section className="overflow-hidden">
+        <main className="flex relative flex-col h-screen w-full max-md:py-24 max-md:max-w-full">
+          <img
+            loading="lazy"
+            src="./AboutUs/AboutUsMainBG.png"
+            alt="AboutUsMainbg"
+            className="object-cover absolute inset-0 size-full"
+          />
+          <section className="flex relative px-4 inset-y-[78%] lg:inset-x-20 flex-col mt-6 w-full max-w-[1200px] max-md:mb-2.5 max-md:max-w-full">
+            <h1 className="md:text-4xl text-3xl font-bold tracking-wide text-white max-md:text-3xl">
+              JEF GROUP OF COMPANIES
+            </h1>
+          </section>
+        </main>
+      </section>
 
-<p className="pb-px mt-8 w-full text-lg font-light max-md:max-w-full">
-  <span className="font-bold">
-    30+ years. 30 countries. 10k customers. 9 granted patents. The record of an organization that has consistently delivered where others have not.
-  </span>
-</p>
-                    </header>
-                    <div className="flex flex-col items-center px-16 mt-20 max-md:px-5 max-md:mt-10 max-md:max-w-full">
-                        <div className="flex flex-col justify-center items-center w-full max-w-[1240px] max-md:max-w-full">
-                             <h1 className="flex justify-center items-center px-48 w-full text-3xl font-normal leading-none uppercase tracking-[3.36px] max-md:px-5 max-md:max-w-full mb-5">
-                            <span className="text-red-600 self-stretch pb-px my-auto min-w-[240px] max-md:text-4xl">
-                                What we Do
-                            </span>
-                        </h1>
-                            <h2 className='mb-10 text-white text-lg font-light max-md:max-w-full'>
-                                JEF's work spans three disciplines — Products,Audit Services and Consulting — United by a single purpose.
-                            </h2>
-                            <div className="flex flex-wrap flex-1 justify-center mx-auto size-full max-md:px-5">
-                                
-                                {visionData.map((card, index) => (
-                                    <article key={index} className="flex  Y-axis-card-anm flex-col grow shrink justify-center h-full pr-px max-w-[311px] min-w-[240px] w-[249px]">
-                                        <div className="flex card-slider flex-col px-5 py-14 w-full hover:bg-stone-900 hover:border-opacity-80 border border-white border-opacity-10 lg:h-[530px] max-w-[310px] max-md:pl-5">
-                                            <div className="flex flex-col items-center pb-8 w-full min-h-[110px]">
-                                                <div className="flex justify-center items-end w-full min-h-[80px]">
-                                                    <div className="flex overflow-hidden flex-col flex-1 shrink w-full basis-0 min-w-[240px]">
-                                                        <div className="flex flex-1 justify-center items-center px-24 size-full max-md:px-5">
-                                                            <img loading="lazy" src={card.icon} alt="" className="object-contain self-stretch my-auto w-16 aspect-square" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <h2 className="flex flex-col pb-16 text-sm tracking-widest leading-loose text-center text-white uppercase whitespace-nowrap min-h-[88px]">
-                                                <div className="w-full max-md:px-5 font-bold">{card.title}</div>
-                                            </h2>
-                                            <p className="flex z-10 flex-col pb-16 text-sm 2xl:text-base font-thin leading-6 text-center text-white">
-                                                <span className="pr-2 pl-2 w-full">{card.description}</span>
-                                            </p>
-                                            {card.learnMore && (
-                                                <div className="flex flex-col items-center pt-2 pr-20 pl-20 min-h-[24px] max-md:px-5">
-                                                    <div className="flex items-start">
-                                                        <button className="flex flex-col text-xs tracking-widest leading-none text-center text-white uppercase">
-                                                            Learn More
-                                                        </button>
-                                                        <div className="flex flex-col justify-center w-4 min-h-[16px]">
-                                                            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/34d3e1a33d8d6508faa39ce79b0f0e3193a35e40e7b6bc356c327097af5053f7?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244" alt="" className="object-contain flex-1 w-4 aspect-square" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </article>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+      <section>
+        <Navigation />
+      </section>
 
+     <section className="flex flex-col items-center w-full bg-[#F9F7F2] overflow-hidden">
+  {/* WHO WE ARE */}
+  <div className="flex flex-col items-center justify-center w-full pt-[100px]">
+    <header
+      className="flex flex-col items-center justify-center text-center gap-[32px] w-full px-5 mx-auto"
+      style={{ maxWidth: "1279px", minHeight: "394px" }}
+    >
+      <img
+        src="/HomePageImg/NavbarImg/JefTechno_logo_ 2.png"
+        alt="company logo"
+        className="w-[80px]"
+      />
 
+      <h1 className="flex justify-center items-center w-[264px]">
+        <span className="text-[#C02429] font-semibold text-[32px] leading-[52.91px] tracking-[3.36px] uppercase font-montserrat">
+          WHO WE ARE
+        </span>
+      </h1>
 
+      <p className="text-[20px] font-normal leading-[150%] text-gray-700 font-montserrat text-center w-full max-w-[1255px]">
+        JEF is a specialist electrical engineering company with an
+        uncompromising focus on the safety and reliability of electrical
+        systems. Founded in Bengaluru in 1994, we have built our global
+        presence the hard way — one technically demanding project at a
+        time, in industries and environments where the standard of
+        engineering is determined by the consequences of getting it wrong.
+      </p>
 
-            <section>
-                < ExcellenceinElectricalEngineering />
-            </section>
+      <div className="flex justify-center items-center">
+        <img
+          src="/AboutUs/read more button.png"
+          alt="Read More"
+          onClick={() => setShowPanel(true)}
+          className="cursor-pointer object-contain hover:scale-105 active:scale-95 transition-transform duration-200"
+          style={{ width: "260px", height: "61px" }}
+        />
+      </div>
+    </header>
+  </div>
 
+  {/* DIM OVERLAY */}
+  {showPanel && (
+    <div
+      className="fixed inset-0 bg-black/50 z-[9998]"
+      onClick={() => setShowPanel(false)}
+    />
+  )}
 
+  {/* SLIDE PANEL */}
+  <div
+    className={`fixed top-0 right-0 h-screen bg-[#F9F7F2] z-[9999]
+      transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+      ${showPanel ? "translate-x-0" : "translate-x-full"}`}
+    style={{ width: "860px" }}
+  >
+    <div className="flex items-center justify-between px-16 pt-16 mb-10">
+      <h2 className="text-[#C02429] font-bold text-[26px] leading-[43.4px] tracking-[1.49px] uppercase font-montserrat">
+        WHO WE ARE
+      </h2>
+      <button
+        onClick={() => setShowPanel(false)}
+        style={{ width: "48px", height: "48px", borderRadius: "30px" }}
+        className="bg-[#C02429] text-white flex items-center justify-center hover:bg-red-700 hover:scale-110 transition flex-shrink-0"
+      >
+        ✕
+      </button>
+    </div>
 
+    <div className="flex flex-col gap-8 px-16">
+      <p className="text-[20px] font-light leading-[150%] text-gray-600 font-montserrat">
+        Three decades of this work, across 30 countries and 10k customers,
+        have produced something that cannot be replicated quickly: a depth
+        of methodology, a body of proprietary technology, and a team
+        capable of operating at the frontier of what electrical
+        engineering analysis and assessment can deliver. Our 9 granted
+        patents — across India, the United States, and the European Union
+        — reflect the same conviction that has guided the company since
+        1994: that the right response to a gap in what the industry
+        delivers is to build something better.
+      </p>
 
-            {/* Our Approach */}
+      <p className="text-[20px] font-bold leading-[150%] text-gray-900 font-montserrat">
+        30+ years. 30 countries. 10k customers. 9 granted patents. The
+        record of an organization that has consistently delivered where
+        others have not.
+      </p>
+    </div>
+  </div>
 
- 
+  {/* WHAT WE DO */}
+  <div className="flex flex-col w-full max-w-[1729px] mx-auto pl-[101px] pr-5 mt-[250px] mb-[50px] text-left">
+    {/* Section Title */}
+    <h1 className="text-[#C02429] text-[26px] font-bold tracking-[1.49px] leading-[60px] uppercase font-[Montserrat] mb-[43px]">
+      WHAT &nbsp; WE DO
+    </h1>
 
-          <section className="flex overflow-hidden flex-col justify-center items-center px-20 py-24 text-center bg-[#312D2D] max-md:px-5">
-  <div className="flex flex-col max-w-full w-[1115px]">
-
-    {/* Heading */}
-    <h2 className="text-3xl font-bold text-red-600 uppercase tracking-[3.36px]">
-      TECHNOLOGY AND PATENTS
-    </h2>
-
-    {/* Subtext */}
-    <p className="mt-6 text-sm md:text-base font-light text-gray-300 max-w-[700px] mx-auto">
-      <span className="font-bold text-white">
-        9 granted patents — India, United States, European Union.
-      </span>{" "}
-      JEF's proprietary tools are not incremental improvements to existing approaches. They are purpose-built responses to specific gaps in what the industry was delivering.
-    </p>
-
-    {/* Cards */}
-    <div className="flex flex-wrap justify-center mx-auto mt-16 w-full max-md:px-5">
-      {technologyData.map((card, index) => (
-        <article
+    <div className="relative w-full max-w-[900px] min-h-[253px] mb-[100px]">
+      {whatWeDoData.map((tab, index) => (
+        <p
           key={index}
-          className="flex flex-col justify-center max-w-[320px]"
+          className={`text-[20px] font-medium leading-[1.5] tracking-[0px] text-gray-800 font-[Montserrat] w-full transition-all duration-700 ease-in-out absolute left-0 top-0 ${
+            activeTab === index
+              ? "opacity-100 translate-y-0 pointer-events-auto"
+              : "opacity-0 translate-y-4 pointer-events-none"
+          }`}
         >
-          <div className="flex flex-col px-6 py-14 w-full h-full border border-white border-opacity-10 hover:bg-[#2a2626] transition-all duration-300">
-
-            {/* Title */}
-            <h3 className="text-sm tracking-widest text-center text-red-500 uppercase font-bold mb-6">
-              {card.title}
-            </h3>
-
-            {/* Description */}
-            <p className="text-sm 2xl:text-base font-light leading-6 text-center text-gray-300">
-              {card.description}
-            </p>
-
-          </div>
-        </article>
+          {tab.content}
+        </p>
       ))}
     </div>
 
+    <div className="flex flex-wrap gap-[64px] w-full max-w-[906px]">
+      {whatWeDoData.map((tab, index) => (
+        <button
+          key={index}
+          onClick={() => handleTabClick(index)}
+          className="flex flex-col items-start group cursor-pointer w-[259px]" 
+        >
+          {/* Progress Line */}
+          <div className="w-full h-[2px] bg-gray-300 mb-4 relative overflow-hidden">
+            <div
+              className="absolute top-0 left-0 h-full bg-[#C02429]"
+              style={{
+                width: activeTab === index ? `${progress}%` : "0%",
+                transition: activeTab === index ? "none" : "width 0.3s ease-out",
+              }}
+            />
+          </div>
+
+          {/* Tab Label */}
+          <span
+            className={`text-[12px] tracking-[1.5px] uppercase font-[Montserrat] transition-colors duration-300 ${
+              activeTab === index
+                ? "text-gray-900 font-semibold"
+                : "text-gray-500 hover:text-gray-700"
+            }`}
+          >
+            {tab.label}
+          </span>
+        </button>
+      ))}
+    </div>
   </div>
 </section>
 
+      {/*Area of Expertise */}
+      <section>
+        <ExcellenceinElectricalEngineering />
+      </section>
 
+      {/* Technology and Patent */}
+      <section>
+        <TechnologyPatents />
+      </section>
 
+      {/*Overview */}
 
-            {/* Where we are */}
+      <section>
+        <Overview />
+      </section>
 
-            <section className="flex overflow-hidden flex-col justify-center items-center px-4 sm:px-8 md:px-16 py-12 sm:py-16 md:py-24 bg-neutral-100">
-                <div className="w-full max-w-[80rem]">
-                    <div className="flex flex-col md:flex-row gap-5">
-                        <div className="flex flex-col w-full md:w-1/2">
-                            <div className="flex flex-col self-stretch my-auto max-md:mt-10">
-                                <div className="flex flex-col justify-center p-2.5 w-full text-3xl sm:text-4xl font-semibold leading-none text-red-700 tracking-[0.28rem]">
-                                    <div className="flex flex-col w-full h-[4.5rem]">
-                                        <div className="flex relative flex-col w-full">
-                                            <h2 className="pb-px Y-axis-text w-full text-5xl">WHERE WE ARE</h2>
-                                            <div className="flex absolute inset-x-0 z-0 max-w-full bottom-[-7.6875rem] min-h-[5.8125rem] w-full md:w-[33.25rem]" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="flex flex-col gap-10 mt-10">
-  {locationData.map((item, index) => (
-    <div key={index}>
-      <h3 className="text-lg md:text-xl font-light text-gray-400">
-        <span className="text-red-600 font-semibold">
-          {item.title}
-        </span>{" "}
-        — {item.description}
-      </h3>
-    </div>
-  ))}
-</div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col Img-slider mt-6 md:mt-0 md:ml-5 w-full md:w-1/2">
-                            <img
-                                loading="lazy"
-                                src="./AboutUs/BrandHistory.png"
-                                alt="JEF Techno brand history illustration"
-                                className="object-contain X-axis-anm w-full aspect-[1.09]"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
+      {/*Our Presence */}
+      <section>
+        <LearningDevelopment />
+      </section>
 
-
-
-
-            {/* Jef leaderShip */}
-
-            <section>
-                <div
-                    className="flex overflow-hidden relative gap-10 justify-center items-start py-32 inset-0 bg-black bg-opacity-100"
-                    style={{
-                        backgroundImage: "url('./AboutUs/LeaderShipBG.png')",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat"
-                    }}>
-
-                    <div className="flex z-0 flex-col my-auto max-w-screen min-w-[240px] w-full max-md:px-5 max-md:max-w-full">
-                        <div className="flex flex-col w-full max-md:max-w-full">
-                            <div className="flex items-center my-auto text-center flex-col w-full max-md:max-w-full">
-                                <h1 className="pb-px w-full Y-axis-text font-extrabold text-3xl  leading-loose text-red-600 tracking-[4.53px] max-md:max-w-full ">
-                                    SAFETY AT SCALE
-                                </h1>
-                                <p className="mt-5 Y-axis-text w-full text-lg font-light leading-6 text-white max-md:max-w-full min-w-[90%]">
-                                    Over the last couple of decades, our clients have been able to assure the long-term <br className='hidden md:block' /> safety of their manpower and business.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-
-            <section>
-                < Overview />
-            </section>
-
-
-
-            <section>
-                < LearningDevelopment />
-            </section>
-
-
-            {/* < SocialResponsibilities /> */}
-            {/* <section>
+      {/* < SocialResponsibilities /> */}
+      {/* <section>
         <img src="./AboutUs/SRImg.png" alt="SRimg" />
         
       </section> */}
-        </>
-    )
-}
-
-
-
-
-
-
-
-
-const Overview = () => {
-
-    useEffect(() => {
-        gsap.fromTo(
-            gsap.utils.toArray('.Y-axis-card-anm'),
-            { opacity: 0, y: 50 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                stagger: 0.3, // 0.3s delay between each card animation
-                scrollTrigger: {
-                    start: 'top 70%',
-                    trigger: '.card-slider-Overview',
-                    toggleActions: 'play none none none',
-                },
-            }
-        );
-    }, []);
-
-    const statsData = [
-  ["30+ Years", "Founded 1994", "10k Customers", "90% Retention Rate"],
-  ["30 Countries", "Asia, Middle East, Africa, Europe", "9 Patents", "India, US & EU"],
-  ["500+", "Earthing assessments", "6,500+", "Safety audit reports"],
-  ["120+", "Control rooms audited", "650+", "Earth grid simulations"],
-];
-
-
-    return (
-        <div className="flex flex-col justify-center items-center p-20 bg-stone-900 max-md:px-5">
-            <div className="flex flex-col w-full max-w-[70%] max-md:max-w-full">
-                <div className="flex justify-center items-center self-center px-72 max-w-full text-3xl  font-semibold leading-none text-center text-white uppercase whitespace-nowrap tracking-[4.53px] w-[960px] max-md:px-5 ">
-                    <div className="self-stretch Y-axis-card-anm my-auto min-w-[240px] ">
-                        By the numbers
-                    </div>
-                </div>
-         <div className="mt-20 max-md:mt-10 max-md:max-w-full">
-  <div className="w-full max-w-[1100px] mx-auto border border-white border-opacity-20">
-
-    {statsData.map((row, rowIndex) => (
-      <div
-        key={rowIndex}
-        className={`grid grid-cols-4 ${
-          rowIndex !== statsData.length - 1
-            ? "border-b border-white border-opacity-20"
-            : ""
-        }`}
-      >
-        {row.map((cell, colIndex) => (
-          <div
-            key={colIndex}
-            className={`px-6 py-10 text-center text-white text-lg font-light ${
-              colIndex !== row.length - 1
-                ? "border-r border-white border-opacity-20"
-                : ""
-            }`}
-          >
-            {cell}
-          </div>
-        ))}
-      </div>
-    ))}
-
-  </div>
-</div>
-            </div>
-        </div>
-    );
+    </>
+  );
 };
 
+const Overview = () => {
+  useEffect(() => {
+    gsap.fromTo(
+      ".stat-item",
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+      },
+    );
+  }, []);
 
+  const stats = [
+    {
+      img: "/AboutUs/countries.png",
+      label: "30+ COUNTRIES",
+    },
+    {
+      img: "/AboutUs/customers.png",
+      label: "10K CUSTOMERS",
+    },
+    {
+      img: "/AboutUs/patents.png",
+      label: "9 PATENTS",
+    },
+    {
+      img: "/AboutUs/retention_rate.png",
+      label: "90% RETENTION RATE",
+    },
+    {
+      img: "/AboutUs/regions.png",
+      label: "INDIA, US & EU",
+    },
+  ];
 
+  return (
+    <section
+      className="relative w-full h-[472px] flex justify-center items-start pt-[103px]"
+      style={{
+        backgroundImage: "url('/AboutUs/by_the_numbers.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* DARK OVERLAY */}
+      <div className="absolute inset-0 bg-black/20"></div>
 
+      <div className="relative z-10 w-[974px] flex flex-col items-center gap-[56px]">
+        {/* HEADING */}
+        <h1 className="text-red-600 text-[32px] font-bold tracking-[4.53px] uppercase leading-[60px]">
+          BY THE NUMBERS
+        </h1>
 
+        {/* ICON ROW */}
+        <div className="flex justify-between items-center w-full h-[150px]">
+          {stats.map((item, index) => (
+            <div
+              key={index}
+              className="stat-item flex flex-col items-center justify-center"
+            >
+              <img
+                src={item.img}
+                alt={item.label}
+                className="w-[150px] h-[150px] object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 function LearningDevelopment() {
-    const [activeImage, setActiveImage] = useState(1);
+  return (
+    <section className="bg-white py-20 px-6 md:px-20">
+      {/* Header */}
+      <div className="max-w-6xl mx-auto mb-16">
+        <p className="text-red-500 text-sm font-normal tracking-wide mb-2">
+          A GLOBAL ENGINEERING FUTURE
+        </p>
 
-    const handleImageClick = (image) => {
-        setActiveImage(image);
-    };
+        <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-black">
+          OUR PRESENCE
+        </h2>
 
-    return (
-        <main className="flex overflow-hidden flex-col items-center pt-14 pb-28 text-center bg-stone-900 max-md:pb-24">
-            <header className="flex flex-col justify-center items-center self-stretch px-60 py-6 w-full text-3xl md:text-4xl leading-tight text-white uppercase tracking-[0.28rem] max-md:px-5 max-md:max-w-full">
-                <div className="flex flex-col max-w-full w-[60rem]">
-                    <div className="flex justify-center items-center w-full max-md:px-5 max-md:max-w-full">
-                        <h1 className="self-stretch my-auto min-w-[15rem]">
-                            Learning and Development
-                        </h1>
-                    </div>
-                </div>
-            </header>
-            <p className="mt-6 text-base font-light leading-loose text-white max-md:max-w-full">
-                This initiative will help us exceed our customer’s delivery expectations in terms of Quality and Speed.
+        <p className="text-gray-600 text-base leading-relaxed max-w-5xl">
+          JEF Techno operates as a globally integrated engineering and
+          technology organization, delivering advanced solutions in earthing,
+          lightning protection, and power system performance across critical
+          infrastructure sectors. Our operations span multiple strategic
+          regions, enabling seamless delivery of product innovation, technical
+          audits, and specialized consulting services worldwide.
+        </p>
+      </div>
+
+      {/* Cards */}
+      <div className="grid md:grid-cols-3 gap-16 max-w-6xl mx-auto">
+        {/* Card 1 */}
+        <div className="space-y-6">
+          <div className="overflow-hidden">
+            <img
+              src="/AboutUs/Jef India 1.png"
+              alt="India"
+              className="w-full h-[240px] object-cover transition-transform duration-500 hover:scale-110"
+            />
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-black mb-2">
+              Bengaluru, India (Global HQ)
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              The core of our operations, driving end-to-end product
+              development, engineering audits, and consulting capabilities
+              across India and international markets.
             </p>
+          </div>
+        </div>
 
-            {/* Image and Button Section */}
-            <div className="relative h-full w-full">
-                {/* Images Section */}
-                <div className="relative my-[18%] lg:my-0 lg:mt-[5%] flex justify-center mx-auto items-center w-full flex-col md:flex-row">
-                    <div className="relative w-full md:w-[80%] items-center justify-center flex flex-col md:flex-row">
-                        {/* Image 1 */}
-                        <img
-                            src="./AboutUs/carousal1.png"
-                            alt="img1"
-                            className={`transition-all duration-500 mb-4 md:mb-0 ${activeImage === 1
-                                ? "z-10 w-[60%] md:w-[50%] h-auto transform scale-125"
-                                : "z-0 w-[50%] md:w-[40%] h-auto opacity-70"
-                                }`}
-                        />
-                        {/* Image 2 */}
-                        <img
-                            src="./AboutUs/carousal2.png"
-                            alt="img2"
-                            className={`transition-all duration-500 ${activeImage === 2
-                                ? "z-10 w-[60%] md:w-[50%] h-auto transform scale-125 md:-ml-20"
-                                : "z-0 w-[50%] md:w-[40%] h-auto opacity-70 md:-ml-20"
-                                }`}
-                        />
-                    </div>
-                </div>
+        {/* Card 2 */}
+        <div className="space-y-6">
+          <div className="overflow-hidden">
+            <img
+              src="/AboutUs/Jef UAE 1.png"
+              alt="UAE"
+              className="w-full h-[240px] object-cover transition-transform duration-500 hover:scale-110"
+            />
+          </div>
 
-                {/* Button controls over carousel */}
-                <div className="absolute mt-[2%] ml-[25%] lg:mt-0 lg:ml-0 inset-0 flex flex-col md:flex-row justify-between items-center z-40 px-10 md:px-20">
-                    <button onClick={() => handleImageClick(1)} className="lg:mb-4 md:mb-0">
-                        <img
-                            src="./AboutUs/Button - Previous.png"
-                            alt="btn1"
-                            className="w-[30%] md:w-[45%] transform rotate-90 lg:rotate-0"
-                        />
-                    </button>
-                    <button onClick={() => handleImageClick(2)}>
-                        <img
-                            src="./AboutUs/Button - Next.png"
-                            alt="btn2"
-                            className="w-[30%] md:w-[45%] transform lg:ml-[50%] rotate-90 lg:rotate-0"
-                        />
-                    </button>
-                </div>
-            </div>
-            <div className='mt-20 w-full'>
-                <ContactUs/>
-            </div>
-        </main>
-    );
+          <div>
+            <h3 className="font-semibold text-black mb-2">
+              Abu Dhabi, UAE (GCC HQ)
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Focused on high-performance engineering services for the energy
+              sector, including power system studies, instrumentation earthing,
+              EMI/EMC analysis, and specialized solutions for oil & gas
+              environments.
+            </p>
+          </div>
+        </div>
+
+        {/* Card 3 */}
+        <div className="space-y-6">
+          <div className="overflow-hidden">
+            <img
+              src="/AboutUs/JEF USA 1.png"
+              alt="USA"
+              className="w-full h-[240px] object-cover transition-transform duration-500 hover:scale-110"
+            />
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-black mb-2">
+              United States (USA HQ)
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Strengthening our global footprint through a robust patent
+              portfolio, alignment with US engineering standards, and active
+              engagement with North American clients and infrastructure
+              projects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const AccordionItem = ({ title, content, isOpen, onClick }) => (
-//   <div className="border-b border-gray-200">
-//     <button
-//       className="flex justify-between w-full py-4 px-5 text-left text-lg font-medium text-gray-900 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
-//       onClick={onClick}
-//     >
-//       <span>{title}</span>
-//       <span>{isOpen ? "-" : "+"}</span>
-//     </button>
-//     <div
-//       className={`overflow-hidden transition-all duration-1000 ease-in-out ${
-//         isOpen ? "max-h-screen" : "max-h-0"
-//       }`}
-//     >
-//       <div className="px-5 py-4 bg-white text-gray-700">
-//         <p>{content}</p>
-//       </div>
-//     </div>
-//   </div>
-// );
-
-//  function Accordion() {
-//   const [openIndex, setOpenIndex] = useState(null);
-//   const defaultContent =
-//     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-
-//   const toggleAccordion = (index) => {
-//     setOpenIndex(openIndex === index ? null : index);
-//   };
-
-//   return (
-//     <div className="max-w-lg mx-auto border border-gray-200 rounded-lg shadow-lg">
-//       <AccordionItem
-//         title="Accordion 1"
-//         content={defaultContent}
-//         isOpen={openIndex === 1}
-//         onClick={() => toggleAccordion(1)}
-//       />
-//       <AccordionItem
-//         title="Accordion 2"
-//         content={defaultContent}
-//         isOpen={openIndex === 2}
-//         onClick={() => toggleAccordion(2)}
-//       />
-//       <AccordionItem
-//         title="Accordion 3"
-//         content={defaultContent}
-//         isOpen={openIndex === 3}
-//         onClick={() => toggleAccordion(3)}
-//       />
-//     </div>
-//   );
-// }
-
-
-
-
-
-
-
-
-
-
-
-
 const LocationCard = ({ imageSrc, title, buttonText }) => (
-    <div className="flex flex-col flex-1 shrink justify-center pb-16 basis-0 min-w-[240px] max-md:max-w-full">
-        <div className="flex flex-col items-center pr-16 pl-16 w-full h-[164px] max-md:px-5 max-md:max-w-full">
-            <div className="flex flex-col justify-center items-center px-20 max-w-full w-full max-md:px-5">
-                <div className="flex flex-col self-center items-center w-full">
-                    <img loading="lazy" src={imageSrc} alt={`${title} icon`} className="object-contain w-[5%] aspect-square min-w-24 min-h-24" />
-                </div>
-                <div className="flex flex-col pb-5 text-xs tracking-wider leading-tight text-center uppercase text-zinc-900">
-                    <div>{title}</div>
-                </div>
-                <div className="flex flex-col items-center text-base tracking-wider leading-none text-center text-red-700 uppercase whitespace-nowrap">
-                    <button className="flex items-center pb-1 h-5 border-b border-red-700">
-                        <span className="self-stretch pb-px my-auto">{buttonText}</span>
-                    </button>
-                </div>
-            </div>
+  <div className="flex flex-col flex-1 shrink justify-center pb-16 basis-0 min-w-[240px] max-md:max-w-full">
+    <div className="flex flex-col items-center pr-16 pl-16 w-full h-[164px] max-md:px-5 max-md:max-w-full">
+      <div className="flex flex-col justify-center items-center px-20 max-w-full w-full max-md:px-5">
+        <div className="flex flex-col self-center items-center w-full">
+          <img
+            loading="lazy"
+            src={imageSrc}
+            alt={`${title} icon`}
+            className="object-contain w-[5%] aspect-square min-w-24 min-h-24"
+          />
         </div>
+        <div className="flex flex-col pb-5 text-xs tracking-wider leading-tight text-center uppercase text-zinc-900">
+          <div>{title}</div>
+        </div>
+        <div className="flex flex-col items-center text-base tracking-wider leading-none text-center text-red-700 uppercase whitespace-nowrap">
+          <button className="flex items-center pb-1 h-5 border-b border-red-700">
+            <span className="self-stretch pb-px my-auto">{buttonText}</span>
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
 );
 
 function LocationsSection() {
-    const locations = [
-        { imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/dc34b2826bfc56f82deec5b3f5509064c92324559c00a5e7a5eef8263b9ec102?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244", title: "JEF HQ", buttonText: "Location" },
-        { imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/8076b9f7c863ad8f2fc0b2cbdc139654cfa7792279a73e5e9900fcf5841cea75?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244", title: "JEF Riyadh Office", buttonText: "Location" }
-    ];
+  const locations = [
+    {
+      imageSrc:
+        "https://cdn.builder.io/api/v1/image/assets/TEMP/dc34b2826bfc56f82deec5b3f5509064c92324559c00a5e7a5eef8263b9ec102?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
+      title: "JEF HQ",
+      buttonText: "Location",
+    },
+    {
+      imageSrc:
+        "https://cdn.builder.io/api/v1/image/assets/TEMP/8076b9f7c863ad8f2fc0b2cbdc139654cfa7792279a73e5e9900fcf5841cea75?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
+      title: "JEF Riyadh Office",
+      buttonText: "Location",
+    },
+  ];
 
-    return (
-        <section className="flex overflow-hidden flex-col justify-center items-center px-20 py-32 bg-neutral-100 max-md:px-5">
-            <div className="flex flex-col justify-center px-16 w-full max-w-[1440px] max-md:px-5 max-md:max-w-full">
-                <header className="flex flex-col self-center max-w-full text-center uppercase h-[129px] w-[406px]">
-                    <div className="flex flex-col w-full">
-                        <h2 className="w-[40%] md:w-[30%] self-center text-base tracking-widest leading-6 text-red-700 max-md:px-5">
-                            OUR LOCATIONS
-                        </h2>
-                        <h1 className="flex justify-center items-center mt-9 w-full text-5xl leading-none text-zinc-900 tracking-[4.53px] max-md:text-4xl">
-                            <span className="flex flex-col self-stretch my-auto min-w-[240px] w-[357px] max-md:text-4xl">
-                                <span className="pb-px w-full max-md:text-4xl">JEF OFFICES</span>
-                            </span>
-                        </h1>
-                    </div>
-                </header>
-                <div className="flex flex-col justify-center pt-16 w-full min-h-[284px] max-md:max-w-full">
-                    <div className="flex max-sm:flex-col items-center justify-center px-56 w-full min-h-[224px] max-md:px-5 max-md:max-w-full">
-                        {locations.map((location, index) => (
-                            <LocationCard key={index} {...location} />
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section className="flex overflow-hidden flex-col justify-center items-center px-20 py-32 bg-neutral-100 max-md:px-5">
+      <div className="flex flex-col justify-center px-16 w-full max-w-[1440px] max-md:px-5 max-md:max-w-full">
+        <header className="flex flex-col self-center max-w-full text-center uppercase h-[129px] w-[406px]">
+          <div className="flex flex-col w-full">
+            <h2 className="w-[40%] md:w-[30%] self-center text-base tracking-widest leading-6 text-red-700 max-md:px-5">
+              OUR LOCATIONS
+            </h2>
+            <h1 className="flex justify-center items-center mt-9 w-full text-5xl leading-none text-zinc-900 tracking-[4.53px] max-md:text-4xl">
+              <span className="flex flex-col self-stretch my-auto min-w-[240px] w-[357px] max-md:text-4xl">
+                <span className="pb-px w-full max-md:text-4xl">
+                  JEF OFFICES
+                </span>
+              </span>
+            </h1>
+          </div>
+        </header>
+        <div className="flex flex-col justify-center pt-16 w-full min-h-[284px] max-md:max-w-full">
+          <div className="flex max-sm:flex-col items-center justify-center px-56 w-full min-h-[224px] max-md:px-5 max-md:max-w-full">
+            {locations.map((location, index) => (
+              <LocationCard key={index} {...location} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
-
-
-
-
-
-
-
 const UniqueEnvironment = () => {
-    return (
-        <div className="flex overflow-hidden flex-col items-center px-20 pt-24 pb-12 bg-neutral-100 max-md:px-5">
-            <div className="flex flex-col items-center w-full max-w-[1440px] max-md:max-w-full">
-                <div className="flex flex-col justify-center items-center self-stretch px-44 text-5xl font-semibold leading-none text-center uppercase text-zinc-900 tracking-[4.53px] max-md:px-5 max-md:max-w-full max-md:text-4xl">
-                    <div className="flex flex-col max-w-full h-[72px] w-[697px] max-md:text-4xl">
-                        <div className="flex justify-center items-center w-full max-md:max-w-full max-md:text-4xl">
-                            <div className="self-stretch pb-px my-auto min-w-[240px] max-md:max-w-full max-md:text-4xl">
-                                A UNIQUE ENVIRONMENT
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="mt-20 max-w-full w-[1080px] max-md:mt-10">
-                    <div className="flex gap-5 max-md:flex-col">
-                        <EnvironmentFeature
-                            imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/9b37054f511f0e5356a95b0ba2c60bcec3bc0352085a21d7760988d94d2e56da?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244"
-                            text="New standard in regulations"
-                        />
-                        <EnvironmentFeature
-                            imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/fa820d915591cba85564e1a7c906f3d7e0e16d3cd002d8e0772e819a1c6538b1?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244"
-                            text="Global connectivity and strategic location"
-                        />
-                        <EnvironmentFeature
-                            imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/6484ee8c0ae57052b19c9926b1a4f6f9e29af4cec94227d646e46ac6b1edb5a3?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244"
-                            text="Global talent attraction"
-                        />
-                    </div>
-                </div>
-                <div className=" max-w-full w-full max-md:mt-10">
-                    <div className="flex justify-center max-md:flex-col">
-                        <EnvironmentFeature
-                            imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/7af91ae7dfa67d2dcba7f6c3bfed8937b6f05829af82b5ed8cd0eafa627b2dd9?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244"
-                            text="Unique solar and wind advantages for 100% clean energy generation"
-                        />
-                        <EnvironmentFeature
-                            imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/6f91efee8f6037235b16cc846a87d2b2e94ef6b6f9e16d7889514e4d92c480de?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244"
-                            text="Sustainability, wellness and human improvement as living principles" />
-                    </div>
-                </div>
+  return (
+    <div className="flex overflow-hidden flex-col items-center px-20 pt-24 pb-12 bg-neutral-100 max-md:px-5">
+      <div className="flex flex-col items-center w-full max-w-[1440px] max-md:max-w-full">
+        <div className="flex flex-col justify-center items-center self-stretch px-44 text-5xl font-semibold leading-none text-center uppercase text-zinc-900 tracking-[4.53px] max-md:px-5 max-md:max-w-full max-md:text-4xl">
+          <div className="flex flex-col max-w-full h-[72px] w-[697px] max-md:text-4xl">
+            <div className="flex justify-center items-center w-full max-md:max-w-full max-md:text-4xl">
+              <div className="self-stretch pb-px my-auto min-w-[240px] max-md:max-w-full max-md:text-4xl">
+                A UNIQUE ENVIRONMENT
+              </div>
             </div>
+          </div>
         </div>
-
-    );
+        <div className="mt-20 max-w-full w-[1080px] max-md:mt-10">
+          <div className="flex gap-5 max-md:flex-col">
+            <EnvironmentFeature
+              imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/9b37054f511f0e5356a95b0ba2c60bcec3bc0352085a21d7760988d94d2e56da?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244"
+              text="New standard in regulations"
+            />
+            <EnvironmentFeature
+              imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/fa820d915591cba85564e1a7c906f3d7e0e16d3cd002d8e0772e819a1c6538b1?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244"
+              text="Global connectivity and strategic location"
+            />
+            <EnvironmentFeature
+              imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/6484ee8c0ae57052b19c9926b1a4f6f9e29af4cec94227d646e46ac6b1edb5a3?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244"
+              text="Global talent attraction"
+            />
+          </div>
+        </div>
+        <div className=" max-w-full w-full max-md:mt-10">
+          <div className="flex justify-center max-md:flex-col">
+            <EnvironmentFeature
+              imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/7af91ae7dfa67d2dcba7f6c3bfed8937b6f05829af82b5ed8cd0eafa627b2dd9?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244"
+              text="Unique solar and wind advantages for 100% clean energy generation"
+            />
+            <EnvironmentFeature
+              imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/6f91efee8f6037235b16cc846a87d2b2e94ef6b6f9e16d7889514e4d92c480de?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244"
+              text="Sustainability, wellness and human improvement as living principles"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 const EnvironmentFeature = ({ imageSrc, text }) => {
-    return (
-        <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col grow justify-center pb-16 min-h-[219px]">
-                <div className="flex flex-col items-center px-6 w-full h-[159px] max-md:px-5">
-                    <div className="flex flex-col justify-center items-center px-14 w-full max-w-[310px] max-md:px-5">
-                        <div className="flex flex-col pb-8 w-20">
-                            <img loading="lazy" src={imageSrc} className="object-contain w-full aspect-square" alt="" />
-                        </div>
-                        <div className="flex flex-col pb-5 text-base font-thin leading-6 text-center text-zinc-900">
-                            <div className="pt-1">{text}</div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
+      <div className="flex flex-col grow justify-center pb-16 min-h-[219px]">
+        <div className="flex flex-col items-center px-6 w-full h-[159px] max-md:px-5">
+          <div className="flex flex-col justify-center items-center px-14 w-full max-w-[310px] max-md:px-5">
+            <div className="flex flex-col pb-8 w-20">
+              <img
+                loading="lazy"
+                src={imageSrc}
+                className="object-contain w-full aspect-square"
+                alt=""
+              />
             </div>
+            <div className="flex flex-col pb-5 text-base font-thin leading-6 text-center text-zinc-900">
+              <div className="pt-1">{text}</div>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
-
-
-
-
 const sectors = [
-    { name: "Renewable Energy", imageSrc: "./AboutUs/RenewableEnergy.png", altText: "Renewable sector icon" },
-    { name: "Oil & Gas", imageSrc: "./AboutUs/OilandGas.png", altText: "Manufacturing sector icon" },
-    { name: "Power Utilities", imageSrc: "./AboutUs/PoweUtilities.png", altText: "Water sector icon" },
-    { name: "Manufacturing Plant", imageSrc: "./AboutUs/MFplant.png", altText: "Technology and Digital sector icon" },
-    { name: "Process Plant", imageSrc: "./AboutUs/ProcessPlant.png", altText: "Entertainment and Culture sector icon" },
-    { name: "Data centers", imageSrc: "./AboutUs/data-centers-icon.png", altText: "Education, Research, and Innovation sector icon" },
+  {
+    name: "Renewable Energy",
+    imageSrc: "./AboutUs/RenewableEnergy.png",
+    altText: "Renewable sector icon",
+  },
+  {
+    name: "Oil & Gas",
+    imageSrc: "./AboutUs/OilandGas.png",
+    altText: "Manufacturing sector icon",
+  },
+  {
+    name: "Power Utilities",
+    imageSrc: "./AboutUs/PoweUtilities.png",
+    altText: "Water sector icon",
+  },
+  {
+    name: "Manufacturing Plant",
+    imageSrc: "./AboutUs/MFplant.png",
+    altText: "Technology and Digital sector icon",
+  },
+  {
+    name: "Process Plant",
+    imageSrc: "./AboutUs/ProcessPlant.png",
+    altText: "Entertainment and Culture sector icon",
+  },
+  {
+    name: "Data centers",
+    imageSrc: "./AboutUs/data-centers-icon.png",
+    altText: "Education, Research, and Innovation sector icon",
+  },
 ];
 
 function SectorIcon({ name, imageSrc, altText }) {
-
-    useEffect(() => {
-        gsap.fromTo(
-            gsap.utils.toArray('.Y-axis-card-anm1'),
-            { opacity: 0, y: 50 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                stagger: 0.3, // 0.3s delay between each card animation
-                scrollTrigger: {
-                    start: 'top 80%',
-                    trigger: '.card-slider2',
-                    toggleActions: 'play none none none',
-                },
-            }
-        );
-    }, []);
-
-
-    return (
-        <div className="flex Y-axis-card-anm1 justify-center items-center self-stretch px-9 py-11 my-auto rounded-[83px] max-md:px-5">
-            <div className="flex card-slider2 flex-col items-center self-stretch my-auto w-full">
-                <div className="flex overflow-hidden flex-col flex-1 items-center w-full">
-                    <div className="flex flex-1 justify-center size-full">
-                        <img loading="lazy" src={imageSrc} alt={altText} className="object-cover shrink " />
-                    </div>
-                </div>
-                <div className="mt-5 text-xs tracking-wider leading-tight text-center uppercase text-zinc-900">
-                    {name}
-                </div>
-            </div>
-        </div>
+  useEffect(() => {
+    gsap.fromTo(
+      gsap.utils.toArray(".Y-axis-card-anm1"),
+      { opacity: 0, y: 50 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.3, // 0.3s delay between each card animation
+        scrollTrigger: {
+          start: "top 80%",
+          trigger: ".card-slider2",
+          toggleActions: "play none none none",
+        },
+      },
     );
+  }, []);
+
+  return (
+    <div className="flex Y-axis-card-anm1 justify-center items-center self-stretch px-9 py-11 my-auto rounded-[83px] max-md:px-5">
+      <div className="flex card-slider2 flex-col items-center self-stretch my-auto w-full">
+        <div className="flex overflow-hidden flex-col flex-1 items-center w-full">
+          <div className="flex flex-1 justify-center size-full">
+            <img
+              loading="lazy"
+              src={imageSrc}
+              alt={altText}
+              className="object-cover shrink "
+            />
+          </div>
+        </div>
+        <div className="mt-5 text-xs tracking-wider leading-tight text-center uppercase text-zinc-900">
+          {name}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 function ExcellenceinElectricalEngineering() {
-    return (
-        <section className="flex overflow-hidden flex-col justify-center items-center px-20 py-24 w-full bg-neutral-100 max-md:px-5 max-md:max-w-full">
-            <div className="flex flex-col items-center w-full max-w-[1275px] max-md:max-w-full">
-                <header className="flex flex-col max-w-full text-center text-zinc-900 w-full">
-                    <h1 className="flex justify-center items-center px-36 w-full text-5xl  font-bold leading-none uppercase tracking-[4.53px] max-md:px-5 max-md:max-w-full ">
-                        <span className="self-stretch Y-axis-text pb-px my-auto min-w-[240px] max-md:max-w-full">
-                        AREAS OF EXPERTISE
-                        </span>
-                    </h1>
-                   <p className="pb-px Y-axis-text mt-16 w-full text-lg font-light max-md:max-w-full">
-  We provide the below-mentioned solutions for Transmission & Distribution Utilities, Oil & Gas, Infrastructure, and such other customers. Earthing/Grounding Studies, Lightning Protection Studies, Power System Studies, Power Quality Studies, Instrumentation Earthing
-</p>
-                </header>
-                <div className="items-center mt-20 max-w-full  max-md:mt-10">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 justify-center font-bold">
-                        {sectors.map((sector) => (
-                            <SectorIcon key={sector.name} {...sector} />
-                        ))}
-                    </div>
-                </div>
+  const [activeIndex, setActiveIndex] = useState(0);
 
-            </div>
-        </section>
-    );
+  const sectors = [
+    {
+      name: "DATA CENTERS",
+      description:
+        "Earthing health assessment, surge protection, EMC management, and power quality studies for critical IT infrastructure.",
+    },
+    {
+      name: "OIL & GAS",
+      description:
+        "Offshore platforms, artificial islands, subsea cable systems, onshore processing facilities, and EPC/EPCC project support across the full power systems study programme.",
+    },
+    {
+      name: "RENEWABLE ENERGY",
+      description:
+        "Earthing audits compliant with CEA Regulations 2023, LPS for solar and wind installations, and power system studies.",
+    },
+    {
+      name: "MANUFACTURING PLANT",
+      description:
+        "Full range of services across automobile, steel, heavy industry, metro rail, hospitals, commercial buildings.",
+    },
+    {
+      name: "POWER UTILITIES",
+      description:
+        "EHV and HV substation earthing, earth grid simulation, LPS design, and power system studies.",
+    },
+    {
+      name: "PROCESS PLANT",
+      description:
+        "Petrochemicals, chemicals, pharmaceuticals, fertilisers, food and beverages.",
+    },
+  ];
+
+  const itemsPerPage = 4;
+
+  const maxIndex = 4;
+
+  const next = () =>
+    setActiveIndex((prev) => Math.min(prev + itemsPerPage, maxIndex));
+  const prev = () => setActiveIndex((prev) => Math.max(prev - itemsPerPage, 0));
+
+  return (
+    <section
+      className="relative w-full overflow-hidden text-white flex flex-col justify-center px-[94px] max-md:px-5 py-20"
+      style={{
+        minHeight: "920px",
+        backgroundImage: "url(/AboutUs/Area_of_Expertise.png)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        fontFamily: "Montserrat, sans-serif",
+      }}
+    >
+      <div className="absolute inset-0 bg-[#1a1a1a]/75" />
+
+      <div className="relative z-10 w-full max-w-[1540px] mx-auto">
+        {/* NAV BUTTONS — top right */}
+        <div className="absolute top-0 right-0 flex gap-4 z-20">
+          <button
+            onClick={prev}
+            disabled={activeIndex === 0}
+            className="w-12 h-12 rounded-full border border-white flex items-center justify-center transition-opacity"
+            style={{ opacity: activeIndex === 0 ? 0.4 : 1 }}
+          >
+            ←
+          </button>
+          <button
+            onClick={next}
+            disabled={activeIndex === maxIndex}
+            className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center transition-opacity"
+            style={{ opacity: activeIndex === maxIndex ? 0.4 : 1 }}
+          >
+            →
+          </button>
+        </div>
+
+        {/* HEADING */}
+        <h1
+          className="text-[#C02429] uppercase mb-6"
+          style={{
+            fontWeight: 700,
+            fontSize: "32px",
+            lineHeight: "71.5px",
+            letterSpacing: "4.53px",
+          }}
+        >
+          AREAS OF EXPERTISE
+        </h1>
+
+        {/* DESCRIPTION */}
+        <p
+          className="text-gray-300 mb-16"
+          style={{
+            fontWeight: 400,
+            fontSize: "16px",
+            lineHeight: "160%",
+            maxWidth: "900px",
+          }}
+        >
+          We provide the below-mentioned solutions for Transmission &amp;
+          Distribution Utilities, Oil &amp; Gas, Infrastructure, and such other
+          customers. Earthing/Grounding Studies, Lightning Protection Studies,
+          Power System Studies, Power Quality Studies, Instrumentation Earthing
+        </p>
+
+        {/* SLIDER WRAPPER */}
+        <div className="relative w-full mt-10">
+          {/* GLOBAL CONTINUOUS LINE */}
+          <div className="absolute top-[39px] left-[-50vw] right-[-50vw] h-[1px] bg-white/30 z-0" />
+
+          {/* SLIDING TRACK */}
+          <div
+            className="relative flex gap-[20px] transition-transform duration-700 ease-in-out z-10"
+            style={{ transform: `translateX(-${activeIndex * (346 + 20)}px)` }}
+          >
+            {sectors.map((item, index) => {
+              const isActive = activeIndex === index;
+
+              return (
+                <div
+                  key={index}
+                  className="flex flex-col w-[346px] shrink-0 cursor-pointer group"
+                  onClick={() => {
+                    if (index <= maxIndex) setActiveIndex(index);
+                  }}
+                >
+                  {/* TAB LABEL */}
+                  <div className="h-[30px] flex items-end mb-[8px]">
+                    <span
+                      className={`uppercase tracking-[0.1em] text-[11px] transition-colors duration-300 ${
+                        isActive
+                          ? "font-bold text-white"
+                          : "font-normal text-gray-400 group-hover:text-white"
+                      }`}
+                    >
+                      {item.name}
+                    </span>
+                  </div>
+
+                  {/* DOT CONTAINER */}
+                  <div className="relative w-full h-[2px] flex items-center">
+                    {isActive ? (
+                      <div className="absolute left-0 w-[14px] h-[14px] bg-[#C02429] rounded-full z-10" />
+                    ) : (
+                      <div className="absolute left-0 w-2.5 h-2.5 bg-white rounded-full z-10" />
+                    )}
+                  </div>
+
+                  {/* CARD */}
+                  <div
+                    className="mt-[32px] p-8 transition-all duration-500 ease-in-out"
+                    style={{
+                      height: "360px",
+                      background: isActive
+                        ? "#F9F7F2"
+                        : "rgba(27, 24, 24, 0.85)",
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontSize: "14px",
+                        lineHeight: "1.6",
+                        color: isActive ? "#312d2d" : "#e5e7eb",
+                      }}
+                    >
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
+function TechnologyPatents() {
+  const [activeTool, setActiveTool] = useState(null);
 
+  useEffect(() => {
+    document.body.style.overflow = activeTool ? "hidden" : "auto";
+  }, [activeTool]);
 
+  const tools = {
+    audit: {
+      title: "JEF SAFETY AUDIT TOOL",
+      desc: "World's first automated safety audit tool. 16000+ reports, 630,000+ data points, 230,000+ images, zero data mix-up. Patented.",
+    },
+    ebuild: {
+      title: "JEF E - BUILD",
+      desc: "Real-time LPS installation monitoring and remote certification.",
+    },
+    shield: {
+      title: "JEF SHIELD",
+      desc: "Automated LPS risk assessment and design to IEC 62305-2. Complete report, drawings, and BOM in under 90 seconds.",
+    },
+  };
 
+  const buttonConfig = [
+    {
+      key: "audit",
+      src: "/AboutUs/jef safety button.png",
+      top: "369px",
+      left: "100px",
+    },
+    {
+      key: "ebuild",
+      src: "/AboutUs/jef e-build button.png",
+      top: "380px",
+      left: "769px",
+    },
+    {
+      key: "shield",
+      src: "/AboutUs/jef shield button.png",
+      top: "599px",
+      left: "509px",
+    },
+  ];
 
+  return (
+    <section className="w-full bg-[#F9F7F2] h-[780px] relative overflow-hidden">
+      {/* HEADER */}
+      <div className="absolute left-[100px] top-[66px] w-[1221px] flex flex-col gap-[41px]">
+        <h2 className="text-[#C02429] font-bold uppercase tracking-[3.36px] text-[32px] leading-[52.91px] w-[554px]">
+          TECHNOLOGY AND PATENTS
+        </h2>
+        <p className="text-gray-600 text-[20px] leading-[150%] w-[1221px]">
+          9 granted patents — India, United States, European Union. JEF's
+          proprietary tools are not incremental improvements to existing
+          approaches. They are purpose-built responses to specific gaps in what
+          the industry was delivering.
+        </p>
+      </div>
 
+      {/* BUTTONS */}
+      {buttonConfig.map(({ key, src, top, left }) => (
+        <div
+          key={key}
+          className="absolute w-[260px] h-[61px] cursor-pointer z-10 transition-transform duration-200 hover:scale-105 active:scale-95"
+          style={{ top, left }}
+          onClick={() => setActiveTool(key)}
+        >
+          <img src={src} className="w-full h-full object-contain" alt={key} />
+        </div>
+      ))}
+
+      {/* DIM OVERLAY — above navbar */}
+      {activeTool && (
+        <div
+          className="fixed inset-0 bg-black/50 z-[9998] transition-opacity duration-500"
+          onClick={() => setActiveTool(null)}
+        />
+      )}
+
+      {/* SLIDE PANEL — above overlay and navbar */}
+      <div
+        className={`fixed top-0 right-0 h-screen w-[637px] bg-[#F9F7F2] z-[9999]
+          transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+          ${activeTool ? "translate-x-0" : "translate-x-full"}`}
+      >
+        {/* CLOSE BUTTON */}
+        <button
+          onClick={() => setActiveTool(null)}
+          className="absolute top-[42.5px] right-[42px] w-[48px] h-[48px] bg-[#C02429] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 hover:bg-red-700 transition"
+        >
+          ✕
+        </button>
+
+        {/* CONTENT */}
+        {activeTool && (
+          <div className="absolute top-[287px] left-[127px] w-[383px] flex flex-col gap-[24px]">
+            <h3 className="text-[#C02429] font-bold uppercase tracking-[1.49px] text-[26px] leading-[43.4px]">
+              {tools[activeTool].title}
+            </h3>
+            <p className="text-gray-600 text-[18px] leading-[150%]">
+              {tools[activeTool].desc}
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
 
 const NavItem = ({ text, href, isActive }) => (
   <Link href={href}>
     <div
       className={`self-stretch my-auto text-sm tracking-wide leading-none uppercase whitespace-nowrap cursor-pointer transition-colors duration-200 ${
-        isActive ? "text-red-700" : "text-neutral-300 hover:text-white"
+        isActive ? "text-neutral-300 hover:text-white" : "text-red-700"
       }`}
     >
       {text}
@@ -877,8 +1102,8 @@ const NavSeparator = () => (
       <div className="flex flex-col justify-center self-stretch my-auto min-h-[7px] w-[7px]">
         <img
           loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/9ecd639edcb67e10ac6f387cbff68bf06de70ace3f0ab81ee573f986b41e67b7"
-          className="object-contain flex-1 w-full aspect-square"
+          src="HomePageImg/NavbarImg/Dropdown.png"
+          className="object-contain flex-1 w-full aspect-square rotate-270 invert  translate-y-[2px]"
           alt=""
         />
       </div>
@@ -895,32 +1120,24 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="flex flex-col justify-center px-24 py-6 bg-stone-900 max-md:px-5">
+    <nav className="flex flex-col justify-center px-24 py-6 bg-[#F9F7F2] max-md:px-5">
       <div className="flex w-full max-md:max-w-full">
         <div className="flex items-center h-full">
-
           {navItems.map((item, index) => (
             <div key={index} className="flex items-center">
-
               <NavItem
                 text={item.text}
                 href={item.href}
                 isActive={pathname === item.href}
               />
 
-              {/* separator except last */}
               {index !== navItems.length - 1 && <NavSeparator />}
-
             </div>
           ))}
-
         </div>
       </div>
     </nav>
   );
 };
-
-
-
 
 export default AboutUsContent;

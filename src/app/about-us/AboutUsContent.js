@@ -216,21 +216,41 @@ const AboutUsContent = () => {
 
   return (
     <>
-      <section className="overflow-hidden">
-        <main className="flex relative flex-col h-screen w-full max-md:py-24 max-md:max-w-full">
-          <img
-            loading="lazy"
-            src="./AboutUs/AboutUsMainBG.png"
-            alt="AboutUsMainbg"
-            className="object-cover absolute inset-0 size-full"
-          />
-          <section className="flex relative px-4 inset-y-[78%] lg:inset-x-20 flex-col mt-6 w-full max-w-[1200px] max-md:mb-2.5 max-md:max-w-full">
-            <h1 className="md:text-4xl text-3xl font-bold tracking-wide text-white max-md:text-3xl">
-              JEF GROUP OF COMPANIES
-            </h1>
-          </section>
-        </main>
-      </section>
+   <section className="overflow-hidden">
+  <main className="flex relative flex-col h-screen w-full max-md:py-24 max-md:max-w-full">
+    
+    {/* Fallback Image */}
+    <img
+      loading="lazy"
+      src="./AboutUs/AboutUsMainBG.png"
+      alt="AboutUsMainbg"
+      className="object-cover absolute inset-0 w-full h-full"
+    />
+
+    {/* Video */}
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="none"
+      poster="./AboutUs/AboutUsMainBG.png"
+      className="absolute inset-0 w-full h-full object-cover"
+    >
+      <source
+        src="./AboutUs/JEF About us.mp4"
+        type="video/mp4"
+      />
+    </video>
+
+    {/* Content */}
+    <section className="flex relative px-4 inset-y-[78%] lg:inset-x-20 flex-col mt-6 w-full max-w-[1200px] max-md:mb-2.5 max-md:max-w-full">
+      <h1 className="md:text-4xl text-3xl font-bold tracking-wide text-white max-md:text-3xl">
+        JEF GROUP OF COMPANIES
+      </h1>
+    </section>
+  </main>
+</section>
 
       <section>
         <Navigation />
@@ -316,12 +336,6 @@ const AboutUsContent = () => {
         1994: that the right response to a gap in what the industry
         delivers is to build something better.
       </p>
-
-      <p className="text-[20px] font-bold leading-[150%] text-gray-900 font-montserrat">
-        30+ years. 30 countries. 10k customers. 9 granted patents. The
-        record of an organization that has consistently delivered where
-        others have not.
-      </p>
     </div>
   </div>
 
@@ -329,7 +343,7 @@ const AboutUsContent = () => {
   <div className="flex flex-col w-full max-w-[1729px] mx-auto pl-[101px] pr-5 mt-[250px] mb-[50px] text-left">
     {/* Section Title */}
     <h1 className="text-[#C02429] text-[26px] font-bold tracking-[1.49px] leading-[60px] uppercase font-[Montserrat] mb-[43px]">
-      WHAT &nbsp; WE DO
+      WHAT WE DO
     </h1>
 
     <div className="relative w-full max-w-[900px] min-h-[253px] mb-[100px]">
@@ -832,13 +846,14 @@ function ExcellenceinElectricalEngineering() {
     },
   ];
 
-  const itemsPerPage = 4;
+  // FIX 1: move by 1 step at a time (removed itemsPerPage = 4)
+  const maxIndex = sectors.length - 1; // 5
 
-  const maxIndex = 4;
+  const next = () => setActiveIndex((prev) => Math.min(prev + 1, maxIndex));
+  const prev = () => setActiveIndex((prev) => Math.max(prev - 1, 0));
 
-  const next = () =>
-    setActiveIndex((prev) => Math.min(prev + itemsPerPage, maxIndex));
-  const prev = () => setActiveIndex((prev) => Math.max(prev - itemsPerPage, 0));
+  const atStart = activeIndex === 0;
+  const atEnd = activeIndex === maxIndex;
 
   return (
     <section
@@ -854,21 +869,41 @@ function ExcellenceinElectricalEngineering() {
       <div className="absolute inset-0 bg-[#1a1a1a]/75" />
 
       <div className="relative z-10 w-full max-w-[1540px] mx-auto">
-        {/* NAV BUTTONS — top right */}
+        {/* NAV BUTTONS — top right
+            FIX 2: invert button styles at the boundaries
+            - At start (atStart): left = white-filled (inverted), right = outlined
+            - At end (atEnd):   left = outlined, right = white-filled (inverted)
+            - In the middle:    left = outlined, right = white-filled (default)
+        */}
         <div className="absolute top-0 right-0 flex gap-4 z-20">
+          {/* PREV BUTTON */}
           <button
             onClick={prev}
-            disabled={activeIndex === 0}
-            className="w-12 h-12 rounded-full border border-white flex items-center justify-center transition-opacity"
-            style={{ opacity: activeIndex === 0 ? 0.4 : 1 }}
+            disabled={atStart}
+            className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300"
+            style={{
+              opacity: atStart ? 0.4 : 1,
+              // inverted (white-filled) when at start, otherwise outlined
+              background: atStart ? "#ffffff" : "transparent",
+              border: "1px solid white",
+              color: atStart ? "#000000" : "#ffffff",
+            }}
           >
             ←
           </button>
+
+          {/* NEXT BUTTON */}
           <button
             onClick={next}
-            disabled={activeIndex === maxIndex}
-            className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center transition-opacity"
-            style={{ opacity: activeIndex === maxIndex ? 0.4 : 1 }}
+            disabled={atEnd}
+            className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300"
+            style={{
+              opacity: atEnd ? 0.4 : 1,
+              // outlined when at end, otherwise white-filled
+              background: atEnd ? "transparent" : "#ffffff",
+              border: "1px solid white",
+              color: atEnd ? "#ffffff" : "#000000",
+            }}
           >
             →
           </button>
@@ -914,15 +949,14 @@ function ExcellenceinElectricalEngineering() {
             style={{ transform: `translateX(-${activeIndex * (346 + 20)}px)` }}
           >
             {sectors.map((item, index) => {
+              // FIX 3: active card = whiteish, others = dark; active dot = red, others = white
               const isActive = activeIndex === index;
 
               return (
                 <div
                   key={index}
                   className="flex flex-col w-[346px] shrink-0 cursor-pointer group"
-                  onClick={() => {
-                    if (index <= maxIndex) setActiveIndex(index);
-                  }}
+                  onClick={() => setActiveIndex(index)}
                 >
                   {/* TAB LABEL */}
                   <div className="h-[30px] flex items-end mb-[8px]">
@@ -940,13 +974,15 @@ function ExcellenceinElectricalEngineering() {
                   {/* DOT CONTAINER */}
                   <div className="relative w-full h-[2px] flex items-center">
                     {isActive ? (
+                      // Active dot: red (as requested)
                       <div className="absolute left-0 w-[14px] h-[14px] bg-[#C02429] rounded-full z-10" />
                     ) : (
+                      // Inactive dot: white
                       <div className="absolute left-0 w-2.5 h-2.5 bg-white rounded-full z-10" />
                     )}
                   </div>
 
-                  {/* CARD */}
+                  {/* CARD — active = whiteish (#F9F7F2), others = dark transparent */}
                   <div
                     className="mt-[32px] p-8 transition-all duration-500 ease-in-out"
                     style={{
@@ -975,13 +1011,14 @@ function ExcellenceinElectricalEngineering() {
     </section>
   );
 }
-
 function TechnologyPatents() {
   const [activeTool, setActiveTool] = useState(null);
 
   useEffect(() => {
     document.body.style.overflow = activeTool ? "hidden" : "auto";
   }, [activeTool]);
+
+  const toolKeys = ["audit", "ebuild", "shield"];
 
   const tools = {
     audit: {
@@ -1019,6 +1056,22 @@ function TechnologyPatents() {
     },
   ];
 
+  const currentIndex = activeTool ? toolKeys.indexOf(activeTool) : -1;
+  const atStart = currentIndex === 0;
+  const atEnd = currentIndex === toolKeys.length - 1;
+
+  const goNext = () => {
+    if (currentIndex < toolKeys.length - 1) {
+      setActiveTool(toolKeys[currentIndex + 1]);
+    }
+  };
+
+  const goPrev = () => {
+    if (currentIndex > 0) {
+      setActiveTool(toolKeys[currentIndex - 1]);
+    }
+  };
+
   return (
     <section className="w-full bg-[#F9F7F2] h-[780px] relative overflow-hidden">
       {/* HEADER */}
@@ -1034,7 +1087,7 @@ function TechnologyPatents() {
         </p>
       </div>
 
-      {/* BUTTONS */}
+      {/* TOOL BUTTONS */}
       {buttonConfig.map(({ key, src, top, left }) => (
         <div
           key={key}
@@ -1046,7 +1099,7 @@ function TechnologyPatents() {
         </div>
       ))}
 
-      {/* DIM OVERLAY — above navbar */}
+      {/* DIM OVERLAY */}
       {activeTool && (
         <div
           className="fixed inset-0 bg-black/50 z-[9998] transition-opacity duration-500"
@@ -1054,7 +1107,7 @@ function TechnologyPatents() {
         />
       )}
 
-      {/* SLIDE PANEL — above overlay and navbar */}
+      {/* SLIDE PANEL */}
       <div
         className={`fixed top-0 right-0 h-screen w-[637px] bg-[#F9F7F2] z-[9999]
           transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
@@ -1067,6 +1120,74 @@ function TechnologyPatents() {
         >
           ✕
         </button>
+
+        {/* PANEL NAV BUTTONS — inside the slide panel, same style */}
+        {activeTool && (
+          <div
+            className="absolute flex gap-[20px]"
+            style={{ bottom: "60px", left: "127px" }}
+          >
+            <button
+              onClick={goPrev}
+              disabled={atStart}
+              style={{
+                width: "60px",
+                height: "60px",
+                borderRadius: "60px",
+                border: "1px solid #C02429",
+                padding: "18px",
+                background: "transparent",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: atStart ? "not-allowed" : "pointer",
+                opacity: atStart ? 0.4 : 1,
+                transition: "opacity 0.3s",
+                boxSizing: "border-box",
+              }}
+            >
+              <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+                <path
+                  d="M17 7H1M1 7L7 1M1 7L7 13"
+                  stroke="#C02429"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            <button
+              onClick={goNext}
+              disabled={atEnd}
+              style={{
+                width: "60px",
+                height: "60px",
+                borderRadius: "60px",
+                border: "1px solid #C02429",
+                padding: "18px",
+                background: "#C02429",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: atEnd ? "not-allowed" : "pointer",
+                opacity: atEnd ? 0.4 : 1,
+                transition: "opacity 0.3s",
+                boxSizing: "border-box",
+              }}
+            >
+              <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+                <path
+                  d="M1 7H17M17 7L11 1M17 7L11 13"
+                  stroke="white"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        )}
 
         {/* CONTENT */}
         {activeTool && (

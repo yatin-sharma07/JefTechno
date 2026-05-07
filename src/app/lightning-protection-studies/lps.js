@@ -1,474 +1,14 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import gsap from "gsap";
+import gsap from 'gsap';
 import Link from "next/link";
 
 const LPS = () => {
-  {
-    /*LIGHTNING PROTECTION SOLUTIONS */
-  }
-  const [showLightningPanel, setShowLightningPanel] = useState(false);
+
 
   useEffect(() => {
-    if (showLightningPanel) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [showLightningPanel]);
-
-  {
-    /*The Lightning Protection Solution Content */
-  }
-
-  const pages = [
-    {
-      label: "LIGHTNING THREAT AND WHY PROTECTION",
-      nav: "LIGHTNING THREAT\nAND WHY\nPROTECTION",
-      title: "THE LIGHTNING THREAT AND WHY PROTECTION IS REQUIRED",
-      content: (
-        <>
-          <p>
-            Lightning is a high-energy electrical discharge between the
-            atmosphere and the ground. The damage it causes to structures,
-            equipment, and people falls into two broad categories. The first is
-            direct physical damage. A lightning strike that terminates on a
-            structure releases a large current — which may range from a few
-            kiloamperes to several hundred kiloamperes depending on the severity
-            of the event — into whatever path it finds to ground. If that path
-            runs through the structural fabric of the building, through fuel or
-            gas services, or through people in the vicinity, the consequences
-            include fire, structural damage, explosion, and loss of life.
-          </p>
-          <p>
-            The second is damage to electrical and electronic systems. Even when
-            a strike does not contact a structure directly, the electromagnetic
-            field associated with the lightning channel induces transient
-            overvoltages onto cables and conductors within and around the
-            building. These voltage spikes can destroy microelectronic
-            components, corrupt data, cause equipment to fail in ways that are
-            not immediately visible, and progressively shorten the service life
-            of insulation systems and electronic assemblies.
-          </p>
-          <p>
-            Modern industrial and commercial facilities are heavily dependent on
-            electronic control systems, communications infrastructure, and data
-            networks. The consequences of lightning damage to these systems
-            extend well beyond the cost of the damaged equipment — they include
-            production downtime, data loss, safety system unavailability, and
-            regulatory non-compliance.
-          </p>
-          <p>
-            A comprehensive lightning protection system addresses both
-            categories of threat. The external system intercepts direct strikes
-            and conducts their energy safely to ground. The internal system —
-            equipotential bonding and surge protective devices — manages the
-            overvoltages that would otherwise reach the electrical and
-            electronic systems inside the building.
-          </p>
-        </>
-      ),
-      subsections: null,
-    },
-    {
-      label: "IEC 62305:2024 STANDARD FRAMEWORK",
-      nav: "IEC 62305:2024\nSTANDARD\nFRAMEWORK",
-      title: "THE IEC 62305:2024 STANDARD FRAMEWORK",
-      content: (
-        <>
-          <p>
-            IEC 62305 is the internationally adopted standard series for
-            protection against lightning. Published in four parts, it covers the
-            complete scope of lightning protection — from the initial risk
-            assessment that determines whether protection is required, through
-            the physical design of the external system, to the protection of
-            internal electrical and electronic installations.
-          </p>
-          <p>
-            The 2024 edition is a full technical revision of the previous 2010
-            edition, developed over an extended period by international
-            technical committees. It introduces updated risk assessment methods,
-            revised design requirements for the external system, clearer
-            guidance on separation distances, and strengthened requirements for
-            the protection of electronic systems and photovoltaic installations.
-          </p>
-        </>
-      ),
-      subsections: [
-        {
-          heading: "THE FOUR PARTS",
-          tags: [
-            "IEC 62305-1:2024 — General Principles",
-            "IEC 62305-2:2024 — Risk Management",
-            "IEC 62305-3:2024 — Physical Damage",
-            "IEC 62305-4:2024 — Electrical & Electronic",
-          ],
-        },
-        {
-          heading: "LIGHTNING PROTECTION LEVELS",
-          body: "IEC 62305 defines four Lightning Protection Levels — LPL I through LPL IV. Each level corresponds to a defined set of design parameters, including the lightning current values used for component selection and the geometric parameters used for air termination design. The appropriate LPL for a given structure is determined through the risk assessment process under IEC 62305-2.",
-          tags: ["LPL I", "LPL II", "LPL III", "LPL IV"],
-        },
-      ],
-    },
-    {
-      label: "COMPREHENSIVE LIGHTNING PROTECTION SYSTEM",
-      nav: "COMPREHENSIVE\nLIGHTNING\nPROTECTION SYSTEM",
-      title: "THE COMPREHENSIVE LIGHTNING PROTECTION SYSTEM",
-      content: (
-        <>
-          <p>
-            IEC 62305:2024 treats lightning protection as a system with two
-            interdependent parts. Each addresses a distinct category of threat,
-            and neither is adequate on its own.
-          </p>
-          <p>
-            The external lightning protection system manages the direct
-            lightning strike event. It intercepts the strike at the air
-            termination, provides a defined current path down the structure
-            through the down conductor system, and disperses the energy safely
-            into the ground through the earth termination. Its primary function
-            is to protect the structure from physical damage and fire, and to
-            prevent dangerous touch and step voltages in the vicinity of the
-            building.
-          </p>
-          <p>
-            The internal lightning protection system manages the electrical
-            consequences of a strike within the building. It uses equipotential
-            bonding to eliminate dangerous potential differences between the LPS
-            conductors and the metallic services, structural elements, and
-            electrical systems inside the structure. Surge Protective Devices
-            installed on all electrical and electronic lines limit the transient
-            overvoltages that enter the building — whether from the strike event
-            or from internal switching activity — to levels that connected
-            equipment can safely withstand.
-          </p>
-          <p>
-            IEC 62305-3 requires that both parts of the comprehensive lightning
-            protection system be maintained and periodically inspected after
-            installation, with inspection intervals determined by the LPL and
-            the environmental conditions at the site.
-          </p>
-        </>
-      ),
-      subsections: [
-        {
-          heading: "EXTERNAL LIGHTNING PROTECTION",
-          tags: [
-            "Air Termination System",
-            "Air Termination Positioning Methods",
-            "Permitted Air Termination Types",
-            "Down Conductor System",
-            "Earth Termination System",
-            "Equipotential Bonding",
-          ],
-        },
-      ],
-    },
-    {
-      label: "JEF CLPS PRODUCTS",
-      nav: "JEF CLPS\nPRODUCTS",
-      title: "JEF CLPS PRODUCTS — TYPE-TESTED TO 200 KA / 10/350 MS",
-      content: (
-        <>
-          <p>
-            The CLPS range covers every component required for a comprehensive
-            lightning protection system, from air termination to point-of-use
-            surge protection. All components are type-tested to the IEC 62561
-            series — the product testing companion to IEC 62305. The IEC 62561
-            series defines the specific tests that LPS components must pass
-            before they can be specified in a standards-compliant system.
-          </p>
-        </>
-      ),
-      subsections: [
-        {
-          heading: "TYPE TESTING — JEF'S 200 KA CREDENTIAL",
-          body: "The IEC 62561 series specifies that external LPS components be type-tested to a 10/350 μs lightning impulse current. JEF type-tests its CLPS components at 200 kA on the 10/350 μs waveform — double the limit specified in the IEC standard series. This means that every JEF CLPS component has been verified to withstand twice the current magnitude that the standard requires, providing a margin of confidence that standard-minimum testing does not.\n\nType testing covers three sequential stages:",
-          tags: ["Ageing Test", "Lightning Impulse Test", "Mechanical Test"],
-          footer:
-            "Type-test documentation is available for review. Certificates can be requested from JEF's engineering team.",
-        },
-      ],
-    },
-  ];
-
-  const PROGRESS_INTERVAL = 50;
-  const PROGRESS_DURATION = 5000;
-
-  function LightningProtectionSolutionsContent() {
-    const [activePage, setActivePage] = useState(0);
-    const [progress, setProgress] = useState(0);
-    const intervalRef = useRef(null);
-    const startTimeRef = useRef(null);
-
-    const startProgress = (pageIndex) => {
-      clearInterval(intervalRef.current);
-      setProgress(0);
-      startTimeRef.current = Date.now();
-      intervalRef.current = setInterval(() => {
-        const elapsed = Date.now() - startTimeRef.current;
-        const pct = Math.min((elapsed / PROGRESS_DURATION) * 100, 100);
-        setProgress(pct);
-        if (pct >= 100) {
-          clearInterval(intervalRef.current);
-          const next = (pageIndex + 1) % pages.length;
-          setActivePage(next);
-          startProgress(next);
-        }
-      }, PROGRESS_INTERVAL);
-    };
-
-    useEffect(() => {
-      startProgress(0);
-      return () => clearInterval(intervalRef.current);
-    }, []);
-
-    const handleTabClick = (index) => {
-      setActivePage(index);
-      startProgress(index);
-    };
-
-    const page = pages[activePage];
-
-    return (
-      <div
-        style={{
-          backgroundColor: "#F9F7F2",
-          minHeight: "980px",
-          fontFamily: "Montserrat, sans-serif",
-          overflowX: "hidden", // ✅ FIXED
-        }}
-      >
-        <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-        * { box-sizing: border-box; }
-      `}</style>
-
-        {/* Main Content */}
-        <div
-          style={{
-            maxWidth: "1389px",
-            width: "100%",
-            margin: "0 auto",
-            padding: "65px 40px 0 40px", // ✅ FIXED
-            display: "flex",
-            flexDirection: "column",
-            gap: "41px",
-          }}
-        >
-          {/* Heading */}
-          <h1
-            style={{
-              color: "#C02429",
-              fontSize: "26px",
-              fontWeight: 700,
-              letterSpacing: "1.49px",
-              lineHeight: "60px",
-              textTransform: "uppercase",
-            }}
-          >
-            {page.title}
-          </h1>
-
-          {/* Content */}
-          <div
-            key={activePage}
-            style={{
-              animation: "fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) both",
-              width: "100%", // ✅ FIXED
-            }}
-          >
-            {/* Paragraphs */}
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "24px" }}
-            >
-              {React.Children.map(page.content.props.children, (child, i) => {
-                if (child.type === "p") {
-                  return (
-                    <p
-                      key={i}
-                      style={{
-                        fontSize: "20px",
-                        fontWeight: 400,
-                        lineHeight: "150%",
-                        color: "#1a1a1a",
-                      }}
-                    >
-                      {child.props.children}
-                    </p>
-                  );
-                }
-                return child;
-              })}
-            </div>
-
-            {/* Subsections */}
-            {page.subsections &&
-              page.subsections.map((sub, si) => (
-                <div key={si} style={{ marginTop: "41px" }}>
-                  <h2
-                    style={{
-                      color: "#C02429",
-                      fontSize: "20px",
-                      fontWeight: 700,
-                      letterSpacing: "1.49px",
-                      lineHeight: "43.4px",
-                      textTransform: "uppercase",
-                      marginBottom: "20px",
-                    }}
-                  >
-                    {sub.heading}
-                  </h2>
-
-                  {sub.body &&
-                    sub.body.split("\n\n").map((para, pi) => (
-                      <p
-                        key={pi}
-                        style={{
-                          fontSize: "20px",
-                          fontWeight: 400,
-                          lineHeight: "150%",
-                          color: "#1a1a1a",
-                          marginBottom: "16px",
-                        }}
-                      >
-                        {para}
-                      </p>
-                    ))}
-
-                  {sub.tags && (
-                    <div
-                      style={{
-                        display: "flex",
-                        flexWrap: "wrap", // ✅ FIXED
-                        gap: "12px",
-                        marginBottom: sub.footer ? "20px" : "0",
-                      }}
-                    >
-                      {sub.tags.map((tag, ti) => (
-                        <span
-                          key={ti}
-                          style={{
-                            border: "1.5px solid #c8c4bc",
-                            borderRadius: "999px",
-                            padding: "8px 20px",
-                            fontSize: "14px",
-                            color: "#333",
-                            fontWeight: 400,
-                          }}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  {sub.footer && (
-                    <p
-                      style={{
-                        fontSize: "20px",
-                        fontWeight: 400,
-                        lineHeight: "150%",
-                        marginTop: "20px",
-                      }}
-                    >
-                      {sub.footer}
-                    </p>
-                  )}
-                </div>
-              ))}
-          </div>
-        </div>
-
-        {/* Bottom Navigation */}
-        <div
-          style={{
-            maxWidth: "1389px",
-            width: "100%",
-            margin: "60px auto 36px auto",
-            padding: "0 40px",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              gap: "64px",
-              flexWrap: "wrap", // ✅ FIXED
-            }}
-          >
-            {pages.map((tab, index) => (
-              <button
-                key={index}
-                onClick={() => handleTabClick(index)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  minWidth: "160px",
-                }}
-              >
-                {/* Progress bar */}
-                <div
-                  style={{
-                    width: "100%",
-                    height: "2px",
-                    backgroundColor: "#d4d0c8",
-                    marginBottom: "10px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      height: "100%",
-                      backgroundColor: "#C02429",
-                      width: activePage === index ? `${progress}%` : "0%",
-                    }}
-                  />
-                </div>
-
-                {/* Label */}
-                <span
-                  style={{
-                    fontSize: "13px",
-                    letterSpacing: "1.49px",
-                    textTransform: "uppercase",
-                    fontWeight: activePage === index ? 600 : 400,
-                    color: activePage === index ? "#1a1a1a" : "#888",
-                    lineHeight: 1.5,
-                    whiteSpace: "pre-line",
-                  }}
-                >
-                  {tab.nav}
-                </span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <style>{`
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(14px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-      </div>
-    );
-  }
-
-  useEffect(() => {
-    gsap.utils.toArray(".Y-axis-text-Title-Service2").forEach((element) => {
+    gsap.utils.toArray('.Y-axis-text-Title-Service2').forEach((element) => {
       gsap.fromTo(
         element,
         { opacity: 0, y: 50 },
@@ -479,19 +19,20 @@ const LPS = () => {
           scrollTrigger: {
             trigger: element,
             stagger: 0.6,
-            start: "top 100%",
-            toggleActions: "play none none none",
+            start: 'top 100%',
+            toggleActions: 'play none none none',
           },
-        },
+        }
       );
     });
   }, []);
 
   // Testimonials
 
+
   useEffect(() => {
     gsap.fromTo(
-      gsap.utils.toArray(".Y-axis-Testimonials"),
+      gsap.utils.toArray('.Y-axis-Testimonials'),
       { opacity: 0, y: 100 },
       {
         y: 0,
@@ -499,20 +40,21 @@ const LPS = () => {
         duration: 1.1,
         stagger: 0.3,
         scrollTrigger: {
-          trigger: ".Testimonials",
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none none",
+          trigger: '.Testimonials',
+          start: 'top 80%',
+          end: 'bottom 20%',
+          toggleActions: 'play none none none',
         },
-      },
+      }
     );
   }, []);
+
 
   // For Key Components
 
   useEffect(() => {
     gsap.fromTo(
-      gsap.utils.toArray(".Y-axis-card-anm"),
+      gsap.utils.toArray('.Y-axis-card-anm'),
       { opacity: 0, y: 100 },
       {
         y: 0,
@@ -520,20 +62,20 @@ const LPS = () => {
         duration: 1.1,
         stagger: 0.3,
         scrollTrigger: {
-          trigger: ".card-slider",
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none none",
+          trigger: '.card-slider',
+          start: 'top 80%',
+          end: 'bottom 20%',
+          toggleActions: 'play none none none',
         },
-      },
+      }
     );
   }, []);
 
-  // Our Services Animation
+  // Our Services Animation 
 
   useEffect(() => {
     gsap.fromTo(
-      gsap.utils.toArray(".Y-axis-Service-anm"),
+      gsap.utils.toArray('.Y-axis-Service-anm'),
       { opacity: 0, y: 100 },
       {
         y: 0,
@@ -541,17 +83,21 @@ const LPS = () => {
         duration: 1.1,
         stagger: 0.3,
         scrollTrigger: {
-          trigger: ".circle-slider",
-          start: "top 60%",
-          end: "bottom 20%",
-          toggleActions: "play none none none",
+          trigger: '.circle-slider',
+          start: 'top 60%',
+          end: 'bottom 20%',
+          toggleActions: 'play none none none',
         },
-      },
+      }
     );
   }, []);
 
+
+
+
   useEffect(() => {
-    gsap.utils.toArray(".ContactUsAnimation").forEach((element) => {
+
+    gsap.utils.toArray('.ContactUsAnimation').forEach((element) => {
       gsap.fromTo(
         element,
         { opacity: 0, y: 50 },
@@ -562,116 +108,62 @@ const LPS = () => {
           stagger: 0.2,
           scrollTrigger: {
             trigger: element,
-            start: "top 70%",
-            toggleActions: "play none none none",
+            start: 'top 70%',
+            toggleActions: 'play none none none',
           },
-        },
+        }
       );
     });
   }, []);
 
-  const services = useMemo(
-    () => [
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      {
-        image: "./HomePageImg/WhatWeDoSection/Earthing Studies 2.png",
-        text: "Grounding System Studies",
-        path: "/grounding-system-studies",
-      },
-      {
-        image: "./HomePageImg/WhatWeDoSection/Lightning Protection 2.png",
-        text: "Lightning protection system studies",
-        path: "/lightning-protection-studies",
-      },
-      {
-        image: "./HomePageImg/WhatWeDoSection/Power System Studies 2.png",
-        text: "Power system studies",
-        path: "/power-system-studies",
-      },
-      {
-        image:
-          "./HomePageImg/WhatWeDoSection/Power Quality and Root cause Analysis 2.png",
-        text: "Power quality",
-        path: "/power-quality-studies",
-      },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      {
-        image: "./HomePageImg/WhatWeDoSection/Instrumentation Earthing 2.png",
-        text: "Instrumentation earthing",
-        path: "/instrumentation-earthing-studies",
-      },
-      {
-        image: "./HomePageImg/WhatWeDoSection/Emi Emc 2.jpg",
-        text: "EMI EMC",
-        path: "/emi-emc",
-      },
-      {
-        image: "./HomePageImg/WhatWeDoSection/Root Cause Analysis 2.jpg",
-        text: "Root cause analysis",
-        path: "/root-cause-analysis",
-      },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-    ],
-    [],
-  );
 
-  const services2 = useMemo(
-    () => [
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      {
-        image: "./HomePageImg/WhatWeDoSection/Earthing Studies 2.png",
-        text: "Grounding System Studies",
-        path: "/grounding-system-studies",
-      },
-      {
-        image: "./HomePageImg/WhatWeDoSection/Lightning Protection 2.png",
-        text: "Lightning protection system studies",
-        path: "/lightning-protection-studies",
-      },
-      {
-        image: "./HomePageImg/WhatWeDoSection/Power System Studies 2.png",
-        text: "Power system studies",
-        path: "/power-system-studies",
-      },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      {
-        image:
-          "./HomePageImg/WhatWeDoSection/Power Quality and Root cause Analysis 2.png",
-        text: "Power quality",
-        path: "/power-quality-studies",
-      },
-      {
-        image: "./HomePageImg/WhatWeDoSection/Instrumentation Earthing 2.png",
-        text: "Instrumentation earthing",
-        path: "/instrumentation-earthing-studies",
-      },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-      { image: "", text: "", path: "" },
-    ],
-    [],
-  );
+
+  const services = useMemo(() => [
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: './HomePageImg/WhatWeDoSection/Earthing Studies 2.png', text: 'Grounding System Studies', path: '/grounding-system-studies' },
+    { image: './HomePageImg/WhatWeDoSection/Lightning Protection 2.png', text: 'Lightning protection system studies', path: '/lightning-protection-studies' },
+    { image: './HomePageImg/WhatWeDoSection/Power System Studies 2.png', text: 'Power system studies', path: '/power-system-studies' },
+    { image: './HomePageImg/WhatWeDoSection/Power Quality and Root cause Analysis 2.png', text: 'Power quality', path: '/power-quality-studies' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: './HomePageImg/WhatWeDoSection/Instrumentation Earthing 2.png', text: 'Instrumentation earthing', path: '/instrumentation-earthing-studies' },
+    { image: './HomePageImg/WhatWeDoSection/Emi Emc 2.jpg', text: 'EMI EMC', path: '/emi-emc' },
+    { image: './HomePageImg/WhatWeDoSection/Root Cause Analysis 2.jpg', text: 'Root cause analysis', path: '/root-cause-analysis' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+  ], []);
+
+  const services2 = useMemo(() => [
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: './HomePageImg/WhatWeDoSection/Earthing Studies 2.png', text: 'Grounding System Studies', path: '/grounding-system-studies' },
+    { image: './HomePageImg/WhatWeDoSection/Lightning Protection 2.png', text: 'Lightning protection system studies', path: '/lightning-protection-studies' },
+    { image: './HomePageImg/WhatWeDoSection/Power System Studies 2.png', text: 'Power system studies', path: '/power-system-studies' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: './HomePageImg/WhatWeDoSection/Power Quality and Root cause Analysis 2.png', text: 'Power quality', path: '/power-quality-studies' },
+    { image: './HomePageImg/WhatWeDoSection/Instrumentation Earthing 2.png', text: 'Instrumentation earthing', path: '/instrumentation-earthing-studies' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+    { image: '', text: '', path: '' },
+  ], []);
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [backgroundImage, setBackgroundImage] = useState("");
+  const [backgroundImage, setBackgroundImage] = useState('');
   const serviceRefs = useRef([]);
   const service2Refs = useRef([]);
   const imgRef = useRef(null);
@@ -679,14 +171,13 @@ const LPS = () => {
   useEffect(() => {
     const img = imgRef.current;
     if (img) {
-      gsap.fromTo(
-        img,
+      gsap.fromTo(img,
         { opacity: 0 },
         {
           opacity: 1,
           duration: 2.5,
-          ease: "power2.inOut",
-        },
+          ease: 'power2.inOut'
+        }
       );
     }
   }, [imgRef]);
@@ -698,7 +189,7 @@ const LPS = () => {
 
   const handleMouseLeave = () => {
     setHoveredIndex(null);
-    setBackgroundImage("");
+    setBackgroundImage('');
   };
 
   useEffect(() => {
@@ -708,24 +199,16 @@ const LPS = () => {
   useEffect(() => {
     serviceRefs.current.forEach((ref, index) => {
       if (ref) {
-        if (index === hoveredIndex && services[index]?.text !== "") {
-          gsap.to(ref, {
-            scale: 1.3,
-            opacity: 1,
-            duration: 0.2,
-            ease: "power2.inOut",
-          });
+        if (index === hoveredIndex && services[index]?.text !== '') {
+          gsap.to(ref, { scale: 1.3, opacity: 1, duration: 0.2, ease: 'power2.inOut' });
         } else {
           gsap.to(ref, {
             scale: hoveredIndex !== null ? 0.9 : 1,
             opacity: hoveredIndex !== null ? 0.5 : 1,
             // border: hoveredIndex !== null && services[index]?.text === '' ? '1px solid white' : '',
-            backgroundColor:
-              hoveredIndex !== null && services[index]?.text === ""
-                ? "transparent"
-                : "",
+            backgroundColor: hoveredIndex !== null && services[index]?.text === '' ? 'transparent' : '',
             duration: 0.2,
-            ease: "power2.inOut",
+            ease: 'power2.inOut'
           });
         }
       }
@@ -739,35 +222,27 @@ const LPS = () => {
   useEffect(() => {
     service2Refs.current.forEach((ref, index) => {
       if (ref) {
-        if (index === hoveredIndex && services2[index]?.text !== "") {
-          gsap.to(ref, {
-            scale: 1.3,
-            opacity: 1,
-            duration: 0.2,
-            ease: "power2.inOut",
-          });
+        if (index === hoveredIndex && services2[index]?.text !== '') {
+          gsap.to(ref, { scale: 1.3, opacity: 1, duration: 0.2, ease: 'power2.inOut' });
         } else {
           gsap.to(ref, {
             scale: hoveredIndex !== null ? 0.9 : 1,
             opacity: hoveredIndex !== null ? 0.5 : 1,
             // border: hoveredIndex !== null && services2[index]?.text === '' ? '1px solid white' : '',
-            backgroundColor:
-              hoveredIndex !== null && services2[index]?.text === ""
-                ? "transparent"
-                : "",
+            backgroundColor: hoveredIndex !== null && services2[index]?.text === '' ? 'transparent' : '',
             duration: 0.2,
-            ease: "power2.inOut",
+            ease: 'power2.inOut'
           });
         }
       }
     });
   }, [hoveredIndex, services2]);
 
+
   const navItems = [
-    { label: "HOME", isActive: true },
-    { label: "OUR BUSINESS", isActive: true },
-    { label: "OUR PRODUCTS", isActive: true },
-    { label: "CLPS", isActive: false },
+    { label: 'HOME', isActive: true },
+    { label: 'SERVICES', isActive: true },
+    { label: 'LIGHTNING PROTECTION STUDIES', isActive: false },
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -778,108 +253,89 @@ const LPS = () => {
 
   const benefitItems = [
     "ABOUT Earthing studies",
-    "What is an Earthing/Grounding System Studies",
-    "Earthing/Grounding System Studies",
-    "Our Certifications and Expertise",
-    "Detailed Study Reports and Analysis",
-    "Benefits of Professional Earthing/Grounding System Studies",
+    'What is an Earthing/Grounding System Studies',
+    'Earthing/Grounding System Studies',
+    'Our Certifications and Expertise',
+    'Detailed Study Reports and Analysis',
+    'Benefits of Professional Earthing/Grounding System Studies',
   ];
 
   const components = [
+
     {
-      imageSrc: "./SerivePage/01.png",
-      title: "Risk Assessment",
-      description:
-        "Using Risk Assessment Software to compare calculated risk against tolerable risk levels as per IEC 62305-2.",
+      imageSrc: './SerivePage/01.png',
+      title: 'Risk Assessment',
+      description: 'Using Risk Assessment Software to compare calculated risk against tolerable risk levels as per IEC 62305-2.',
     },
     {
-      imageSrc: "./SerivePage/02.png",
-      title: "Lightning Protection System (LPS) Design",
-      description:
-        "Selecting from a choice of methods like the Rolling Sphere, Protection Angle, and Mesh Methods to design effective LPS.",
+      imageSrc: './SerivePage/02.png',
+      title: 'Lightning Protection System (LPS) Design',
+      description: 'Selecting from a choice of methods like the Rolling Sphere, Protection Angle, and Mesh Methods to design effective LPS.',
     },
     {
-      imageSrc: "./SerivePage/03.png",
-      title: "Surge Protection Devices (SPD)",
-      description:
-        "Selecting Class I, II, and III SPDs at various levels of the electrical distribution system to protect against conducted surges.",
+      imageSrc: './SerivePage/03.png',
+      title: 'Surge Protection Devices (SPD)',
+      description: 'Selecting Class I, II, and III SPDs at various levels of the electrical distribution system to protect against conducted surges.',
     },
     {
-      imageSrc: "./SerivePage/04.png",
-      title: "Additional Mitigation Techniques",
-      description:
-        "Using equi-potential bonding, warning notices, and other best engineering practices to further reduce risk.",
+      imageSrc: './SerivePage/04.png',
+      title: 'Additional Mitigation Techniques',
+      description: 'Using equi-potential bonding, warning notices, and other best engineering practices to further reduce risk.',
     },
+  ]
+
+  const buttons = [
+    { text: 'CONTACT US', className: 'bg-red-700' }
   ];
 
-  const buttons = [{ text: "CONTACT US", className: "bg-red-700" }];
 
   return (
     <>
+
       {/* Landing Img Section */}
 
       <section className="flex overflow-hidden h-screen flex-col bg-white">
         <div className="flex relative flex-col w-full h-screen max-md:pb-24 max-md:max-w-full">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source
-              src="./SerivePage/Lightning Protection Banner Video.mp4"
-              type="video/mp4"
-            />
+          <video autoPlay loop muted playsInline className="absolute size-full object-cover" >
+            <source src="./SerivePage/Lightning Protection Banner Video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-
-          <div className="absolute top-[70%] left-[100px] w-[1330px] z-10">
-            <div className="flex flex-col gap-[16px] text-white">
-              {/* Heading */}
-              <h1 className="font-montserrat font-bold text-[36px] leading-[100%] tracking-[0.5px] uppercase">
-                COMPREHENSIVE LIGHTNING PROTECTION SOLUTIONS
-              </h1>
-
-              {/* Body */}
-              <p className="font-montserrat font-normal text-[22px] leading-[150%]">
-                From risk assessment and system design to type-tested components
-                and surge protection — JEF delivers comprehensive lightning
-                protection for industrial, commercial, and infrastructure
-                facilities.
-              </p>
+          <div className="flex inset-y-3/4 lg:-mt-[2%] 2xl:mt-0 lg:inset-x-20 p-4 relative flex-col self-center w-full max-md:mt-10 max-md:max-w-full mb-0 mx-40 max-w-full max-md:mb-2.5">
+            <h1 className="Y-axis-text-Title-Service2 uppercase lg:text-5xl md:text-4xl text-3xl font-bold my-auto tracking-wider text-white max-md:max-w-full max-md:text-4xl">
+              Lightning Protection Studies
+            </h1>
+            <div className="Y-axis-text-Title-Service2 flex gap-6 items-center self-start mt-8 text-lg uppercase text-neutral-900  max-md:mt-10">
+              <Link href={'/get-in-touch'}>
+                <button className="px-5 lg:px-10 self-stretch  py-2 lg:py-3 my-auto bg-white border border-solid border-zinc-900 border-opacity-10 text-lg hover:bg-red-700 hover:text-white uppercase 2xl:min-h-[64px] rounded-[50px]">
+                  Get in touch
+                </button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
+
+
       {/* Contact Us section */}
 
-      <section className="flex h-auto -mb-11 md:mb-0 overflow-hidden flex-col bg-[#F9F7F2]">
+
+
+      <section className="flex h-auto -mb-11 md:mb-0 overflow-hidden flex-col bg-stone-900">
         <div className="flex overflow-hidden flex-col w-full bg-white max-md:max-w-full" />
-        <nav className="flex flex-col justify-center py-6 px-24 w-full bg-[#F9F7F2] min-h-[64px] max-md:px-5 max-md:max-w-full">
+        <nav className="flex flex-col justify-center py-6 px-24 w-full bg-zinc-800 min-h-[64px] max-md:px-5 max-md:max-w-full">
           <div className="flex w-full max-md:max-w-full">
             <div className="flex items-center h-full min-w-[240px]">
               {navItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-center self-stretch my-auto"
-                >
-                  <div
-                    className={`self-stretch my-auto text-xs tracking-wide leading-none uppercase whitespace-nowrap ${item.isActive ? "text-red-700" : "text-neutral-300"}`}
-                  >
+                <div key={index} className="flex items-center self-stretch my-auto">
+                  <div className={`self-stretch my-auto text-xs tracking-wide leading-none uppercase whitespace-nowrap ${item.isActive ? 'text-red-700' : 'text-neutral-300'}`}>
                     {item.label}
                   </div>
                   {item.isActive && (
                     <div className="flex flex-col self-stretch px-2.5 my-auto w-[27px]">
                       <div className="flex items-center w-[7px]">
                         <div className="flex flex-col justify-center self-stretch my-auto min-h-[7px] w-[7px]">
-                          <img
-                            loading="lazy"
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/98403646f26f29fd8d19e6e57b2e9f8b5de2f748795475a0d9039378b1786404?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244"
-                            alt=""
-                            className="object-contain flex-1 w-full aspect-square"
-                          />
+                          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/98403646f26f29fd8d19e6e57b2e9f8b5de2f748795475a0d9039378b1786404?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244" alt="" className="object-contain flex-1 w-full aspect-square" />
                         </div>
                       </div>
                     </div>
@@ -889,122 +345,63 @@ const LPS = () => {
             </div>
           </div>
         </nav>
-        <header className="flex flex-col items-center justify-center text-center gap-[32px] w-full px-5 mx-auto mt-[80px]">
-          {/* Logo */}
-          <img
-            src="./SerivePage/CLPS img.png"
-            alt="Lightning Logo"
-            className="w-[80px]"
-          />
-
-          {/* Heading */}
-          <h1 className="text-[#C02429] font-bold text-[36px] tracking-[2px] uppercase font-montserrat">
-            LIGHTNING PROTECTION SOLUTIONS
+        <div className="ContactUsAnimation flex justify-center items-end self-center px-80 mt-24 max-w-full min-h-[80px] w-[770px] max-md:px-5 max-md:mt-10">
+          <img loading="lazy" src="./SerivePage/LighningLogo.png" alt="Earthing Studies Logo" className="object-contain w-16 aspect-square" />
+        </div>
+        <header className="flex p-4 ContactUsAnimation flex-col items-center self-center mt-10 w-full text-base text-center text-white max-w-[1391px] max-md:mt-10 max-md:max-w-full">
+          <h1 className=" flex flex-col max-w-full text-2xl font-medium uppercase leading-relaxed tracking-wider w-[1071px]">
+            <div className="w-full max-md:max-w-full">
+              Lightning Protection Studies and <br /> System Testing Services
+            </div>
           </h1>
-
-          {/* Paragraph 1 */}
-          <p className="text-[20px] font-normal leading-[150%] text-[#4B4B4B] font-montserrat max-w-[1200px]">
-            Lightning strikes are a persistent threat to structures, equipment,
-            and people. The damage they cause is not limited to the point of
-            impact — a strike on or near a facility can propagate destructive
-            energy through power cables, data lines, earthing networks, and the
-            structure itself, causing failures across a wide area.
+          <p className="self-stretch mt-12 font-light max-md:mt-10 max-md:max-w-full">
+            JEF specializes in providing comprehensive Lightning Protection Studies to ensure the safety <br className="hidden md:block" />
+            and protection of your structures from lightning strikes. Our experienced team uses advanced <br className="hidden md:block" />
+            methodologies and standards to deliver effective lightning protection solutions as per IEC <br className="hidden md:block" />
+            standards for both existing and new structures.
           </p>
-
-          {/* Paragraph 2 */}
-          <p className="text-[20px] font-normal leading-[150%] text-[#4B4B4B] font-montserrat max-w-[1200px]">
-            A well-designed lightning protection system does not prevent
-            lightning from occurring. Its purpose is to give the electrical
-            energy of a strike a controlled, predictable path to earth — one
-            that bypasses the structure’s fabric, its occupants, and the
-            equipment inside. When all elements of the system work together
-            correctly, the strike event becomes a managed electrical discharge
-            rather than a destructive incident.
-          </p>
-
-          {/* Read More Button */}
-          <div className="flex justify-center items-center mb-4">
-            <img
-              src="/AboutUs/read more button.png"
-              alt="Read More"
-              onClick={() => setShowLightningPanel(true)}
-              className="cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-200"
-              style={{ width: "260px", height: "61px" }}
-            />
-          </div>
-
-          {/*Panel Slide in Logic */}
-          {showLightningPanel && (
-            <div
-              className="fixed inset-0 bg-black/50 z-[9998]"
-              onClick={() => setShowLightningPanel(false)}
-            />
-          )}
-          <div
-            className={`fixed top-0 right-0 h-screen bg-[#F9F7F2] z-[9999]
-    transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-    ${showLightningPanel ? "translate-x-0" : "translate-x-full"}`}
-            style={{ width: "860px" }}
-          >
-            {/* HEADER */}
-            <div className="flex items-center justify-between px-16 pt-16 mb-10">
-              <h2 className="text-[#C02429] font-bold text-[26px] leading-[43.4px] tracking-[1.49px] uppercase font-montserrat">
-                LIGHTNING PROTECTION SOLUTIONS
-              </h2>
-
-              <button
-                onClick={() => setShowLightningPanel(false)}
-                style={{ width: "48px", height: "48px", borderRadius: "30px" }}
-                className="bg-[#C02429] text-white flex items-center justify-center hover:bg-red-700 hover:scale-110 transition"
-              >
-                ✕
-              </button>
-            </div>
-
-            {/* CONTENT */}
-            <div className="flex flex-col gap-8 px-16">
-              <p className="text-[20px] font-light leading-[150%] text-gray-600 font-montserrat">
-                JEF Group supplies and designs comprehensive lightning
-                protection systems built to the requirements of IEC 62305:2024 —
-                the current international standard series that covers risk
-                assessment, physical protection of structures, and protection of
-                internal electrical and electronic systems. The CLPS range
-                covers every component required for a standards-compliant
-                comprehensive lightning protection system: air termination, down
-                conductors, earthing, equipotential bonding, and surge
-                protective devices for power, signal, instrumentation, data, and
-                telecommunications lines.
-              </p>
-
-              <p className="text-[20px] font-light leading-[150%] text-gray-600 font-montserrat">
-                Every product in the CLPS range is type-tested to the IEC 62561
-                series — the companion product testing standards to IEC 62305 —
-                confirming that each component meets defined mechanical,
-                electrical, and environmental performance requirements. JEF
-                type-tests its lightning protection components upto 200 kA on
-                the 10/350 µs waveform — double the limit specified in the IEC
-                standard series.
-              </p>
-            </div>
+          <div className="flex items-center justify-center">
+            <p className="self-stretch mt-10 font-light max-md:max-w-full flex flex-col gap-2 md:flex-row items-center justify-center xl:w-[52%]">
+              <img src="/jef-shield-logo.png" className="lg:h-36" alt="JEF Shield Logo" />
+              <span>
+                JEF SHIELD is an advanced software solution for Lightning Protection Risk Assessment, designed in compliance with IEC 62305 standards. It helps evaluate whether a structure is adequately protected against lightning strikes. If additional protection is needed, the software provides guidance on selecting and optimizing the appropriate solutions.
+              </span>
+            </p>
           </div>
         </header>
+        <div className="ContactUsAnimation flex flex-col self-center mt-14 max-w-full text-sm md:text-base leading-6 text-center text-red-700 w-[770px] max-md:mt-10">
+          <p className="px-56 w-full max-md:px-5 max-md:max-w-full">
+            Get in touch for any queries and real-life case-studies
+          </p>
+          <div className="flex mt-2.5 w-full min-h-[24px] max-md:max-w-full" />
+        </div>
+        <Link href='/get-in-touch' className="ContactUsAnimation flex gap-3.5 justify-center items-center self-center py-4 px-10 max-w-full text-sm tracking-wider leading-none text-center text-white uppercase border border-white border-solid rounded-[60px]">
+          <span className="self-stretch my-auto">CONTACT US</span>
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/ad33562234bc92238f0281eafa23a9b3c49a837f5ae8d3662c67bc1d8b919e14?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244" alt="" className="object-contain shrink-0 self-stretch my-auto w-6 aspect-square" />
+        </Link>
       </section>
 
-      <section>
-        <LightningProtectionSolutionsContent />
-      </section>
+
+
+
 
       <section>
-        <VerticalCarousel />
+        < VerticalCarousel />
       </section>
 
+
+
+
+
       <section>
-        <CarouselSection components={components} />
+        < CarouselSection components={components} />
       </section>
+
 
       <section className="hidden sm:block">
         <div className={` h-full bg-slate-900`}>
-          <div className=" w-full h-full py-20 mainSection bg-stone-900 overflow-hidden relative">
+          <div
+            className=" w-full h-full py-20 mainSection bg-stone-900 overflow-hidden relative">
             {backgroundImage && (
               <div className="absolute inset-0 w-full h-full ">
                 <img
@@ -1020,7 +417,7 @@ const LPS = () => {
                 Our Services
               </h2>
               <div className="circle-slider flex flex-wrap justify-center mt-20 max-md:mt-10 w-full h-full">
-                <div className="flex Y-axis-Service-anm gap-x-2 md:gap-x-5 lg:gap-x-10 circleChild">
+                <div className='flex Y-axis-Service-anm gap-x-2 md:gap-x-5 lg:gap-x-10 circleChild'>
                   {services.slice(0, 8).map((service, index) => (
                     <ServiceItem
                       key={index}
@@ -1028,14 +425,12 @@ const LPS = () => {
                       path={service.path}
                       image={service.image}
                       ref={(el) => (serviceRefs.current[index] = el)}
-                      onMouseEnter={() =>
-                        handleMouseEnter(index, service.image)
-                      }
+                      onMouseEnter={() => handleMouseEnter(index, service.image)}
                       onMouseLeave={handleMouseLeave}
                     />
                   ))}
                 </div>
-                <div className="flex Y-axis-Service-anm gap-x-2 md:gap-x-5 lg:gap-x-10 mb-10">
+                <div className='flex Y-axis-Service-anm gap-x-2 md:gap-x-5 lg:gap-x-10 mb-10'>
                   {services.slice(8).map((service, index) => (
                     <ServiceItem
                       key={index + 8}
@@ -1043,9 +438,7 @@ const LPS = () => {
                       path={service.path}
                       image={service.image}
                       ref={(el) => (serviceRefs.current[index + 8] = el)}
-                      onMouseEnter={() =>
-                        handleMouseEnter(index + 8, service.image)
-                      }
+                      onMouseEnter={() => handleMouseEnter(index + 8, service.image)}
                       onMouseLeave={handleMouseLeave}
                     />
                   ))}
@@ -1058,7 +451,8 @@ const LPS = () => {
 
       <section className="block sm:hidden">
         <div className={` h-full bg-slate-900`}>
-          <div className=" w-full h-full py-20 mainSection bg-stone-900 overflow-hidden relative">
+          <div
+            className=" w-full h-full py-20 mainSection bg-stone-900 overflow-hidden relative">
             {backgroundImage && (
               <div className="absolute inset-0 w-full h-full ">
                 <img
@@ -1074,7 +468,7 @@ const LPS = () => {
                 Our Services
               </h2>
               <div className="flex circle-slider flex-wrap justify-center mt-20 max-md:mt-10 w-full h-full">
-                <div className="flex Y-axis-Service-anm items-center gap-x-2 md:gap-x-5 lg:gap-x-10 circleChild">
+                <div className='flex Y-axis-Service-anm items-center gap-x-2 md:gap-x-5 lg:gap-x-10 circleChild'>
                   {services2.slice(0, 7).map((service2, index) => (
                     <ServiceItem2
                       key={index}
@@ -1082,14 +476,12 @@ const LPS = () => {
                       path={service2.path}
                       image={service2.image}
                       ref={(el) => (service2Refs.current[index] = el)}
-                      onMouseEnter={() =>
-                        handleMouseEnter(index, service2.image)
-                      }
+                      onMouseEnter={() => handleMouseEnter(index, service2.image)}
                       onMouseLeave={handleMouseLeave}
                     />
                   ))}
                 </div>
-                <div className="flex Y-axis-Service-anm gap-x-2 md:gap-x-5 lg:gap-x-10 mb-6">
+                <div className='flex Y-axis-Service-anm gap-x-2 md:gap-x-5 lg:gap-x-10 mb-6'>
                   {services2.slice(12, 14).map((service2, index) => (
                     <ServiceItem2
                       key={index}
@@ -1097,9 +489,7 @@ const LPS = () => {
                       path={service2.path}
                       image={service2.image}
                       ref={(el) => (service2Refs.current[index] = el)}
-                      onMouseEnter={() =>
-                        handleMouseEnter(index, service2.image)
-                      }
+                      onMouseEnter={() => handleMouseEnter(index, service2.image)}
                       onMouseLeave={handleMouseLeave}
                     />
                   ))}
@@ -1111,17 +501,19 @@ const LPS = () => {
       </section>
 
       <section>
-        <TestimonialsSection />
+        < TestimonialsSection />
       </section>
+
     </>
-  );
-};
+  )
+}
+
 
 const testimonials = [
   "We are thankful to the JEF Techno's team for clearing many of our doubts related to lightning protection. LPS audit was conducted for our plant that happened successfully.",
   "JEF supported us in providing very innovative and practical solutions to earthing and lightning protection systems. Every input from the team was with proper technical justification and in line with national & international standards.",
   "We have been associated with JEF Techno for the last 5 years. Product Quality and After Sales Service provided by them is up to the mark.",
-  "We have taken JEF’s technical expertise for Lightning Protection System for our Bangalore Warehouse. While working with them, we got to know that lightning protection is just not some product, it’s a complete solution.",
+  "We have taken JEF’s technical expertise for Lightning Protection System for our Bangalore Warehouse. While working with them, we got to know that lightning protection is just not some product, it’s a complete solution."
 ];
 
 function TestimonialsSection() {
@@ -1130,7 +522,7 @@ function TestimonialsSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTestimonialIndex((prevIndex) =>
-        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1,
+        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
       );
     }, 3000); // Adjust the duration as needed
 
@@ -1163,20 +555,15 @@ function TestimonialsSection() {
                   }}
                 >
                   {testimonials.map((text, index) => (
-                    <span
-                      key={index}
-                      className="testimonial-text text-gray-400"
-                    >
+                    <span key={index} className="testimonial-text text-gray-400">
                       {text}
                     </span>
                   ))}
                 </p>
               </div>
               <div className="flex flex-wrap justify-center mt-10 max-w-full tracking-wider text-white uppercase w-full   mx-auto">
-                <Link href={"/get-in-touch"}>
-                  <button
-                    className={`flex overflow-hidden text-sm justify-center bg-red-700 items-center self-center px-16 md:px-14 py-3 my-auto border border-solid border-zinc-800 border-opacity-10 min-h-[55px] rounded-[60px] `}
-                  >
+                <Link href={'/get-in-touch'}>
+                  <button className={`flex overflow-hidden text-sm justify-center bg-red-700 items-center self-center px-16 md:px-14 py-3 my-auto border border-solid border-zinc-800 border-opacity-10 min-h-[55px] rounded-[60px] `}>
                     CONTACT US
                   </button>
                 </Link>
@@ -1189,65 +576,63 @@ function TestimonialsSection() {
   );
 }
 
-const ServiceItem = React.forwardRef(
-  ({ path, text, onMouseEnter, onMouseLeave }, ref) => {
-    const content = (
-      <div
-        ref={ref}
-        className={`flex w-[7.2rem] h-[7.2rem] lg:h-[9rem] lg:w-[9rem] 2xl:w-[11.5rem] 2xl:h-[11.5rem] rounded-full items-center justify-center p-[0.5%] lg:p-[1.5%] transition-all duration-300 
-        ${text === "" ? "bg-transparent" : "border border-solid hover:bg-red-600"}`}
-        onMouseEnter={() => {
-          if (text !== "") {
-            onMouseEnter();
-          }
-        }}
-        onMouseLeave={() => {
-          if (text !== "") {
-            onMouseLeave();
-          }
-        }}
-      >
-        <span className="text-center text-[10px] lg:text-[10px] 2xl:text-[12px] ">
-          {text}
-        </span>
-      </div>
-    );
 
-    return path ? <Link href={path}>{content}</Link> : content;
-  },
-);
+
+
+const ServiceItem = React.forwardRef(({ path, text, onMouseEnter, onMouseLeave }, ref) => {
+  const content = (
+    <div
+      ref={ref}
+      className={`flex w-[7.2rem] h-[7.2rem] lg:h-[9rem] lg:w-[9rem] 2xl:w-[11.5rem] 2xl:h-[11.5rem] rounded-full items-center justify-center p-[0.5%] lg:p-[1.5%] transition-all duration-300 
+        ${text === "" ? "bg-transparent" : "border border-solid hover:bg-red-600"}`}
+      onMouseEnter={() => {
+        if (text !== "") {
+          onMouseEnter();
+        }
+      }}
+      onMouseLeave={() => {
+        if (text !== "") {
+          onMouseLeave();
+        }
+      }}
+    >
+      <span className="text-center text-[10px] lg:text-[10px] 2xl:text-[12px] ">{text}</span>
+    </div>
+  );
+
+  return path ? <Link href={path}>{content}</Link> : content;
+});
 
 ServiceItem.displayName = "ServiceItem";
 
-const ServiceItem2 = React.forwardRef(
-  ({ path, text, onMouseEnter, onMouseLeave }, ref) => {
-    const content = (
-      <div
-        ref={ref}
-        className={`flex w-[7.2rem] h-[7.2rem] lg:h-[9rem] lg:w-[9rem] 2xl:w-[11.5rem] 2xl:h-[11.5rem] rounded-full items-center justify-center p-[0.5%] lg:p-[1.5%] transition-all duration-300 
+const ServiceItem2 = React.forwardRef(({ path, text, onMouseEnter, onMouseLeave }, ref) => {
+  const content = (
+    <div
+      ref={ref}
+      className={`flex w-[7.2rem] h-[7.2rem] lg:h-[9rem] lg:w-[9rem] 2xl:w-[11.5rem] 2xl:h-[11.5rem] rounded-full items-center justify-center p-[0.5%] lg:p-[1.5%] transition-all duration-300 
         ${text === "" ? "bg-transparent" : "border border-solid hover:bg-red-600"}`}
-        onMouseEnter={() => {
-          if (text !== "") {
-            onMouseEnter();
-          }
-        }}
-        onMouseLeave={() => {
-          if (text !== "") {
-            onMouseLeave();
-          }
-        }}
-      >
-        <span className="text-center text-[10px] lg:text-[10px] 2xl:text-[12px] ">
-          {text}
-        </span>
-      </div>
-    );
+      onMouseEnter={() => {
+        if (text !== "") {
+          onMouseEnter();
+        }
+      }}
+      onMouseLeave={() => {
+        if (text !== "") {
+          onMouseLeave();
+        }
+      }}
+    >
+      <span className="text-center text-[10px] lg:text-[10px] 2xl:text-[12px] ">{text}</span>
+    </div>
+  );
 
-    return path ? <Link href={path}>{content}</Link> : content;
-  },
-);
+  return path ? <Link href={path}>{content}</Link> : content;
+});
 
 ServiceItem2.displayName = "ServiceItem2";
+
+
+
 
 function CarouselSection({ components }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -1281,9 +666,9 @@ function CarouselSection({ components }) {
     };
 
     handleResize(); // Set initial value
-    window.addEventListener("resize", handleResize); // Listen for resize events
+    window.addEventListener('resize', handleResize); // Listen for resize events
 
-    return () => window.removeEventListener("resize", handleResize); // Cleanup listener
+    return () => window.removeEventListener('resize', handleResize); // Cleanup listener
   }, []);
 
   return (
@@ -1342,24 +727,32 @@ function CarouselSection({ components }) {
                 flex: `0 0 ${100 / visibleCards}%`, // Adjust width of each card based on visibleCards
               }}
             >
-              <img
-                src={component.imageSrc}
-                alt={component.title}
-                className="h-[3rem]"
-              />
-              <h3 className="text-red-700 font-normal w-[80vw] sm:w-[90%] text-2xl sm:text-start my-5 text-center">
-                {component.title}
-              </h3>
-              <p className=" text-gray-400 text-center w-[80vw] sm:w-[70%] font-thin lg:w-[80%] sm:text-start text-lg max-w-screen-xl">
-                {component.description}
-              </p>
+              <img src={component.imageSrc} alt={component.title} className="h-[3rem]" />
+              <h3 className="text-red-700 font-normal w-[80vw] sm:w-[90%] text-2xl sm:text-start my-5 text-center">{component.title}</h3>
+              <p className=" text-gray-400 text-center w-[80vw] sm:w-[70%] font-thin lg:w-[80%] sm:text-start text-lg max-w-screen-xl">{component.description}</p>
             </div>
+
+
           ))}
         </div>
       </div>
+
     </section>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const VerticalCarousel = () => {
   const benefitItems = [
@@ -1384,7 +777,8 @@ const VerticalCarousel = () => {
       imgSrc:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/6ea8583cc00a44231bfb61be46e3517321fdd08d7a42dfe22fc28df7bfdc2e24?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
       title: "Importance of Lightning Protection Studies",
-      description: `Proper lightning protection is crucial for: | Ensuring the safety of personnel and equipment by preventing lightning-related
+      description:
+        `Proper lightning protection is crucial for: | Ensuring the safety of personnel and equipment by preventing lightning-related
       hazards. | Complying with international standards such as IEC 62305 and local regulations.|Reducing the risk of fire, equipment damage and operational downtime.|Protecting critical infrastructure and maintaining service continuity.`,
     },
     {
@@ -1392,27 +786,28 @@ const VerticalCarousel = () => {
         "https://cdn.builder.io/api/v1/image/assets/TEMP/6ea8583cc00a44231bfb61be46e3517321fdd08d7a42dfe22fc28df7bfdc2e24?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
       title: "Internal lightning protection and spds",
       description:
-        "Effective internal lightning protection is essential for mitigating risks associated with transient over voltages. SPDs are crucial for:|Ensuring Safety: Protecting sensitive equipment from damage caused by surges and voltage spikes.|Compliance with Standards: Meeting international standards such as IEC 62305 for lightning protection and IEC 61643 for SPD performance.|Preventing Equipment Damage: Reducing the risk of failure in electronic devices, industrial machinery, and critical systems due to electrical surges.|Minimizing Operational Downtime: Avoiding costly disruptions caused by equipment damage or failure during lightning events.",
+        "Effective internal lightning protection is essential for mitigating risks associated with transient over voltages. SPDs are crucial for:|Ensuring Safety: Protecting sensitive equipment from damage caused by surges and voltage spikes.|Compliance with Standards: Meeting international standards such as IEC 62305 for lightning protection and IEC 61643 for SPD performance.|Preventing Equipment Damage: Reducing the risk of failure in electronic devices, industrial machinery, and critical systems due to electrical surges.|Minimizing Operational Downtime: Avoiding costly disruptions caused by equipment damage or failure during lightning events."
     },
     {
       imgSrc:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/6ea8583cc00a44231bfb61be46e3517321fdd08d7a42dfe22fc28df7bfdc2e24?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
       title: "Our Approach to Lightning Protection Study Service",
       description:
-        "At JEF, our Lightning Protection Studies encompass a range of key services:|Risk Assessment: Evaluating the risk of lightning strikes to determine the need for protection and the level of protection required.|System Design: Designing external and internal lightning protection systems based on the assessed risk and protection levels.|Implementation: One team will always have an eye & ensure the designs recommended will be practically implementable|Cost: Our solutions will be cost optimal and our BOQ will always reflect the most optimal cost for a given project.",
+        "At JEF, our Lightning Protection Studies encompass a range of key services:|Risk Assessment: Evaluating the risk of lightning strikes to determine the need for protection and the level of protection required.|System Design: Designing external and internal lightning protection systems based on the assessed risk and protection levels.|Implementation: One team will always have an eye & ensure the designs recommended will be practically implementable|Cost: Our solutions will be cost optimal and our BOQ will always reflect the most optimal cost for a given project."
     },
     {
       imgSrc:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/6ea8583cc00a44231bfb61be46e3517321fdd08d7a42dfe22fc28df7bfdc2e24?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
       title: "Our Certifications and Expertise",
       description:
-        "JEF’s team is certified and trained in the latest standards and practices, including:|IS/IEC 62305: Comprehensive guidelines for lightning protection, risk management, and system design.",
+        "JEF’s team is certified and trained in the latest standards and practices, including:|IS/IEC 62305: Comprehensive guidelines for lightning protection, risk management, and system design."
     },
     {
       imgSrc:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/6ea8583cc00a44231bfb61be46e3517321fdd08d7a42dfe22fc28df7bfdc2e24?placeholderIfAbsent=true&apiKey=7904fd7afaaf4ee2b0837ab86d91b244",
       title: "Detailed Study Reports and Analysis",
-      description: `Get in touch with us to discover the unique value addition that our expert team consistently delivers to our customers.`,
+      description:
+        `Get in touch with us to discover the unique value addition that our expert team consistently delivers to our customers.`,
     },
     {
       imgSrc:
@@ -1437,9 +832,9 @@ const VerticalCarousel = () => {
     };
 
     checkScreen(); // run on mount
-    window.addEventListener("resize", checkScreen);
+    window.addEventListener('resize', checkScreen);
 
-    return () => window.removeEventListener("resize", checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
   }, []);
 
   return (
@@ -1452,20 +847,18 @@ const VerticalCarousel = () => {
               {benefitItems.map((item, index) => (
                 <li
                   key={index}
-                  className={`flex transition-all duration-300 ease-in-out items-start w-full rounded-xl cursor-pointer ${
-                    activeIndex === index
-                      ? "text-white lg:text-lg 2xl:text-2xl font-semibold h-32 2xl:h-56"
-                      : "h-auto text-xs 2xl:text-base"
-                  }`}
+                  className={`flex transition-all duration-300 ease-in-out items-start w-full rounded-xl cursor-pointer ${activeIndex === index
+                    ? "text-white lg:text-lg 2xl:text-2xl font-semibold h-32 2xl:h-56"
+                    : "h-auto text-xs 2xl:text-base"
+                    }`}
                   onClick={() => handleClick(index)}
                 >
                   {activeIndex === index && (
                     <div className="bg-red-500 w-1 h-full mr-4"></div>
                   )}
                   <div
-                    className={`xl:w-[80%] min-w-[20%] ${
-                      activeIndex === index ? "text-white" : "text-gray-400"
-                    }`}
+                    className={`xl:w-[80%] min-w-[20%] ${activeIndex === index ? "text-white" : "text-gray-400"
+                      }`}
                   >
                     {item.toUpperCase().replace(/SPDS$/, "SPD" + "s")}
                   </div>
@@ -1475,9 +868,7 @@ const VerticalCarousel = () => {
           </div>
 
           {/* Right Side: Vertical Carousel Content */}
-          <div
-            className={`relative flex flex-col w-[56%] max-sm:h-[110vh] max-lg:h-[65vh] overflow-hidden max-md:ml-0 max-lg:w-full ${isScreenTall ? "2xl:min-h-[150vh]" : ""}`}
-          >
+          <div className={`relative flex flex-col w-[56%] max-sm:h-[110vh] max-lg:h-[65vh] overflow-hidden max-md:ml-0 max-lg:w-full ${isScreenTall ? '2xl:min-h-[150vh]' : ''}`}>
             <div
               className="absolute transition-transform duration-500 ease-in-out w-full"
               style={{ transform: `translateY(-${(activeIndex * 100) / 7}%)` }}
@@ -1485,7 +876,7 @@ const VerticalCarousel = () => {
               {cardContents.map((content, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col items-start text-2xl  md:text-3xl text-red-700 mt-12 lg:mt-0 h-screen lg:w-full ${isScreenTall ? "2xl:min-h-[150vh]" : ""}`}
+                  className={`flex flex-col items-start text-2xl  md:text-3xl text-red-700 mt-12 lg:mt-0 h-screen lg:w-full ${isScreenTall ? '2xl:min-h-[150vh]' : ''}`}
                 >
                   <img
                     loading="lazy"
@@ -1497,28 +888,25 @@ const VerticalCarousel = () => {
                     {benefitItems.slice(0, 1).map((item, index) => (
                       <li
                         key={index}
-                        className={`flex transition-all duration-300 ease-in-out items-start w-full rounded-xl cursor-pointer ${
-                          activeIndex === index
-                            ? "text-white text-lg lg:text-2xl h-14 lg:h-24"
-                            : "h-auto text-base"
-                        }`}
+                        className={`flex transition-all duration-300 ease-in-out items-start w-full rounded-xl cursor-pointer ${activeIndex === index
+                          ? "text-white text-lg lg:text-2xl h-14 lg:h-24"
+                          : "h-auto text-base"
+                          }`}
                         onClick={() => handleClick(index)}
                       >
                         {activeIndex === index && (
                           <div className="bg-red-500 w-1 h-full mr-4"></div>
                         )}
                         <div
-                          className={`w-[80%] uppercase min-w-[20%] ${
-                            activeIndex === index
-                              ? "text-white"
-                              : "text-gray-400"
-                          }`}
+                          className={`w-[80%] uppercase min-w-[20%] ${activeIndex === index ? "text-white" : "text-gray-400"
+                            }`}
                         >
                           {item}
                         </div>
                       </li>
                     ))}
                   </ul>
+
 
                   <h2 className="2xl:mt-6 mt-4 lg:w-[80%] lg:text-2xl 2xl:text-3xl font-semibold sm:ml-5 lg:ml-0 tracking-[4.53px] w-full">
                     {content.title.toUpperCase().replace(/SPDS$/, "SPD" + "s")}
@@ -1530,19 +918,11 @@ const VerticalCarousel = () => {
                         {content.description.split("|").map((sentence, idx) => (
                           <div key={idx} className="flex items-start">
                             <span className="leading-none lg:-mt-[1.8%] 2xl:-mt-[0.5%] tracking-widest text-white max-md:max-w-full self-start">
-                              {idx > 0 && "•"}{" "}
-                              {/* Add bullet point for new lines */}
+                              {idx > 0 && "•"} {/* Add bullet point for new lines */}
                             </span>
                             <p className="sm:ml-4 text-base lg:text-xs 2xl:text-base font-light 2xl:leading-7 tracking-widest text-white max-md:max-w-full">
-                              {[
-                                "Enhanced Safety:",
-                                "Operational Reliability:",
-                                "Standards Compliance:",
-                                "Cost Savings:",
-                              ].includes(sentence.trim()) ? (
-                                <span className="text-red-500 !important">
-                                  {sentence.trim()}
-                                </span> // Add the color red forcibly
+                              {["Enhanced Safety:", "Operational Reliability:", "Standards Compliance:", "Cost Savings:"].includes(sentence.trim()) ? (
+                                <span className="text-red-500 !important">{sentence.trim()}</span> // Add the color red forcibly
                               ) : (
                                 sentence.trim() // Render the rest of the text as normal
                               )}
@@ -1554,6 +934,7 @@ const VerticalCarousel = () => {
                   </div>
                 </div>
               ))}
+
             </div>
           </div>
 
@@ -1574,4 +955,14 @@ const VerticalCarousel = () => {
   );
 };
 
-export default LPS;
+
+
+
+
+
+
+
+
+
+
+export default LPS

@@ -220,3 +220,26 @@ button {
     opacity: 0 !important;
   }
 }
+
+@keyframes progressBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-progress {
+  animation: progressBar 5s linear forwards;
+}
+
+
+/* .scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+} */

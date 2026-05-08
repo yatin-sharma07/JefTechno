@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 
 const menuItems = [
-  { label: "Home", hasDropdown: false, path: "/" },
+ 
   { label: "About", hasDropdown: true },
   { label: "Our Business", hasDropdown: true },
   { label: "Our Industries", hasDropdown: true },

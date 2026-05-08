@@ -1869,6 +1869,34 @@ function Home() {
 function WhatWeDoSection() {
   const [activeCard, setActiveCard] = useState(0);
   const [panelOpen, setPanelOpen] = useState(false);
+  const sectionRef = useRef(null);
+const videoRef = useRef(null);
+
+const [showContent, setShowContent] = useState(false);
+const [videoStarted, setVideoStarted] = useState(false);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting && !videoStarted) {
+        setVideoStarted(true);
+
+        if (videoRef.current) {
+          videoRef.current.play();
+        }
+      }
+    },
+    {
+      threshold: 0.5,
+    }
+  );
+
+  if (sectionRef.current) {
+    observer.observe(sectionRef.current);
+  }
+
+  return () => observer.disconnect();
+}, [videoStarted]);
 
   const services = [
     {
@@ -1960,13 +1988,36 @@ function WhatWeDoSection() {
   }, [panelOpen]);
 
   return (
-    <section className="relative w-full min-h-[850px] overflow-hidden bg-black">
+    <section  ref={sectionRef} className="relative w-full min-h-[850px] overflow-hidden bg-black">
       {/* Background Image */}
-      <img
-        src="/HomePageImg/WhatWeDoBg.png"
-        alt="What We Do Background"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+<img
+  src="/HomePageImg/WhatWeDoBg.png"
+  alt="What We Do Background"
+  className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
+    showContent ? "opacity-100" : "opacity-0"
+  } z-0`}
+/>
+      <video
+  ref={videoRef}
+  muted
+  playsInline
+  onEnded={() => setShowContent(true)}
+  className={`absolute inset-0 w-full h-full object-cover z-0 transition-all duration-1000 ${
+    showContent ? "opacity-0" : "opacity-100"
+  }`}
+>
+  <source src="/HomePageImg/Earthzoom.mp4" type="video/mp4" />
+</video>
+      
+
+      <div
+  className={`transition-all duration-1000 ${
+    showContent
+      ? "opacity-100 translate-y-0"
+      : "opacity-0 translate-y-10"
+  }`}
+>
+    
 
       {/* Overlay — darkens more when panel is open */}
       <div
@@ -2100,6 +2151,7 @@ function WhatWeDoSection() {
             </svg>
           </button>
         </div>
+      </div>
       </div>
     </section>
   );

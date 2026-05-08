@@ -223,7 +223,7 @@ const Navbar = () => {
                   translate="no"
                   className="self-stretch uppercase my-auto text-xs xl:text-sm font-light tracking-[2px] text-white"
                 >
-                  {isArabic ? "Arabic (عربي)" : "English"}
+                  {isArabic ? "Arabic (عربي)" : "Safe Tool"}
                 </div>
                 <div className="flex flex-col justify-center items-center self-stretch px-2.5 py-3.5 my-auto w-8 min-h-[20px]">
                   <img
@@ -258,7 +258,7 @@ const Navbar = () => {
                           setIsDropdownVisible(false);
                         }}
                       >
-                        <div>English</div>{" "}
+                        <div>Safe Tool</div>{" "}
                         <img
                           className={`w-4 h-4 ${isArabic ? "hidden" : "block"}`}
                           src="/red-check-mark-icon.png"
@@ -383,8 +383,8 @@ const Navbar = () => {
 const navigationItems = [
   { number: "01", title: "About JEF", path: "/about-us" },
   { number: "02", title: "jef leadership Team ", path: "/leadership-team" }, // Add a path for the leadership team
-  { number: "03", title: "Our Clients", path: "/coming-soon" },
-  { number: "04", title: "employee login", path: "/" },
+  { number: "03", title: "Jef Shield", path: "/coming-soon" },
+  { number: "04", title: "employee login", path: "/coming-shoon" },
 ];
 
 const contentMap = {

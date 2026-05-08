@@ -1086,7 +1086,7 @@ function Home() {
 
       {/* WHY CHOOSE JEF SECTION */}
 
-      <section className="w-full bg-[#F9F7F2] flex justify-center py-[120px] px-6 lg:px-0">
+      <section className="w-full bg-[#1B1818] flex justify-center py-[120px] px-6 lg:px-0">
         <div className="w-full max-w-[1286px] flex flex-col gap-[120px]">
           {/* TOP CONTENT */}
           <div className="flex flex-col lg:flex-row items-center gap-[120px]">
@@ -1107,12 +1107,12 @@ function Home() {
               </p>
 
               {/* HEADING */}
-              <h2 className="text-[28px] font-bold tracking-[3px] uppercase leading-none text-[#1D1F22] font-montserrat">
+              <h2 className="text-[28px] font-bold tracking-[3px] uppercase leading-none text-white font-montserrat">
                 Smart Digitization
               </h2>
 
               {/* DESCRIPTION */}
-              <p className="text-[16px] font-light leading-[150%] text-[#5C5C5C] font-montserrat">
+              <p className="text-[16px] font-light leading-[150%] text-white font-montserrat">
                 Our patented Smart Digitization process delivers consistency,
                 speed, accuracy and reliability at scale. Trusted by over 450+
                 customers globally, it delivers secure, standardized reports
@@ -1175,12 +1175,12 @@ function Home() {
               </p>
 
               {/* HEADING */}
-              <h2 className="text-[28px] font-bold tracking-[3px] uppercase leading-none text-[#1D1F22] font-montserrat">
+              <h2 className="text-[28px] font-bold tracking-[3px] uppercase leading-none text-white font-montserrat">
                 Our L&amp;D Center
               </h2>
 
               {/* DESCRIPTION */}
-              <p className="text-[16px] font-light leading-[150%] text-[#5C5C5C] font-montserrat">
+              <p className="text-[16px] font-light leading-[150%] text-white font-montserrat">
                 At JEF, we are committed to continuous improvement and
                 excellence. The L&amp;D Center is designed to enhance the skills
                 and expertise of our employees, ensuring they stay ahead of
@@ -1317,7 +1317,7 @@ function Home() {
 
       {/*  Blog's Section  */}
 
-      <section className="py-[80px] overflow-hidden bg-[#F5F3EF]">
+      <section className="py-[80px] overflow-hidden bg-[#1B1818]">
         <main className="px-[100px] w-full">
           <div className="flex flex-col w-full">
             <header className="flex items-start justify-between w-full">
@@ -1341,7 +1341,7 @@ function Home() {
               text-[24px]
               leading-[150%]
               font-light
-              text-[#5B5B5B]
+              text-white
             "
                 >
                   Discover the latest news, updates and insights
@@ -1372,7 +1372,8 @@ function Home() {
               text-[14px]
               uppercase
               tracking-[1px]
-              text-black
+              text-white
+              font-montserrat
               transition
               duration-300
               group-hover:text-white
@@ -1386,8 +1387,9 @@ function Home() {
                   alt="Arrow"
                   className="
               w-[18px]
+             
               rotate-180
-              brightness-0
+              brightness-100
               transition
               duration-300
               group-hover:brightness-0
@@ -1434,7 +1436,7 @@ function Home() {
               text-[32px]
               leading-[48px]
               uppercase
-              text-[#3D3D3D]
+              text-white
               font-normal
             "
                 >
@@ -2265,7 +2267,7 @@ const blogData = [
 
 function BlogCard({ imageSrc, title, path }) {
   return (
-    <article className="w-[484px]">
+    <article className="w-[484px] ">
       {/* IMAGE */}
       <div className="w-full h-[290px] overflow-hidden">
         <img
@@ -2291,7 +2293,7 @@ function BlogCard({ imageSrc, title, path }) {
             text-[12px]
             uppercase
             font-light
-            text-[#8B8B8B]
+            text-white
           "
         >
           ARTICLE
@@ -2304,7 +2306,7 @@ function BlogCard({ imageSrc, title, path }) {
             text-[18px]
             leading-[150%]
             uppercase
-            text-[#4A4A4A]
+            text-white
             font-normal
           "
         >
@@ -2317,7 +2319,7 @@ function BlogCard({ imageSrc, title, path }) {
             mt-[18px]
             text-[12px]
             font-light
-            text-[#8B8B8B]
+            text-white
           "
         >
           April 2026
@@ -2468,7 +2470,7 @@ function IndustriesSection() {
   }, [isOpen]);
 
   return (
-    <section className="relative w-full h-[526px] bg-[#F9F7F2] overflow-hidden">
+    <section className="relative w-full h-[526px] bg-[#1B1818] overflow-hidden">
       {/* DIM OVERLAY */}
       {isOpen && (
         <div

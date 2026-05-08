@@ -2389,22 +2389,13 @@ function BlogCard({ imageSrc, title, path }) {
               group
             "
           >
-            <span
-              className="
-                text-[12px]
-                tracking-[1px]
-                uppercase
-                text-[#C02429]
-              "
-            >
-              Read More
-            </span>
+          
 
             <img
               src="./HomePageImg/LeftArrow.png"
               alt="Arrow"
               className="
-                w-[18px]
+                w-[25px]
                 rotate-180
                 brightness-0
                 invert-[18%]

@@ -34,46 +34,50 @@ function MainFooter() {
 
 
     const itemsAbout = [
-        { name: 'What is JEF', path: '/about-us' },
+        { name: 'Who we are', path: '/about-us' },
         { name: 'JEF Leadership Team', path: '/leadership-team' },
-        { name: 'JEF Smart Digitization', path: '/SmartDigitalization' },
-        { name: 'JEF L&D Centre', path: '/L&D-Centre' }
-    ];
-
-    const itemsService = [
-        { name: 'Power System Studies', path: '/power-system-studies' },
-        { name: 'Power Quality Studies', path: '/power-quality-studies' },
-        { name: 'Earthing Studies', path: '/earthing-studies' },
-        { name: 'LPS System Studies', path: '/lightning-protection-studies' },
-        { name: 'Instrumentation Studies', path: '/instrumentation-earthing-studies' },
-        
-
+        {name:'Careers',path:'/careers'}
     ];
 
     const itemsLocation = [
-        { name: 'Mena', path: '' },
-        { name: 'Europe', path: '' },
-        { name: 'Asia', path: '' },
+        { name: 'India', path: '' },
+        { name: 'UAE', path: '' },
+        { name: 'USA', path: '' },
     ];
 
     const itemsBusiness = [
-        { name: 'Sectors', path: '/industries/oilandgas' },
-        { name: 'Partners', path: '/industries/powerutilities' },
+        { name: 'Our Products', path: '' },
+        { name: 'Audit Services', path: '' },
+        { name: 'Consulting Services', path: '' },
     ];
 
-    const itemsCareers = [
-        { name: 'Working at JEF', path: '/careers' }
+    const itemNews = [
+        { name: 'All Blogs', path: '/blog' },
+        {name:"Resources",path:""},
+        {name:'Events',path:""},
+        {name:"Contact Us",path:""}
+    ];
+    const itemInternalUse = [
+        {name:'Employee Login',path:'/coming-soon'  }
+    ];
+    const itemJefShield = [
+        {name:'Risk Assesment Tool',path:'/coming-soon'  }
     ];
 
+  
 
     return (
-        <main className="flex overflow-hidden flex-col items-center lg:pt-24 bg-stone-800">
+        <main className="flex overflow-hidden flex-col items-center  lg:pt-24 bg-stone-800">
             <div className="hidden lg:flex flex-col md:flex-row w-[88vw] max-w-[95vw] tracking-wider justify-between ">
                 <Section title="About" items={itemsAbout} />
-                <Section title="Services" items={itemsService} />
                 <Section title="Locations" items={itemsLocation} />
                 <Section title="Our Businesses" items={itemsBusiness} />
-                <Section title="Careers" items={itemsCareers} />
+                <Section title="News" items={itemNews} />
+               
+            </div>
+            <div className='flex justify-start gap-20 w-full md:pl-20'>
+                <Section title="Internal USe" items={itemInternalUse} />
+                <Section title="Jef Shield" items={itemJefShield}/>
             </div>
             <div className='lg:hidden'>
                 < FAQComponent />
@@ -107,10 +111,32 @@ function Footer() {
                         <Link href="/privacypolicy" >Privacy Policy</Link>
                         <Link href="/termsandconditions" >· Terms of Use</Link>
                         <Link href="/cookiepolicy" >· Cookie Policy</Link>
+                        <span>2026 © Jef</span>
+                    </div>
+                    <div className='flex gap-2 items-center'>
+                        <p className='text-white text-sm'>
+                            Production company · Obrive
+                        </p>
+                         <a className=' ml-[5px]' href="https://obnov.in" target="_blank" rel="noopener noreferrer"><img src="../FooterLogo/obriveLogo.png" alt="ObnovLogo" className='h-4' /></a>
+
                     </div>
                     <div className="sm:text-xs text-[10px] card-slider-footer mx-auto lg:mx-0 flex gap-0 tracking-wide max-md:max-w-full">
-                        Copyright 2025. All Rights Reserved © jeftechno | Designed by
-                        <a className=' ml-[5px]' href="https://obnov.in" target="_blank" rel="noopener noreferrer"><img src="../FooterLogo/footerbird.png" alt="ObnovLogo" className='h-4' /></a>
+                       <p className="text-xs text-gray-400">
+  CThis site is protected by reCaptcha and the google{" "}
+  <span>
+    <Link href="/privacypolicy" className="text-white transition text-sm">
+      Privacy Policy
+    </Link>
+  </span>{" "}
+  and{" "}
+  <span>
+    <Link href="/termsandconditions" className="text-white transition text-sm">
+      Terms of Use
+    </Link>
+  </span>
+   {" "}apply
+</p>
+                       
                     </div>
                 </div>
             </div>

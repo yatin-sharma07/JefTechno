@@ -1086,7 +1086,7 @@ function Home() {
 
       {/* WHY CHOOSE JEF SECTION */}
 
-      <section className="w-full bg-[#F9F7F2] flex justify-center py-[120px] px-6 lg:px-0">
+      <section className="w-full bg-[#1B1818] flex justify-center py-[120px] px-6 lg:px-0">
         <div className="w-full max-w-[1286px] flex flex-col gap-[120px]">
           {/* TOP CONTENT */}
           <div className="flex flex-col lg:flex-row items-center gap-[120px]">
@@ -1107,12 +1107,12 @@ function Home() {
               </p>
 
               {/* HEADING */}
-              <h2 className="text-[28px] font-bold tracking-[3px] uppercase leading-none text-[#1D1F22] font-montserrat">
+              <h2 className="text-[28px] font-bold tracking-[3px] uppercase leading-none text-white font-montserrat">
                 Smart Digitization
               </h2>
 
               {/* DESCRIPTION */}
-              <p className="text-[16px] font-light leading-[150%] text-[#5C5C5C] font-montserrat">
+              <p className="text-[16px] font-light leading-[150%] text-white font-montserrat">
                 Our patented Smart Digitization process delivers consistency,
                 speed, accuracy and reliability at scale. Trusted by over 450+
                 customers globally, it delivers secure, standardized reports
@@ -1175,12 +1175,12 @@ function Home() {
               </p>
 
               {/* HEADING */}
-              <h2 className="text-[28px] font-bold tracking-[3px] uppercase leading-none text-[#1D1F22] font-montserrat">
+              <h2 className="text-[28px] font-bold tracking-[3px] uppercase leading-none text-white font-montserrat">
                 Our L&amp;D Center
               </h2>
 
               {/* DESCRIPTION */}
-              <p className="text-[16px] font-light leading-[150%] text-[#5C5C5C] font-montserrat">
+              <p className="text-[16px] font-light leading-[150%] text-white font-montserrat">
                 At JEF, we are committed to continuous improvement and
                 excellence. The L&amp;D Center is designed to enhance the skills
                 and expertise of our employees, ensuring they stay ahead of
@@ -1264,22 +1264,34 @@ function Home() {
                   Founder's message
                 </h1>
                 <div className="self-stretch Y-axis-text sm:my-12 space-y-5 lg:text-base 2xl:text-xl  2xl:leading-8 text-stone-900 max-md:my-12 max-md:max-w-full">
-                  <p>
-                    Every single day, we endeavour to make more customers across
-                    continents benefit from our work as a step to enhance
-                    reliability & safety in the electrical network.
-                  </p>
-                  <p>
-                    Over the last 30 years of our existence, we have served more
-                    than 4000 customers in 24 countries. Consistently meeting &
-                    exceeding their expectations at every given opportunity, we
-                    at Team JEF have created a formidable track record for
-                    ourselves.
-                  </p>
-                  <p>
-                    No wonder customers think JEF! when they think electrical
-                    engineering.
-                  </p>
+                <p>
+    Every single day, we endeavour to make more customers across continents
+    <br />
+    benefit from our work as a step to enhance reliability & safety in the electrical
+    <br />
+    network.
+  </p>
+
+  <br />
+
+  <p>
+    Over the last 30 years of our existence, we have served more than 10K+
+    <br />
+    customers in 30+ countries. Consistently meeting & exceeding their
+    <br />
+    expectations at every given opportunity, we at Team JEF have created a
+    <br />
+    formidable track record for ourselves.
+  </p>
+
+  <br />
+
+  <p>
+    No wonder customers <strong>THINK "JEF"</strong> when they{" "}
+    <strong>THINK ELECTRICAL</strong>
+    <br />
+    engineering.
+  </p>
                 </div>
                 <div className="Y-axis-text-founder">
                   <h2 className="text-xl lg:text-2xl font-semibold max-md:text-4xl">
@@ -1317,7 +1329,7 @@ function Home() {
 
       {/*  Blog's Section  */}
 
-      <section className="py-[80px] overflow-hidden bg-[#F5F3EF]">
+      <section className="py-[80px] overflow-hidden bg-[#1B1818]">
         <main className="px-[100px] w-full">
           <div className="flex flex-col w-full">
             <header className="flex items-start justify-between w-full">
@@ -1332,7 +1344,7 @@ function Home() {
               text-[#C02429]
             "
                 >
-                  Latest News
+                  Latest Blogs
                 </h1>
 
                 <p
@@ -1341,7 +1353,7 @@ function Home() {
               text-[24px]
               leading-[150%]
               font-light
-              text-[#5B5B5B]
+              text-white
             "
                 >
                   Discover the latest news, updates and insights
@@ -1372,7 +1384,8 @@ function Home() {
               text-[14px]
               uppercase
               tracking-[1px]
-              text-black
+              text-white
+              font-montserrat
               transition
               duration-300
               group-hover:text-white
@@ -1386,8 +1399,9 @@ function Home() {
                   alt="Arrow"
                   className="
               w-[18px]
+             
               rotate-180
-              brightness-0
+              brightness-100
               transition
               duration-300
               group-hover:brightness-0
@@ -1434,7 +1448,7 @@ function Home() {
               text-[32px]
               leading-[48px]
               uppercase
-              text-[#3D3D3D]
+              text-white
               font-normal
             "
                 >
@@ -1867,19 +1881,101 @@ function Home() {
 function WhatWeDoSection() {
   const [activeCard, setActiveCard] = useState(0);
   const [panelOpen, setPanelOpen] = useState(false);
+  const[background,setBackground] = useState("/HomePageImg/WhatWeDoBg.png");
+  const sectionRef = useRef(null);
+const videoRef = useRef(null);
 
-  const services = [
-    {
-      id: 0,
-      title: "EARTHING STUDIES",
-      heading: "GROUNDING EARTHING STUDIES",
-      description:
-        "Earthing is an essential part of any electrical installation, essentialfor the safety from electrical shock, and fire and for operation of most of theprotective systems of the electrical installation.",
-      top: "180px",
-      left: "140px",
-      width: "280px",
-      buttonImg: "/HomePageImg/Earthing-studies-btn.png",
+const [showContent, setShowContent] = useState(false);
+const [videoStarted, setVideoStarted] = useState(false);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting && !videoStarted) {
+        setVideoStarted(true);
+
+        if (videoRef.current) {
+          videoRef.current.play();
+        }
+      }
     },
+    {
+      threshold: 0.5,
+    }
+  );
+
+  if (sectionRef.current) {
+    observer.observe(sectionRef.current);
+  }
+
+  return () => observer.disconnect();
+}, [videoStarted]);
+
+    const services = [
+     {
+       id: 0,
+       title: "EARTHING STUDIES",
+       heading: "GROUNDING EARTHING STUDIES",
+       description:
+         "Earthing is an essential part of any electrical installation, essentialfor the safety from electrical shock, and fire and for operation of most oftheprotective systems of the electrical installation.",
+       top: "180px",
+       left: "140px",
+       width: "280px",
+       buttonImg: "/HomePageImg/Earthing-studies-btn.png",
+       background:"./HomePageImg/WhatWeDoSection/Solution-1.png",
+     },
+
+     {
+       id: 1,
+       title: "LIGHTNING PROTECTION SYSTEM STUDIES",
+       heading: "LIGHTNING PROTECTION SYSTEM STUDIES",
+       description:
+         "The purpose of Lightning Protection Systemaudit is to conduct lightning risk assessment and determine the level of protectionrequired to the structure/facility as per the latest relevant standards. LPS Adequacyaudit helps to manage and mitigate the risk due to lightning and protect the life andassets.",
+       top: "290px",
+       left: "420px",
+       width: "280px",
+       buttonImg: "/HomePageImg/LPS-Studies-btn.png",
+       background:"./HomePageImg/WhatWeDoSection/Solution-2.png",
+     },
+
+     {
+       id: 2,
+       title: "POWER SYSTEM STUDIES",
+       heading: "POWER SYSTEM STUDIES",
+       description:
+         "A Power System Study involves analyzing various aspectsof an electrical power system to identify potential issues and optimize performance. These studies include load flow analysis, short circuit studies, relay coordination, arcflash analysis, and more, all aimed at enhancing system reliability and safety.",
+       top: "410px",
+       left: "190px",
+       width: "300px",
+       buttonImg: "/HomePageImg/Power-System-Studies-btn.png",
+       background:"./HomePageImg/WhatWeDoSection/Solution-3.png",
+     },
+
+     {
+       id: 3,
+       title: "POWER QUALITY & ROOT CAUSE ANALYSIS",
+       heading: "POWER QUALITY & ROOT CAUSE ANALYSIS",
+       description:
+         "A Power Quality Study involves acomprehensive analysis of your electrical system to identify disturbances anddeviations in voltage, current, and frequency. These studies are essential forensuring that your power supply is stable and free from issues that can lead toequipment malfunction or inefficiencies.",
+       top: "490px",
+       left: "550px",
+       width: "300px",
+       buttonImg: "/HomePageImg/PQ-and-RC btn.png",
+       background:"./HomePageImg/WhatWeDoSection/Solution-4.png",
+     },
+
+     {
+       id: 4,
+       title: "INSTRUMENTATION EARTHING",
+       heading: "INSTRUMENTATION EARTHING",
+       description:
+         "An Instrumentation Earthing Study involves evaluatingthe earthing system of instrumentation and control systems to ensure propergrounding. This study helps prevent electrical noise, surges, and other issues thatcan affect the accuracy and reliability of instrumentation.",
+       top: "580px",
+       left: "310px",
+       width: "300px",
+       buttonImg: "/HomePageImg/Instrumentation btn.png",
+       background:"./HomePageImg/WhatWeDoSection/Solution-5.png",
+     },
 
     {
       id: 1,
@@ -1891,6 +1987,7 @@ function WhatWeDoSection() {
       left: "420px",
       width: "280px",
       buttonImg: "/HomePageImg/LPS-Studies-btn.png",
+      background:"/HomePageImg/WhatWeDoSection/Solution-4.png",
     },
 
     {
@@ -1903,6 +2000,7 @@ function WhatWeDoSection() {
       left: "190px",
       width: "300px",
       buttonImg: "/HomePageImg/Power-System-Studies-btn.png",
+      background:"/HomePageImg/WhatWeDoSection/Solution-3.png",
     },
 
     {
@@ -1915,6 +2013,7 @@ function WhatWeDoSection() {
       left: "550px",
       width: "300px",
       buttonImg: "/HomePageImg/PQ-and-RC btn.png",
+      background:"/HomePageImg/WhatWeDoSection/Solution-2.png",
     },
 
     {
@@ -1927,13 +2026,15 @@ function WhatWeDoSection() {
       left: "310px",
       width: "300px",
       buttonImg: "/HomePageImg/Instrumentation btn.png",
+      background:"/HomePageImg/WhatWeDoSection/Solution-5.png",
     },
   ];
 
-  const handleCardClick = (service) => {
-    setActiveCard(service.id);
-    setPanelOpen(true);
-  };
+   const handleCardClick = (service) => {
+     setActiveCard(service.id);
+     setPanelOpen(true);
+     setBackground(service.background)
+   };
 
   const handlePrev = () => {
     const prevIndex = (activeCard - 1 + services.length) % services.length;
@@ -1958,13 +2059,36 @@ function WhatWeDoSection() {
   }, [panelOpen]);
 
   return (
-    <section className="relative w-full min-h-[850px] overflow-hidden bg-black">
+    <section  ref={sectionRef} className="relative w-full min-h-[850px] overflow-hidden bg-black">
       {/* Background Image */}
-      <img
-        src="/HomePageImg/WhatWeDoBg.png"
-        alt="What We Do Background"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+<img
+  src={background}
+  alt="What We Do Background"
+  className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
+    showContent ? "opacity-100" : "opacity-0"
+  } z-0`}
+/>
+      <video
+  ref={videoRef}
+  muted
+  playsInline
+  onEnded={() => setShowContent(true)}
+  className={`absolute inset-0 w-full h-full object-cover z-0 transition-all duration-1000 ${
+    showContent ? "opacity-0" : "opacity-100"
+  }`}
+>
+  <source src="/HomePageImg/Earthzoom.mp4" type="video/mp4" />
+</video>
+      
+
+      <div
+  className={`transition-all duration-1000 ${
+    showContent
+      ? "opacity-100 translate-y-0"
+      : "opacity-0 translate-y-10"
+  }`}
+>
+    
 
       {/* Overlay — darkens more when panel is open */}
       <div
@@ -2098,6 +2222,7 @@ function WhatWeDoSection() {
             </svg>
           </button>
         </div>
+      </div>
       </div>
     </section>
   );
@@ -2265,7 +2390,7 @@ const blogData = [
 
 function BlogCard({ imageSrc, title, path }) {
   return (
-    <article className="w-[484px]">
+    <article className="w-[484px] ">
       {/* IMAGE */}
       <div className="w-full h-[290px] overflow-hidden">
         <img
@@ -2291,7 +2416,7 @@ function BlogCard({ imageSrc, title, path }) {
             text-[12px]
             uppercase
             font-light
-            text-[#8B8B8B]
+            text-white
           "
         >
           ARTICLE
@@ -2304,7 +2429,7 @@ function BlogCard({ imageSrc, title, path }) {
             text-[18px]
             leading-[150%]
             uppercase
-            text-[#4A4A4A]
+            text-white
             font-normal
           "
         >
@@ -2317,7 +2442,7 @@ function BlogCard({ imageSrc, title, path }) {
             mt-[18px]
             text-[12px]
             font-light
-            text-[#8B8B8B]
+            text-white
           "
         >
           April 2026
@@ -2335,22 +2460,13 @@ function BlogCard({ imageSrc, title, path }) {
               group
             "
           >
-            <span
-              className="
-                text-[12px]
-                tracking-[1px]
-                uppercase
-                text-[#C02429]
-              "
-            >
-              Read More
-            </span>
+          
 
             <img
               src="./HomePageImg/LeftArrow.png"
               alt="Arrow"
               className="
-                w-[18px]
+                w-[25px]
                 rotate-180
                 brightness-0
                 invert-[18%]
@@ -2468,7 +2584,7 @@ function IndustriesSection() {
   }, [isOpen]);
 
   return (
-    <section className="relative w-full h-[526px] bg-[#F9F7F2] overflow-hidden">
+    <section className="relative w-full h-[526px] bg-[#1B1818] overflow-hidden">
       {/* DIM OVERLAY */}
       {isOpen && (
         <div

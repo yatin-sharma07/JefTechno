@@ -255,7 +255,7 @@ const AboutUsContent = () => {
         <Navigation />
       </section>
 
-     <section className="flex flex-col items-center w-full bg-[#F9F7F2] overflow-hidden">
+     <section className="flex flex-col items-center w-full bg-[#1B1818] overflow-hidden">
   {/* WHO WE ARE */}
   <div className="flex flex-col items-center justify-center w-full pt-[100px]">
     <header
@@ -274,7 +274,7 @@ const AboutUsContent = () => {
         </span>
       </h1>
 
-      <p className="text-[20px] font-normal leading-[150%] text-gray-700 font-montserrat text-center w-full max-w-[1255px]">
+      <p className="text-[20px] font-normal leading-[150%] text-white font-montserrat text-center w-full max-w-[1255px]">
         JEF is a specialist electrical engineering company with an
         uncompromising focus on the safety and reliability of electrical
         systems. Founded in Bengaluru in 1994, we have built our global
@@ -349,7 +349,7 @@ const AboutUsContent = () => {
       {whatWeDoData.map((tab, index) => (
         <p
           key={index}
-          className={`text-[20px] font-medium leading-[1.5] tracking-[0px] text-gray-800 font-[Montserrat] w-full transition-all duration-700 ease-in-out absolute left-0 top-0 ${
+          className={`text-[20px] font-medium leading-[1.5] tracking-[0px] text-white font-[Montserrat] w-full transition-all duration-700 ease-in-out absolute left-0 top-0 ${
             activeTab === index
               ? "opacity-100 translate-y-0 pointer-events-auto"
               : "opacity-0 translate-y-4 pointer-events-none"
@@ -368,7 +368,7 @@ const AboutUsContent = () => {
           className="flex flex-col items-start group cursor-pointer w-[259px]" 
         >
           {/* Progress Line */}
-          <div className="w-full h-[2px] bg-gray-300 mb-4 relative overflow-hidden">
+          <div className="w-full h-[2px] bg-gray-300 mb-4 relative overflow-hidden text-white">
             <div
               className="absolute top-0 left-0 h-full bg-[#C02429]"
               style={{
@@ -382,7 +382,7 @@ const AboutUsContent = () => {
           <span
             className={`text-[12px] tracking-[1.5px] uppercase font-[Montserrat] transition-colors duration-300 ${
               activeTab === index
-                ? "text-gray-900 font-semibold"
+                ? "text-white font-semibold"
                 : "text-gray-500 hover:text-gray-700"
             }`}
           >
@@ -501,18 +501,18 @@ const Overview = () => {
 
 function LearningDevelopment() {
   return (
-    <section className="bg-white py-20 px-6 md:px-20">
+    <section className="bg-[#1B1818] py-20 px-6 md:px-20">
       {/* Header */}
       <div className="max-w-6xl mx-auto mb-16">
         <p className="text-red-500 text-sm font-normal tracking-wide mb-2">
           A GLOBAL ENGINEERING FUTURE
         </p>
 
-        <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-black">
+        <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-white">
           OUR PRESENCE
         </h2>
 
-        <p className="text-gray-600 text-base leading-relaxed max-w-5xl">
+        <p className="text-white text-base leading-relaxed max-w-5xl">
           JEF Techno operates as a globally integrated engineering and
           technology organization, delivering advanced solutions in earthing,
           lightning protection, and power system performance across critical
@@ -535,10 +535,10 @@ function LearningDevelopment() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-black mb-2">
+            <h3 className="font-semibold text-white mb-2">
               Bengaluru, India (Global HQ)
             </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-white text-sm leading-relaxed">
               The core of our operations, driving end-to-end product
               development, engineering audits, and consulting capabilities
               across India and international markets.
@@ -557,10 +557,10 @@ function LearningDevelopment() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-black mb-2">
+            <h3 className="font-semibold text-white mb-2">
               Abu Dhabi, UAE (GCC HQ)
             </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-white text-sm leading-relaxed">
               Focused on high-performance engineering services for the energy
               sector, including power system studies, instrumentation earthing,
               EMI/EMC analysis, and specialized solutions for oil & gas
@@ -580,10 +580,10 @@ function LearningDevelopment() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-black mb-2">
+            <h3 className="font-semibold text-white mb-2">
               United States (USA HQ)
             </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-white text-sm leading-relaxed">
               Strengthening our global footprint through a robust patent
               portfolio, alignment with US engineering standards, and active
               engagement with North American clients and infrastructure
@@ -1072,13 +1072,13 @@ function TechnologyPatents() {
   };
 
   return (
-    <section className="w-full bg-[#F9F7F2] h-[780px] relative overflow-hidden">
+    <section className="w-full bg-[#1B1818] h-[780px] relative overflow-hidden">
       {/* HEADER */}
       <div className="absolute left-[100px] top-[66px] w-[1221px] flex flex-col gap-[41px]">
         <h2 className="text-[#C02429] font-bold uppercase tracking-[3.36px] text-[32px] leading-[52.91px] w-[554px]">
           TECHNOLOGY AND PATENTS
         </h2>
-        <p className="text-gray-600 text-[20px] leading-[150%] w-[1221px]">
+        <p className="text-white text-[20px] leading-[150%] w-[1221px]">
           9 granted patents — India, United States, European Union. JEF's
           proprietary tools are not incremental improvements to existing
           approaches. They are purpose-built responses to specific gaps in what
@@ -1240,7 +1240,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="flex flex-col justify-center px-24 py-6 bg-[#F9F7F2] max-md:px-5">
+    <nav className="flex flex-col justify-center px-24 py-6 bg-[#1B1818] max-md:px-5">
       <div className="flex w-full max-md:max-w-full">
         <div className="flex items-center h-full">
           {navItems.map((item, index) => (

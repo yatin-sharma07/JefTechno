@@ -6,8 +6,11 @@ import { usePathname } from "next/navigation";
 import { TranslationContext } from "../context/TranslationContext";
 import { motion, AnimatePresence } from "framer-motion";
 
+
+
+
 const menuItems = [
-  { label: "Home", hasDropdown: false, path: "/" },
+ 
   { label: "About", hasDropdown: true },
   { label: "Our Business", hasDropdown: true },
   { label: "Our Industries", hasDropdown: true },
@@ -220,7 +223,7 @@ const Navbar = () => {
                   translate="no"
                   className="self-stretch uppercase my-auto text-xs xl:text-sm font-light tracking-[2px] text-white"
                 >
-                  {isArabic ? "Arabic (عربي)" : "English"}
+                  {isArabic ? "Arabic (عربي)" : "Safe Tool"}
                 </div>
                 <div className="flex flex-col justify-center items-center self-stretch px-2.5 py-3.5 my-auto w-8 min-h-[20px]">
                   <img
@@ -255,7 +258,7 @@ const Navbar = () => {
                           setIsDropdownVisible(false);
                         }}
                       >
-                        <div>English</div>{" "}
+                        <div>Safe Tool</div>{" "}
                         <img
                           className={`w-4 h-4 ${isArabic ? "hidden" : "block"}`}
                           src="/red-check-mark-icon.png"
@@ -380,8 +383,8 @@ const Navbar = () => {
 const navigationItems = [
   { number: "01", title: "About JEF", path: "/about-us" },
   { number: "02", title: "jef leadership Team ", path: "/leadership-team" }, // Add a path for the leadership team
-  { number: "03", title: "Our Clients", path: "/coming-soon" },
-  { number: "04", title: "employee login", path: "/" },
+  { number: "03", title: "Jef Shield", path: "/coming-soon" },
+  { number: "04", title: "employee login", path: "/coming-shoon" },
 ];
 
 const contentMap = {
@@ -416,6 +419,13 @@ function AboutSection() {
                     >
                       {item.title}
                     </Link>
+                    <div className="flex items-center">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/2bb3117bb1e657fdbc997cd15e47263db3ce1251843c4a3543e9042a61e0fd2a"
+                    alt=""
+                    className="w-2"
+                  />
+                </div>
                     {item.number === "01" && (
                       <div className="flex flex-col justify-center items-center py-1.5 pr-2.5 pl-2.5 min-h-[29px]"></div>
                     )}
@@ -503,56 +513,72 @@ function ServicesComponent() {
   const [isHovered2, setIsHovered2] = useState(false);
   const [isHovered3, setIsHovered3] = useState(false);
 
-  const services = [
-    {
-      icon: "/nav-earthing-icon3.png",
-      text: "EARTHING STUDIES",
-      path: "/earthing-studies",
-    },
-    {
-      icon: "/nav-esa-icon3.png",
-      text: "LIGHTNING PROTECTION STUDIES",
-      path: "/lightning-protection-studies",
-    },
-    {
-      icon: "/nav-ese-icon2.png",
-      text: "ESE",
-      path: "/ese-lightning-protection",
-    },
-    {
-      icon: "/nav-design-service-icon2.png",
-      text: "DESIGN SERVICES",
-      path: "/earthing-design",
-    },
-  ];
+const services = [
+   {
+    icon: "/nav-clps-icon.png",
+    text: "CLPS",
+    path: "/clps-products",
+  },
+  {
+    icon: "/nav-earthing-icon3.png",
+    text: "EARTHING GROUNDING",
+    path: "/earthing-studies",
+  },
+   {
+    icon: "/nav-ese-icon2.png",
+    text: "ESE",
+    path: "/ese-lightning-protection",
+  },
+  {
+    icon: "/nav-esa-icon3.png",
+    text: "ESA LIGHTNING PROTECTION",
+    path: "/lightning-protection-studies",
+  },
+ 
 
-  const services2 = [
-    {
-      icon: "/nav-esa-icon3.png",
-      text: "ESA",
-      path: "/earthing-studies",
-    },
-    {
-      icon: "/nav-audit-icon2.png",
-      text: "EARTHING AUDIT STUDIES",
-      path: "/earthing-studies",
-    },
-    {
-      icon: "/nav-istrumentation-icon2.png",
-      text: "INSTRUMENTATION EARTHING",
-      path: "/instrumentation-earthing-studies",
-    },
-    {
-      icon: "/nav-power-studies-icon2.png",
-      text: "POWER STUDIES",
-      path: "/power-system-studies",
-    },
-    {
-      icon: "/nav-lps-icon2.png",
-      text: "LPS STUDIES",
-      path: "/lightning-protection-studies",
-    },
-  ];
+  // New items from image
+ 
+  {
+    icon: "/nav-jefshield-icon.png",
+    text: "JEF-SHIELD & E-BUILD",
+    path: "/coming-soon",
+  },
+  
+
+  {
+    icon: "/nav-spd-icon.png",
+    text: "SPD",
+    path: "/coming-soon",
+  },
+];
+
+const services2 = [
+  {
+    icon: "/nav-esa-icon3.png",
+    text: "EARTHING HEALTH ASSESSMENT",
+    path: "/earthing-studies",
+  },
+  {
+    icon: "/nav-audit-icon2.png",
+    text: "ELECTRICAL & FIRE SAFETY",
+    path: "/earthing-studies",
+  },
+  {
+    icon: "/nav-istrumentation-icon2.png",
+    text: "INSTRUMENTATION SYSTEM",
+    path: "/instrumentation-earthing-studies",
+  },
+  {
+    icon: "/nav-power-studies-icon2.png",
+    text: "POWER QUALITY SYSTEM",
+    path: "/power-system-studies",
+  },
+  {
+    icon: "/nav-lps-icon2.png",
+    text: "LPS ADEQUACY",
+    path: "/lightning-protection-studies",
+  },
+];
   const services3 = [
     {
       icon: "/nav-industrial-icon2.png", // industrial type icon
@@ -586,11 +612,18 @@ function ServicesComponent() {
                   setIsHovered2(false);
                   setIsHovered3(false);
                 }}
-                className="flex gap-10 cursor-pointer"
+                className="flex gap-5 cursor-pointer"
               >
                 <h2 className="text-lg text-white hover:text-gray-400 tracking-[3.36px]">
                   OUR PRODUCTS
                 </h2>
+                <div className="flex items-center">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/2bb3117bb1e657fdbc997cd15e47263db3ce1251843c4a3543e9042a61e0fd2a"
+                    alt=""
+                    className="w-2"
+                  />
+                </div>
               </div>
             </header>
 
@@ -605,11 +638,19 @@ function ServicesComponent() {
                   setIsHovered(false);
                   setIsHovered3(false);
                 }}
-                className="flex gap-10 cursor-pointer"
+                className="flex gap-5 cursor-pointer"
               >
                 <h2 className="text-lg text-white hover:text-gray-400 tracking-[3.36px]">
-                  OUR SOLUTION
+                  AUDIT SERVICES
                 </h2>
+                <div className="flex items-center">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/2bb3117bb1e657fdbc997cd15e47263db3ce1251843c4a3543e9042a61e0fd2a"
+                    alt=""
+                    className="w-2"
+                  />
+                </div>
+               
               </div>
             </header>
 
@@ -624,11 +665,18 @@ function ServicesComponent() {
                   setIsHovered(false);
                   setIsHovered2(false);
                 }}
-                className="flex gap-10 cursor-pointer"
+                className="flex gap-5 cursor-pointer"
               >
                 <h2 className="text-lg text-white hover:text-gray-400 tracking-[3.36px]">
-                  CONSULTANCY
+                  CONSULTING SERVICES
                 </h2>
+                <div className="flex items-center">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/2bb3117bb1e657fdbc997cd15e47263db3ce1251843c4a3543e9042a61e0fd2a"
+                    alt=""
+                    className="w-2"
+                  />
+                </div>
               </div>
             </header>
           </div>

@@ -141,7 +141,7 @@ function LeadershipSection() {
 
   return (
     <>
-      <section className="bg-[#F9F7F2] py-20">
+      <section className="bg-[#1B1818] py-20">
         {/* Search Bar */}
         <div className="max-w-[1260px] mx-auto px-4 mb-16">
           <div className="relative w-full max-w-[310px] h-[59px]">
@@ -177,7 +177,7 @@ function LeadershipSection() {
               className="w-[240px] flex flex-col justify-start"
             >
               {/* Image */}
-              <div className="w-[240px] h-[240px] overflow-hidden bg-[#D9D9D9]">
+              <div className="w-[240px] h-[240px] overflow-hidden bg-[#1B1818]">
                 <img
                   src={leader.image}
                   alt={leader.name}
@@ -186,7 +186,7 @@ function LeadershipSection() {
               </div>
 
               {/* Name */}
-              <h2 className="mt-6 h-[50px] text-[20px] leading-[20px] font-light text-[#111111] uppercase flex items-start">
+              <h2 className="mt-6 h-[50px] text-[20px] leading-[20px] font-light text-white uppercase flex items-start">
                 {leader.name}
               </h2>
 

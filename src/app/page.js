@@ -1095,7 +1095,15 @@ function Home() {
               <img
                 src="/HomePageImg/WhyChooseJEFImg/smart safety audit tool.png"
                 alt="Smart Digitization"
-                className="w-full h-full object-cover"
+                className="
+      w-full
+      h-full
+      object-cover
+      transition-transform
+      duration-[1200ms]
+      ease-[cubic-bezier(0.22,1,0.36,1)]
+      hover:scale-110
+    "
               />
             </div>
 
@@ -1107,7 +1115,7 @@ function Home() {
               </p>
 
               {/* HEADING */}
-              <h2 className="text-[28px] font-bold tracking-[3px] uppercase leading-none text-white font-montserrat">
+              <h2 className="text-[28px] font-semibold tracking-[3px] uppercase leading-none text-white font-montserrat">
                 Smart Digitization
               </h2>
 
@@ -1122,29 +1130,63 @@ function Home() {
 
               {/* BUTTON */}
               <button
+                onClick={(e) => {
+                  const button = e.currentTarget;
+                  const ripple = document.createElement("span");
+                  const rect = button.getBoundingClientRect();
+                  const size = Math.max(rect.width, rect.height) * 2;
+
+                  Object.assign(ripple.style, {
+                    position: "absolute",
+                    borderRadius: "50%",
+                    background: "rgba(0,0,0,0.15)",
+                    width: `${size}px`,
+                    height: `${size}px`,
+                    left: `${e.clientX - rect.left - size / 2}px`,
+                    top: `${e.clientY - rect.top - size / 2}px`,
+                    transform: "scale(0)",
+                    pointerEvents: "none",
+                    transition:
+                      "transform 0.6s ease-out, opacity 0.6s ease-out",
+                    opacity: "1",
+                  });
+
+                  button.appendChild(ripple);
+
+                  requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                      ripple.style.transform = "scale(1)";
+                      ripple.style.opacity = "0";
+                    });
+                  });
+
+                  setTimeout(() => ripple.remove(), 650);
+                }}
                 className="
-            group
-            w-[239px]
-            h-[56px]
-            rounded-full
-            border
-            border-[#1D1F221A]
-            bg-[#C02429]
-            flex
-            items-center
-            justify-center
-            gap-[10px]
-            uppercase
-            text-white
-            tracking-[2px]
-            text-[14px]
-            transition-all
-            duration-300
-            hover:bg-[#F9F7F2]
-            hover:text-[#C02429]
-          "
+    relative
+    overflow-hidden
+    group
+    w-[239px]
+    h-[56px]
+    rounded-full
+    border
+    border-[#1D1F221A]
+    bg-[#C02429]
+    flex
+    items-center
+    justify-center
+    gap-[10px]
+    uppercase
+    text-white
+    tracking-[2px]
+    text-[14px]
+    transition-all
+    duration-300
+    hover:bg-[#F9F7F2]
+    hover:text-[#C02429]
+  "
               >
-                <span>Read More</span>
+                <span className="relative z-10">Read More</span>
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1156,7 +1198,7 @@ function Home() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="transition-all duration-300"
+                  className="relative z-10 transition-all duration-300"
                 >
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path>
@@ -1175,7 +1217,7 @@ function Home() {
               </p>
 
               {/* HEADING */}
-              <h2 className="text-[28px] font-bold tracking-[3px] uppercase leading-none text-white font-montserrat">
+              <h2 className="text-[28px] font-semibold tracking-[3px] uppercase leading-none text-white font-montserrat">
                 Our L&amp;D Center
               </h2>
 
@@ -1189,29 +1231,63 @@ function Home() {
 
               {/* BUTTON */}
               <button
+                onClick={(e) => {
+                  const button = e.currentTarget;
+                  const ripple = document.createElement("span");
+                  const rect = button.getBoundingClientRect();
+                  const size = Math.max(rect.width, rect.height) * 2;
+
+                  Object.assign(ripple.style, {
+                    position: "absolute",
+                    borderRadius: "50%",
+                    background: "rgba(0,0,0,0.15)",
+                    width: `${size}px`,
+                    height: `${size}px`,
+                    left: `${e.clientX - rect.left - size / 2}px`,
+                    top: `${e.clientY - rect.top - size / 2}px`,
+                    transform: "scale(0)",
+                    pointerEvents: "none",
+                    transition:
+                      "transform 0.6s ease-out, opacity 0.6s ease-out",
+                    opacity: "1",
+                  });
+
+                  button.appendChild(ripple);
+
+                  requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                      ripple.style.transform = "scale(1)";
+                      ripple.style.opacity = "0";
+                    });
+                  });
+
+                  setTimeout(() => ripple.remove(), 650);
+                }}
                 className="
-            group
-            w-[239px]
-            h-[56px]
-            rounded-full
-            border
-            border-[#1D1F221A]
-            bg-[#C02429]
-            flex
-            items-center
-            justify-center
-            gap-[10px]
-            uppercase
-            text-white
-            tracking-[2px]
-            text-[14px]
-            transition-all
-            duration-300
-            hover:bg-[#F9F7F2]
-            hover:text-[#C02429]
-          "
+    relative
+    overflow-hidden
+    group
+    w-[239px]
+    h-[56px]
+    rounded-full
+    border
+    border-[#1D1F221A]
+    bg-[#C02429]
+    flex
+    items-center
+    justify-center
+    gap-[10px]
+    uppercase
+    text-white
+    tracking-[2px]
+    text-[14px]
+    transition-all
+    duration-300
+    hover:bg-[#F9F7F2]
+    hover:text-[#C02429]
+  "
               >
-                <span>Read More</span>
+                <span className="relative z-10">Read More</span>
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1223,7 +1299,7 @@ function Home() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="transition-all duration-300"
+                  className="relative z-10 transition-all duration-300"
                 >
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path>
@@ -1232,11 +1308,20 @@ function Home() {
             </div>
 
             {/* IMAGE */}
-            <div className="w-full lg:w-[667px] h-[375px] overflow-hidden">
+
+            <div className="w-full lg:w-[667px] h-[375px] overflow-hidden ">
               <img
                 src="/HomePageImg/WhyChooseJEFImg/ld center.png"
                 alt="L&D Center"
-                className="w-full h-full object-cover"
+                className="
+      w-full
+      h-full
+      object-cover
+      transition-transform
+      duration-[1200ms]
+      ease-[cubic-bezier(0.22,1,0.36,1)]
+      hover:scale-110
+    "
               />
             </div>
           </div>
@@ -1264,34 +1349,35 @@ function Home() {
                   Founder's message
                 </h1>
                 <div className="self-stretch Y-axis-text sm:my-12 space-y-5 lg:text-base 2xl:text-xl  2xl:leading-8 text-stone-900 max-md:my-12 max-md:max-w-full">
-                <p>
-    Every single day, we endeavour to make more customers across continents
-    <br />
-    benefit from our work as a step to enhance reliability & safety in the electrical
-    <br />
-    network.
-  </p>
+                  <p>
+                    Every single day, we endeavour to make more customers across
+                    continents
+                    <br />
+                    benefit from our work as a step to enhance reliability &
+                    safety in the electrical
+                    <br />
+                    network.
+                  </p>
 
-  <br />
+                  <p>
+                    Over the last 30 years of our existence, we have served more
+                    than 10K+
+                    <br />
+                    customers in 30+ countries. Consistently meeting & exceeding
+                    their
+                    <br />
+                    expectations at every given opportunity, we at Team JEF have
+                    created a
+                    <br />
+                    formidable track record for ourselves.
+                  </p>
 
-  <p>
-    Over the last 30 years of our existence, we have served more than 10K+
-    <br />
-    customers in 30+ countries. Consistently meeting & exceeding their
-    <br />
-    expectations at every given opportunity, we at Team JEF have created a
-    <br />
-    formidable track record for ourselves.
-  </p>
-
-  <br />
-
-  <p>
-    No wonder customers <strong>THINK "JEF"</strong> when they{" "}
-    <strong>THINK ELECTRICAL</strong>
-    <br />
-    engineering.
-  </p>
+                  <p>
+                    No wonder customers <strong>THINK "JEF"</strong> when they{" "}
+                    <strong>THINK ELECTRICAL</strong>
+                    <br />
+                    engineering.
+                  </p>
                 </div>
                 <div className="Y-axis-text-founder">
                   <h2 className="text-xl lg:text-2xl font-semibold max-md:text-4xl">
@@ -1362,34 +1448,69 @@ function Home() {
 
               {/* EXPLORE MORE BUTTON */}
               <button
+                onClick={(e) => {
+                  const button = e.currentTarget;
+                  const ripple = document.createElement("span");
+                  const rect = button.getBoundingClientRect();
+                  const size = Math.max(rect.width, rect.height) * 2;
+
+                  Object.assign(ripple.style, {
+                    position: "absolute",
+                    borderRadius: "50%",
+                    background: "rgba(0,0,0,0.15)",
+                    width: `${size}px`,
+                    height: `${size}px`,
+                    left: `${e.clientX - rect.left - size / 2}px`,
+                    top: `${e.clientY - rect.top - size / 2}px`,
+                    transform: "scale(0)",
+                    pointerEvents: "none",
+                    transition:
+                      "transform 0.6s ease-out, opacity 0.6s ease-out",
+                    opacity: "1",
+                  });
+
+                  button.appendChild(ripple);
+
+                  requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                      ripple.style.transform = "scale(1)";
+                      ripple.style.opacity = "0";
+                    });
+                  });
+
+                  setTimeout(() => ripple.remove(), 650);
+                }}
                 className="
-            group
-            w-[209px]
-            h-[40px]
-            rounded-full
-            border
-            border-[#D0D0D0]
-            px-[18px]
-            flex
-            items-center
-            justify-between
-            transition-all
-            duration-300
-            hover:bg-[#C02429]
-            hover:border-[#C02429]
-          "
+    relative
+    overflow-hidden
+    group
+    w-[209px]
+    h-[40px]
+    rounded-full
+    border
+    border-[#D0D0D0]
+    px-[18px]
+    flex
+    items-center
+    justify-between
+    transition-all
+    duration-300
+    hover:bg-[#C02429]
+    hover:border-[#C02429]
+  "
               >
                 <span
                   className="
-              text-[14px]
-              uppercase
-              tracking-[1px]
-              text-white
-              font-montserrat
-              transition
-              duration-300
-              group-hover:text-white
-            "
+      relative
+      z-10
+      text-[14px]
+      uppercase
+      tracking-[1px]
+      text-white
+      font-montserrat
+      transition
+      duration-300
+    "
                 >
                   Explore More
                 </span>
@@ -1398,15 +1519,16 @@ function Home() {
                   src="./HomePageImg/LeftArrow.png"
                   alt="Arrow"
                   className="
-              w-[18px]
-             
-              rotate-180
-              brightness-100
-              transition
-              duration-300
-              group-hover:brightness-0
-              group-hover:invert
-            "
+      relative
+      z-10
+      w-[18px]
+      rotate-180
+      brightness-100
+      transition
+      duration-300
+      group-hover:brightness-0
+      group-hover:invert
+    "
                 />
               </button>
             </header>
@@ -1881,108 +2003,103 @@ function Home() {
 function WhatWeDoSection() {
   const [activeCard, setActiveCard] = useState(0);
   const [panelOpen, setPanelOpen] = useState(false);
-  const[background,setBackground] = useState("/HomePageImg/WhatWeDoBg.png");
+  const [background, setBackground] = useState("/HomePageImg/WhatWeDoBg.png");
   const sectionRef = useRef(null);
-const videoRef = useRef(null);
+  const videoRef = useRef(null);
 
-const [showContent, setShowContent] = useState(false);
-const [videoStarted, setVideoStarted] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+  const [videoStarted, setVideoStarted] = useState(false);
 
-useEffect(() => {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting && !videoStarted) {
-        setVideoStarted(true);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !videoStarted) {
+          setVideoStarted(true);
 
-        if (videoRef.current) {
-          videoRef.current.play();
+          if (videoRef.current) {
+            videoRef.current.play();
+          }
         }
-      }
-    },
-    {
-      threshold: 0.5,
+      },
+      {
+        threshold: 0.5,
+      },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
-  );
 
-  if (sectionRef.current) {
-    observer.observe(sectionRef.current);
-  }
+    return () => observer.disconnect();
+  }, [videoStarted]);
 
-  return () => observer.disconnect();
-}, [videoStarted]);
+  const services = [
+    {
+      id: 0,
+      title: "EARTHING STUDIES",
+      heading: "GROUNDING EARTHING STUDIES",
+      description:
+        "Earthing is an essential part of any electrical installation, essentialfor the safety from electrical shock, and fire and for operation of most oftheprotective systems of the electrical installation.",
+      top: "180px",
+      left: "140px",
+      width: "280px",
+      background: "./HomePageImg/WhatWeDoSection/Solution-1.png",
+    },
 
-    const services = [
-     {
-       id: 0,
-       title: "EARTHING STUDIES",
-       heading: "GROUNDING EARTHING STUDIES",
-       description:
-         "Earthing is an essential part of any electrical installation, essentialfor the safety from electrical shock, and fire and for operation of most oftheprotective systems of the electrical installation.",
-       top: "180px",
-       left: "140px",
-       width: "280px",
-       buttonImg: "/HomePageImg/Earthing-studies-btn.png",
-       background:"./HomePageImg/WhatWeDoSection/Solution-1.png",
-     },
+    {
+      id: 1,
+      title: "LIGHTNING PROTECTION SYSTEM STUDIES",
+      heading: "LIGHTNING PROTECTION SYSTEM STUDIES",
+      description:
+        "The purpose of Lightning Protection Systemaudit is to conduct lightning risk assessment and determine the level of protectionrequired to the structure/facility as per the latest relevant standards. LPS Adequacyaudit helps to manage and mitigate the risk due to lightning and protect the life andassets.",
+      top: "290px",
+      left: "420px",
+      width: "280px",
+      background: "./HomePageImg/WhatWeDoSection/Solution-2.png",
+    },
 
-     {
-       id: 1,
-       title: "LIGHTNING PROTECTION SYSTEM STUDIES",
-       heading: "LIGHTNING PROTECTION SYSTEM STUDIES",
-       description:
-         "The purpose of Lightning Protection Systemaudit is to conduct lightning risk assessment and determine the level of protectionrequired to the structure/facility as per the latest relevant standards. LPS Adequacyaudit helps to manage and mitigate the risk due to lightning and protect the life andassets.",
-       top: "290px",
-       left: "420px",
-       width: "280px",
-       buttonImg: "/HomePageImg/LPS-Studies-btn.png",
-       background:"./HomePageImg/WhatWeDoSection/Solution-2.png",
-     },
+    {
+      id: 2,
+      title: "POWER SYSTEM STUDIES",
+      heading: "POWER SYSTEM STUDIES",
+      description:
+        "A Power System Study involves analyzing various aspectsof an electrical power system to identify potential issues and optimize performance. These studies include load flow analysis, short circuit studies, relay coordination, arcflash analysis, and more, all aimed at enhancing system reliability and safety.",
+      top: "410px",
+      left: "190px",
+      width: "300px",
+      background: "./HomePageImg/WhatWeDoSection/Solution-3.png",
+    },
 
-     {
-       id: 2,
-       title: "POWER SYSTEM STUDIES",
-       heading: "POWER SYSTEM STUDIES",
-       description:
-         "A Power System Study involves analyzing various aspectsof an electrical power system to identify potential issues and optimize performance. These studies include load flow analysis, short circuit studies, relay coordination, arcflash analysis, and more, all aimed at enhancing system reliability and safety.",
-       top: "410px",
-       left: "190px",
-       width: "300px",
-       buttonImg: "/HomePageImg/Power-System-Studies-btn.png",
-       background:"./HomePageImg/WhatWeDoSection/Solution-3.png",
-     },
+    {
+      id: 3,
+      title: "POWER QUALITY & ROOT CAUSE ANALYSIS",
+      heading: "POWER QUALITY & ROOT CAUSE ANALYSIS",
+      description:
+        "A Power Quality Study involves acomprehensive analysis of your electrical system to identify disturbances anddeviations in voltage, current, and frequency. These studies are essential forensuring that your power supply is stable and free from issues that can lead toequipment malfunction or inefficiencies.",
+      top: "490px",
+      left: "550px",
+      width: "300px",
+      background: "./HomePageImg/WhatWeDoSection/Solution-4.png",
+    },
 
-     {
-       id: 3,
-       title: "POWER QUALITY & ROOT CAUSE ANALYSIS",
-       heading: "POWER QUALITY & ROOT CAUSE ANALYSIS",
-       description:
-         "A Power Quality Study involves acomprehensive analysis of your electrical system to identify disturbances anddeviations in voltage, current, and frequency. These studies are essential forensuring that your power supply is stable and free from issues that can lead toequipment malfunction or inefficiencies.",
-       top: "490px",
-       left: "550px",
-       width: "300px",
-       buttonImg: "/HomePageImg/PQ-and-RC btn.png",
-       background:"./HomePageImg/WhatWeDoSection/Solution-4.png",
-     },
-
-     {
-       id: 4,
-       title: "INSTRUMENTATION EARTHING",
-       heading: "INSTRUMENTATION EARTHING",
-       description:
-         "An Instrumentation Earthing Study involves evaluatingthe earthing system of instrumentation and control systems to ensure propergrounding. This study helps prevent electrical noise, surges, and other issues thatcan affect the accuracy and reliability of instrumentation.",
-       top: "580px",
-       left: "310px",
-       width: "300px",
-       buttonImg: "/HomePageImg/Instrumentation btn.png",
-       background:"./HomePageImg/WhatWeDoSection/Solution-5.png",
-     },
+    {
+      id: 4,
+      title: "INSTRUMENTATION EARTHING",
+      heading: "INSTRUMENTATION EARTHING",
+      description:
+        "An Instrumentation Earthing Study involves evaluatingthe earthing system of instrumentation and control systems to ensure propergrounding. This study helps prevent electrical noise, surges, and other issues thatcan affect the accuracy and reliability of instrumentation.",
+      top: "580px",
+      left: "310px",
+      width: "300px",
+      background: "./HomePageImg/WhatWeDoSection/Solution-5.png",
+    },
   ];
 
-   const handleCardClick = (service) => {
-     setActiveCard(service.id);
-     setPanelOpen(true);
-     setBackground(service.background)
-   };
+  const handleCardClick = (service) => {
+    setActiveCard(service.id);
+    setPanelOpen(true);
+    setBackground(service.background);
+  };
 
   const handlePrev = () => {
     const prevIndex = (activeCard - 1 + services.length) % services.length;
@@ -2007,170 +2124,216 @@ useEffect(() => {
   }, [panelOpen]);
 
   return (
-    <section  ref={sectionRef} className="relative w-full min-h-[850px] overflow-hidden bg-black">
+    <section
+      ref={sectionRef}
+      className="relative w-full min-h-[850px] overflow-hidden bg-black"
+    >
       {/* Background Image */}
-<img
-  src={background}
-  alt="What We Do Background"
-  className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
-    showContent ? "opacity-100" : "opacity-0"
-  } z-0`}
-/>
-      <video
-  ref={videoRef}
-  muted
-  playsInline
-  onEnded={() => setShowContent(true)}
-  className={`absolute inset-0 w-full h-full object-cover z-0 transition-all duration-1000 ${
-    showContent ? "opacity-0" : "opacity-100"
-  }`}
->
-  <source src="/HomePageImg/Earthzoom.mp4" type="video/mp4" />
-</video>
-      
-
-      <div
-  className={`transition-all duration-1000 ${
-    showContent
-      ? "opacity-100 translate-y-0"
-      : "opacity-0 translate-y-10"
-  }`}
->
-    
-
-      {/* Overlay — darkens more when panel is open */}
-      <div
-        className={`absolute inset-0 z-10 transition-all duration-700 ${
-          panelOpen ? "bg-black/60" : "bg-black/35"
-        }`}
+      <img
+        src={background}
+        alt="What We Do Background"
+        className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
+          showContent ? "opacity-100" : "opacity-0"
+        } z-0`}
       />
-
-      {/* Heading */}
-      <div className="absolute top-[70px] left-[70px] z-20">
-        <h2 className="font-montserrat font-bold text-[36px] leading-none tracking-[4px] uppercase text-white">
-          WHAT WE DO
-        </h2>
-      </div>
-
-      {/* FLOATING PNG BUTTONS */}
-      {services.map((service) => (
-        <div
-          key={service.id}
-          onClick={() => handleCardClick(service)}
-          className="absolute z-20 flex justify-center items-center"
-          style={{
-            top: service.top,
-            left: service.left,
-            width: service.width,
-          }}
-        >
-          <img
-            src={service.buttonImg}
-            alt={service.title}
-            className="
-        cursor-pointer
-        object-contain
-        hover:scale-105
-        active:scale-95
-        transition-transform
-        duration-200
-      "
-          />
-        </div>
-      ))}
-
-      {/* Slide Panel */}
-      <div
-        className={`fixed top-0 right-0 z-[9999] h-screen bg-white transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]
-        w-[35%] min-w-[480px] max-w-[600px]
-        ${panelOpen ? "translate-x-0" : "translate-x-full"}`}
+      <video
+        ref={videoRef}
+        muted
+        playsInline
+        onEnded={() => setShowContent(true)}
+        className={`absolute inset-0 w-full h-full object-cover z-0 transition-all duration-1000 ${
+          showContent ? "opacity-0" : "opacity-100"
+        }`}
       >
-        {/* Close Button */}
-        <button
-          onClick={() => setPanelOpen(false)}
-          className="absolute top-[42.5px] right-[42px] w-[48px] h-[48px] bg-[#C02429] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 hover:bg-red-700 transition"
-        >
-          ✕
-        </button>
+        <source src="/HomePageImg/Earthzoom.mp4" type="video/mp4" />
+      </video>
 
-        {/* Panel Content */}
-        <div className="absolute top-[20%] left-[60px] w-[75%]">
-          <h3 className="font-montserrat font-medium text-[28px] leading-[140%] tracking-[2px] uppercase text-[#2E2E2E]">
-            {services[activeCard].heading}
-          </h3>
-
-          <p className="mt-8 font-montserrat font-normal text-[17px] leading-[170%] text-[#3D3D3D]">
-            {services[activeCard].description}
-          </p>
-
-          {/* Read More Button */}
-          <button className="mt-10 w-[180px] h-[48px] rounded-full border border-[#D9D9D9] text-[#C02429] uppercase tracking-[2px] text-[14px] transition-all duration-300 hover:bg-[#C02429] hover:text-white">
-            Read More
-          </button>
-        </div>
-
-        {/* Bottom Navigation */}
+      <div
+        className={`transition-all duration-1000 ${
+          showContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
+        {/* Overlay — darkens more when panel is open */}
         <div
-          className="absolute flex gap-[20px]"
-          style={{ bottom: "60px", right: "64px" }}
-        >
-          {/* PREV */}
-          <button
-            onClick={handlePrev}
+          className={`absolute inset-0 z-10 transition-all duration-700 ${
+            panelOpen ? "bg-black/60" : "bg-black/35"
+          }`}
+        />
+
+        {/* Heading */}
+        <div className="absolute top-[70px] left-[70px] z-20">
+          <h2 className="font-montserrat font-bold text-[36px] leading-none tracking-[4px] uppercase text-white">
+            WHAT WE DO
+          </h2>
+        </div>
+
+        {/* FLOATING PNG BUTTONS */}
+        {services.map((service) => (
+          <div
+            key={service.id}
+            onClick={() => handleCardClick(service)}
+            className="absolute z-20 flex justify-center items-center"
             style={{
-              width: "60px",
-              height: "60px",
-              borderRadius: "60px",
-              border: "1px solid #C02429",
-              padding: "18px",
-              background: "transparent",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              transition: "0.3s",
-              boxSizing: "border-box",
+              top: service.top,
+              left: service.left,
+              width: service.width,
             }}
           >
-            <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
-              <path
-                d="M17 7H1M1 7L7 1M1 7L7 13"
-                stroke="#C02429"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <button
+              onClick={(e) => {
+                const button = e.currentTarget;
+                const ripple = document.createElement("span");
+                const rect = button.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height) * 2;
+
+                Object.assign(ripple.style, {
+                  position: "absolute",
+                  borderRadius: "50%",
+                  background: "rgba(0,0,0,0.15)",
+                  width: `${size}px`,
+                  height: `${size}px`,
+                  left: `${e.clientX - rect.left - size / 2}px`,
+                  top: `${e.clientY - rect.top - size / 2}px`,
+                  transform: "scale(0)",
+                  pointerEvents: "none",
+                  transition: "transform 0.6s ease-out, opacity 0.6s ease-out",
+                  opacity: "1",
+                });
+
+                button.appendChild(ripple);
+
+                requestAnimationFrame(() => {
+                  requestAnimationFrame(() => {
+                    ripple.style.transform = "scale(1)";
+                    ripple.style.opacity = "0";
+                  });
+                });
+
+                setTimeout(() => ripple.remove(), 650);
+              }}
+              className={`
+    relative overflow-hidden
+    w-[270px] h-[58px]
+    rounded-full
+    flex items-center justify-center
+    transition-colors duration-300
+    ${
+      service.id === 0
+        ? "bg-[#C61F26] text-[#F4F0EA] hover:bg-[#F4F0EA] hover:text-[#C61F26]"
+        : "bg-[#F4F0EA] text-[#C61F26] hover:bg-[#C61F26] hover:text-[#F4F0EA]"
+    }
+  `}
+            >
+              <span className="relative z-10 font-[Montserrat] text-[16px] uppercase tracking-[0.14em] font-semibold">
+                {service.title}
+              </span>
+            </button>
+          </div>
+        ))}
+
+        {/* Slide Panel */}
+        <div
+          className={`
+    fixed top-0 right-0 z-[99999] h-screen bg-white
+    transition-transform duration-[900ms]
+    ease-[cubic-bezier(0.22,1,0.36,1)]
+    w-[35%] min-w-[480px] max-w-[600px]
+    shadow-2xl
+    ${panelOpen ? "translate-x-0" : "translate-x-full"}
+  `}
+        >
+          {/* Close Button */}
+          <button
+            onClick={() => setPanelOpen(false)}
+            className="absolute top-[42.5px] right-[42px] z-10 w-[48px] h-[48px] bg-[#C02429] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 hover:bg-red-700 transition"
+          >
+            ✕
           </button>
 
-          {/* NEXT */}
-          <button
-            onClick={handleNext}
-            style={{
-              width: "60px",
-              height: "60px",
-              borderRadius: "60px",
-              border: "1px solid #C02429",
-              padding: "18px",
-              background: "#C02429",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              transition: "0.3s",
-              boxSizing: "border-box",
-            }}
+          {/* Panel Content */}
+          <div className="absolute top-[20%] left-[60px] w-[75%]">
+            <h3 className="font-montserrat font-medium text-[28px] leading-[140%] tracking-[2px] uppercase text-[#2E2E2E]">
+              {services[activeCard].heading}
+            </h3>
+
+            <p className="mt-8 font-montserrat font-normal text-[17px] leading-[170%] text-[#3D3D3D]">
+              {services[activeCard].description}
+            </p>
+
+            {/* Read More Button */}
+            <button className="mt-10 w-[180px] h-[48px] rounded-full border border-[#D9D9D9] text-[#C02429] uppercase tracking-[2px] text-[14px] transition-all duration-300 hover:bg-[#C02429] hover:text-white">
+              Read More
+            </button>
+          </div>
+
+          {/* Bottom Navigation */}
+          <div
+            className="absolute flex gap-[20px]"
+            style={{ bottom: "60px", right: "64px" }}
           >
-            <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
-              <path
-                d="M1 7H17M17 7L11 1M17 7L11 13"
-                stroke="white"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+            {/* PREV BUTTON */}
+            {activeCard !== 0 && (
+              <button
+                onClick={handlePrev}
+                style={{
+                  width: "60px",
+                  height: "60px",
+                  borderRadius: "60px",
+                  border: "1px solid #C02429",
+                  padding: "18px",
+                  background: "transparent",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  transition: "0.3s",
+                  boxSizing: "border-box",
+                }}
+                className="hover:scale-105"
+              >
+                <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+                  <path
+                    d="M17 7H1M1 7L7 1M1 7L7 13"
+                    stroke="#C02429"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            )}
+
+            {/* NEXT BUTTON */}
+            {activeCard !== services.length - 1 && (
+              <button
+                onClick={handleNext}
+                style={{
+                  width: "60px",
+                  height: "60px",
+                  borderRadius: "60px",
+                  border: "1px solid #C02429",
+                  padding: "18px",
+                  background: "#C02429",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  transition: "0.3s",
+                  boxSizing: "border-box",
+                }}
+                className="hover:scale-105"
+              >
+                <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+                  <path
+                    d="M1 7H17M17 7L11 1M17 7L11 13"
+                    stroke="white"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            )}
+          </div>
         </div>
-      </div>
       </div>
     </section>
   );
@@ -2408,8 +2571,6 @@ function BlogCard({ imageSrc, title, path }) {
               group
             "
           >
-          
-
             <img
               src="./HomePageImg/LeftArrow.png"
               alt="Arrow"
@@ -2633,35 +2794,62 @@ function IndustriesSection() {
       {/* SLIDE PANEL */}
       <div
         className={`
-          fixed
-          top-0
-          right-0
-          h-screen
-          w-[872px]
-          bg-[#F4F4F4]
-          transition-transform
-          duration-700
-          ease-[cubic-bezier(0.22,1,0.36,1)]
-          z-[9999]
-          ${isOpen ? "translate-x-0" : "translate-x-full"}
-        `}
+    fixed
+    top-0
+    right-0
+    h-screen
+    w-[572px]
+    bg-[#FFFFFF]
+    transition-transform
+    duration-700
+    ease-[cubic-bezier(0.22,1,0.36,1)]
+    z-[9999]
+    ${isOpen ? "translate-x-0" : "translate-x-full"}
+  `}
       >
         {/* CONTENT */}
-        <div className="relative w-[723px] ml-[43px] mt-[49px] flex flex-col gap-8">
-          {/* TITLE */}
-          <h3 className="text-[26px] font-semibold leading-[150%] uppercase text-black">
-            {currentIndustry.title}
-          </h3>
+        {/* TITLE */}
+        <h3
+          className="
+    absolute
+    top-[48px]
+    left-[58px]
+    w-[360px]
+    text-[24px]
+    font-semibold
+    leading-[145%]
+    uppercase
+    tracking-[1.5px]
+    text-black
+  "
+        >
+          {currentIndustry.title}
+        </h3>
 
+        {/* CONTENT */}
+        <div
+          className="
+    absolute
+    top-[140px]
+    left-[58px]
+    w-[450px]
+  "
+        >
           {/* TEXT */}
-          <div className="text-[20px] leading-[150%] text-[#3E3E3E]">
+          <div
+            className="
+      text-[17px]
+      leading-[175%]
+      text-[#3E3E3E]
+    "
+          >
             {currentIndustry.description.map((item, idx) =>
               idx === 0 ? (
                 <p key={idx} className="mb-5">
                   {item}
                 </p>
               ) : (
-                <ul key={idx} className="list-disc pl-[32px] mb-4">
+                <ul key={idx} className="list-disc pl-[24px] mb-4">
                   <li>{item}</li>
                 </ul>
               ),
@@ -2672,7 +2860,23 @@ function IndustriesSection() {
         {/* CLOSE BUTTON */}
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-[42.5px] right-[42px] w-[48px] h-[48px] bg-[#C02429] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 hover:bg-red-700 transition"
+          className="
+    absolute
+    top-[42px]
+    right-[42px]
+    w-[48px]
+    h-[48px]
+    bg-[#C02429]
+    rounded-full
+    flex
+    items-center
+    justify-center
+    text-white
+    text-xl
+    hover:scale-110
+    hover:bg-red-700
+    transition
+  "
         >
           ✕
         </button>
@@ -2680,7 +2884,10 @@ function IndustriesSection() {
         {/* NAVIGATION BUTTONS */}
         <div
           className="absolute flex gap-[20px]"
-          style={{ bottom: "60px", right: "64px" }}
+          style={{
+            bottom: "60px",
+            left: "58px",
+          }}
         >
           {/* PREV */}
           <button
@@ -2698,6 +2905,7 @@ function IndustriesSection() {
               transition: "0.3s",
               boxSizing: "border-box",
             }}
+            className="hover:scale-105"
           >
             <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
               <path
@@ -2726,6 +2934,7 @@ function IndustriesSection() {
               transition: "0.3s",
               boxSizing: "border-box",
             }}
+            className="hover:scale-105"
           >
             <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
               <path

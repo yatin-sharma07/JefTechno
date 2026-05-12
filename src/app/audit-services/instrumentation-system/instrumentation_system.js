@@ -314,9 +314,9 @@ const cards = [
 
       {/* Contact Us section */}
 
-      <section className="flex h-auto -mb-11 md:mb-0 overflow-hidden flex-col bg-[#F9F7F2]">
+      <section className="flex h-auto -mb-11 md:mb-0 overflow-hidden flex-col bg-[#1B1818]">
         <div className="flex overflow-hidden flex-col w-full bg-white max-md:max-w-full" />
-        <nav className="flex flex-col justify-center py-6 px-24 w-full bg-[#F9F7F2] min-h-[64px] max-md:px-5 max-md:max-w-full">
+        <nav className="flex flex-col justify-center py-6 px-24 w-full bg-[#1B1818] min-h-[64px] max-md:px-5 max-md:max-w-full">
           <div className="flex w-full max-md:max-w-full">
             <div className="flex items-center h-full min-w-[240px]">
               {navItems.map((item, index) => (
@@ -376,7 +376,7 @@ const cards = [
             </h1>
 
             {/* Paragraph 1 */}
-            <p className="text-[20px] font-normal leading-[150%] text-[#4B4B4B] font-montserrat max-w-[1200px]">
+            <p className="text-[20px] font-normal leading-[150%] text-[#FFFFFF] font-montserrat max-w-[1200px]">
               Process plants and industrial facilities invest significantly in
               their instrumentation and control infrastructure — DCS systems,
               PLCs, 4–20 mA signal loops, Foundation Field Bus, HART protocols,
@@ -385,7 +385,7 @@ const cards = [
             </p>
 
             {/* Paragraph 2 */}
-            <p className="text-[20px] font-normal leading-[150%] text-[#4B4B4B] font-montserrat max-w-[1200px]">
+            <p className="text-[20px] font-normal leading-[150%] text-[#FFFFFF] font-montserrat max-w-[1200px]">
               Yet across industries and geographies, the familiar pattern of
               problems recurs unexplained trips, nuisance alarms, signal drifts,
               communication failures, and intermittent malfunctions that are not
@@ -414,7 +414,7 @@ const cards = [
 
           {/* Slide In Panel */}
           <div
-            className={`fixed top-0 right-0 h-screen bg-[#F9F7F2] z-[9999]
+            className={`fixed top-0 right-0 h-screen bg-[#1B1818] z-[9999]
     transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
     ${showLightningPanel ? "translate-x-0" : "translate-x-full"}`}
             style={{
@@ -423,7 +423,7 @@ const cards = [
           >
             {/* PANEL HEADER */}
             <div className="flex items-center justify-between px-[54px] pt-[48px]">
-              <h2 className="text-[#1B1818] font-bold text-[26px] leading-[43.4px] tracking-[1.49px] uppercase font-montserrat">
+              <h2 className="text-[#C02429] font-bold text-[26px] leading-[43.4px] tracking-[1.49px] uppercase font-montserrat">
                 INSTRUMENTATION SYSTEMS
               </h2>
 
@@ -450,7 +450,7 @@ const cards = [
                 marginLeft: "54px",
               }}
             >
-              <p className="text-[24px] font-light leading-[150%] text-400 font-montserrat text-[#1B1818]">
+              <p className="text-[24px] font-light leading-[150%] text-400 font-montserrat text-[#FFFFFF]">
                 JEF has conducted Instrumentation Earthing Audits across more
                 than 120 control rooms and instrumentation panel rooms, auditing
                 over 9,500 panels, 32,053 junction boxes, and 2,04,963 field
@@ -696,7 +696,7 @@ function WhatGoesWrong() {
         minHeight: "980px",
         paddingTop: "80px",
         paddingBottom: "60px",
-        background: "#F9F7F2",
+        background: "#1B1818",
       }}
     >
       {/* TOP CONTENT */}
@@ -732,7 +732,7 @@ function WhatGoesWrong() {
             width: "100%",
             maxWidth: "1385px",
             minHeight: "594px",
-            color: "#1B1818",
+            color: "#FFFFFF",
             fontWeight: 400,
             fontSize: "20px",
             lineHeight: "150%",
@@ -1015,7 +1015,7 @@ function FAQSection() {
   };
 
   return (
-    <section className="w-full bg-[#F9F7F2] pt-[86px] pb-[120px] overflow-hidden">
+    <section className="w-full bg-[#1B1818] pt-[86px] pb-[120px] overflow-hidden">
       {/* Internal FAQ Layout */}
       <div className="max-w-[1508px] mx-auto flex flex-col gap-[48px] px-[100px]">
         {/* FAQ Heading */}
@@ -1035,7 +1035,7 @@ function FAQSection() {
                   key={item.id}
                   className={`
                     w-full
-                    bg-white
+                    bg-[#1B1818]
                     border-[0.5px]
                     border-[#C02429]
                     overflow-hidden
@@ -1070,7 +1070,7 @@ function FAQSection() {
                           ${
                             isOpen
                               ? "font-bold text-[#C02429]"
-                              : "font-normal text-[#4A4A4A]"
+                              : "font-normal text-[#FFFFFF]"
                           }
                         `}
                       >
@@ -1119,7 +1119,7 @@ function FAQSection() {
                   >
                     <div className="overflow-hidden">
                       <div className="px-[24px] pb-[28px]">
-                        <p className="font-montserrat font-normal text-[16px] leading-[150%] text-[#4A4A4A]">
+                        <p className="font-montserrat font-normal text-[16px] leading-[150%] text-[#FFFFFF]">
                           {item.answer}
                         </p>
                       </div>
@@ -1139,7 +1139,7 @@ function FAQSection() {
 //DOWNLOAD
 function DownloadSection() {
   return (
-    <section className="w-full bg-[#F9F7F2] pt-[80px] pb-[120px] overflow-hidden">
+    <section className="w-full bg-[#1B1818] pt-[80px] pb-[120px] overflow-hidden">
       <div className="w-[1508px] ml-[100px] flex flex-col gap-[61px]">
         {" "}
         <h2 className="font-montserrat font-bold text-[32px] leading-[55px] uppercase text-[#C02429]">
@@ -1155,11 +1155,11 @@ function DownloadSection() {
           </div>
 
           <div className="w-[540px] flex flex-col gap-[17px]">
-            <h3 className="font-montserrat font-normal text-[24px] leading-[100%] uppercase text-[#1E1E1E]">
+            <h3 className="font-montserrat font-normal text-[24px] leading-[100%] uppercase text-[#FFFFFF]">
               INSTRUMENTATION SYSTEM GUIDE
             </h3>
 
-            <p className="font-montserrat font-light text-[16px] leading-[150%] text-[#6B6B6B]">
+            <p className="font-montserrat font-light text-[16px] leading-[150%] text-[#FFFFFF]">
               December 14, 2025
             </p>
 
@@ -1168,7 +1168,7 @@ function DownloadSection() {
               download
               className="w-[260px] h-[24px] flex items-center gap-[32px] group"
             >
-              <span className="font-montserrat font-medium text-[14px] uppercase text-[#1E1E1E] group-hover:text-[#C02429] transition-colors duration-300">
+              <span className="font-montserrat font-medium text-[14px] uppercase text-[#FFFFFF] group-hover:text-[#C02429] transition-colors duration-300">
                 Select To Download
               </span>
 

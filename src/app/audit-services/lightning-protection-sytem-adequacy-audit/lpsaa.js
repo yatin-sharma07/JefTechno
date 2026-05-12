@@ -271,9 +271,9 @@ const lpsaa = () => {
 
       {/* Contact Us section */}
 
-      <section className="flex h-auto -mb-11 md:mb-0 overflow-hidden flex-col bg-[#F9F7F2]">
+      <section className="flex h-auto -mb-11 md:mb-0 overflow-hidden flex-col bg-[#1B1818]">
         <div className="flex overflow-hidden flex-col w-full bg-white max-md:max-w-full" />
-        <nav className="flex flex-col justify-center py-6 px-24 w-full bg-[#F9F7F2] min-h-[64px] max-md:px-5 max-md:max-w-full">
+        <nav className="flex flex-col justify-center py-6 px-24 w-full bg-[#1B1818] min-h-[64px] max-md:px-5 max-md:max-w-full">
           <div className="flex w-full max-md:max-w-full">
             <div className="flex items-center h-full min-w-[240px]">
               {navItems.map((item, index) => (
@@ -333,7 +333,7 @@ const lpsaa = () => {
             </h1>
 
             {/* Paragraph 1 */}
-            <p className="text-[20px] font-normal leading-[150%] text-[#4B4B4B] font-montserrat max-w-[1200px]">
+            <p className="text-[20px] font-normal leading-[150%] text-[#ffffff] font-montserrat max-w-[1200px]">
               Lightning is an act of God which risks life and assets. One cannot
               avoid it. There is no known method of preventing the occurrence of
               natural phenomena such as a Lightning Strike / Flash/Discharge. A
@@ -342,7 +342,7 @@ const lpsaa = () => {
             </p>
 
             {/* Paragraph 2 */}
-            <p className="text-[20px] font-normal leading-[150%] text-[#4B4B4B] font-montserrat max-w-[1200px]">
+            <p className="text-[20px] font-normal leading-[150%] text-[#ffffff] font-montserrat max-w-[1200px]">
               The purpose of Lightning Protection System audit is to conduct
               lightning risk assessment and determine the level of protection
               required to the structure/facility as per the latest relevant
@@ -372,7 +372,7 @@ const lpsaa = () => {
 
           {/* Slide In Panel */}
           <div
-            className={`fixed top-0 right-0 h-screen bg-[#F9F7F2] z-[9999] transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+            className={`fixed top-0 right-0 h-screen bg-[#1B1818] z-[9999] transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
     ${showLightningPanel ? "translate-x-0" : "translate-x-full"}`}
             style={{
               width: "557px",
@@ -430,7 +430,7 @@ const lpsaa = () => {
             >
               <p
                 className="
-        text-[#1B1818]
+        text-[#ffffff]
         font-normal
         font-montserrat
         text-[22px]
@@ -547,7 +547,7 @@ function WhatGoesWrong() {
         minHeight: "980px",
         paddingTop: "80px",
         paddingBottom: "60px",
-        background: "#F9F7F2",
+        background: "#1B1818",
       }}
     >
       {/* TOP CONTENT */}
@@ -583,7 +583,7 @@ function WhatGoesWrong() {
             width: "100%",
             maxWidth: "1385px",
             minHeight: "594px",
-            color: "#1B1818",
+            color: "#FFFFFF",
             fontWeight: 400,
             fontSize: "20px",
             lineHeight: "150%",
@@ -913,7 +913,7 @@ function ReferenceStandards() {
   }, [isOpen]);
 
   return (
-    <section className="relative w-full min-h-[500px] bg-[#F9F7F2] overflow-hidden py-[80px]">
+    <section className="relative w-full min-h-[500px] bg-[#1B1818] overflow-hidden py-[80px]">
       {/* OVERLAY */}
       {isOpen && (
         <div
@@ -976,7 +976,7 @@ function ReferenceStandards() {
     right-0
     h-screen
     w-[620px]
-    bg-white
+    bg-[#1B1818]
     z-[9999]
     shadow-[-20px_0px_60px_rgba(0,0,0,0.08)]
     transform
@@ -993,7 +993,7 @@ function ReferenceStandards() {
           <h2
             className="
         uppercase
-        text-[#1B1818]
+        text-[#C02429]
         font-bold
         font-montserrat
         text-[24px]
@@ -1041,7 +1041,7 @@ function ReferenceStandards() {
         >
           <p
             className="
-        text-[#1B1818]
+        text-[#FFFFFF]
         font-light
         font-montserrat
         text-[22px]
@@ -1191,7 +1191,7 @@ function FAQSection() {
   };
 
   return (
-    <section className="w-full bg-[#F9F7F2] pt-[86px] pb-[120px] overflow-hidden">
+    <section className="w-full bg-[#1B1818] pt-[86px] pb-[120px] overflow-hidden">
       {/* Internal FAQ Layout */}
       <div className="max-w-[1508px] mx-auto flex flex-col gap-[48px] px-[100px]">
         {/* FAQ Heading */}
@@ -1211,7 +1211,7 @@ function FAQSection() {
                   key={item.id}
                   className={`
                     w-full
-                    bg-white
+                    bg-[#1B1818]
                     border-[0.5px]
                     border-[#C02429]
                     overflow-hidden
@@ -1246,7 +1246,7 @@ function FAQSection() {
                           ${
                             isOpen
                               ? "font-bold text-[#C02429]"
-                              : "font-normal text-[#4A4A4A]"
+                              : "font-normal text-[#ffffff]"
                           }
                         `}
                       >
@@ -1295,7 +1295,7 @@ function FAQSection() {
                   >
                     <div className="overflow-hidden">
                       <div className="px-[24px] pb-[28px]">
-                        <p className="font-montserrat font-normal text-[16px] leading-[150%] text-[#4A4A4A]">
+                        <p className="font-montserrat font-normal text-[16px] leading-[150%] text-[#ffffff]">
                           {item.answer}
                         </p>
                       </div>
@@ -1315,7 +1315,7 @@ function FAQSection() {
 //DOWNLOAD
 function DownloadSection() {
   return (
-    <section className="w-full bg-[#F9F7F2] pt-[50px] pb-[120px] overflow-hidden">
+    <section className="w-full bg-[#1B1818] pt-[50px] pb-[120px] overflow-hidden">
       <div className="w-[1508px] ml-[100px] flex flex-col gap-[61px]">
         <h2 className="font-montserrat font-bold text-[32px] leading-[55px] uppercase text-[#C02429]">
           Download
@@ -1341,11 +1341,11 @@ function DownloadSection() {
 
           {/* Content */}
           <div className="w-[540px] flex flex-col gap-[17px]">
-            <h3 className="font-montserrat font-normal text-[24px] leading-[100%] uppercase text-[#1E1E1E]">
+            <h3 className="font-montserrat font-normal text-[24px] leading-[100%] uppercase text-[#ffffff]">
               LPS ADEQUACY AUDIT GUIDE
             </h3>
 
-            <p className="font-montserrat font-light text-[16px] leading-[150%] text-[#6B6B6B]">
+            <p className="font-montserrat font-light text-[16px] leading-[150%] text-[#ffffff]">
               December 11, 2025
             </p>
 
@@ -1354,7 +1354,7 @@ function DownloadSection() {
               download
               className="w-[260px] h-[24px] flex items-center gap-[32px] group/download"
             >
-              <span className="font-montserrat font-medium text-[14px] uppercase text-[#1E1E1E] transition-colors duration-300 group-hover/download:text-[#C02429]">
+              <span className="font-montserrat font-medium text-[14px] uppercase text-[#ffffff] transition-colors duration-300 group-hover/download:text-[#C02429]">
                 Select To Download
               </span>
 

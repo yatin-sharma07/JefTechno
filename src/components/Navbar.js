@@ -553,30 +553,30 @@ const services = [
 ];
 
 const services2 = [
-  {
+   {
     icon: "/nav-esa-icon3.png",
     text: "EARTHING HEALTH ASSESSMENT",
-    path: "/earthing-studies",
+    path: "/audit-services/earthing-health-assessment",
   },
   {
     icon: "/nav-audit-icon2.png",
     text: "ELECTRICAL & FIRE SAFETY",
-    path: "/earthing-studies",
+    path: "/audit-services/electical-and-fire-safety-audit",
   },
   {
     icon: "/nav-istrumentation-icon2.png",
     text: "INSTRUMENTATION SYSTEM",
-    path: "/instrumentation-earthing-studies",
+    path: "/audit-services/instrumentation-system",
   },
   {
     icon: "/nav-power-studies-icon2.png",
     text: "POWER QUALITY SYSTEM",
-    path: "/power-system-studies",
+    path: "/audit-services/power-quality-studies-and-analysis-services",
   },
   {
     icon: "/nav-lps-icon2.png",
     text: "LPS ADEQUACY",
-    path: "/lightning-protection-studies",
+    path: "/audit-services/lightning-protection-sytem-adequacy-audit",
   },
 ];
   const services3 = [

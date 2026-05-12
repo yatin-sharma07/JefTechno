@@ -242,47 +242,6 @@ const lpsaa = () => {
     { label: "LIGHTNING PROTECTION SYSTEM ADEQUACY AUDIT", isActive: false },
   ];
 
-  //WHY US SECTION
-
-  const cards = [
-    {
-      id: 1,
-      title: "REDUCES ELECTRICAL NOISE AND SIGNAL DISTURBANCE",
-      description:
-        "By identifying and eliminating ground loops, circulating currents, and shield termination errors that corrupt 4–20 mA and digital signals.",
-    },
-    {
-      id: 2,
-      title: "PREVENTS MALFUNCTIONS, FALSE ALARMS, AND NUISANCE TRIPS",
-      description:
-        "By addressing the root causes that standard electrical testing does not detect.",
-    },
-    {
-      id: 3,
-      title: "IMPROVES SYSTEM RELIABILITY AND REDUCES DOWNTIME",
-      description:
-        "By eliminating the intermittent, hard-to-diagnose failure modes that recur when earthing problems are left uncorrected.",
-    },
-    {
-      id: 4,
-      title: "ENHANCES PERSONNEL AND EQUIPMENT SAFETY",
-      description:
-        "By identifying isolated grounding elements and earth bar mix-ups that represent genuine safety hazards under fault conditions.",
-    },
-    {
-      id: 5,
-      title: "IMPROVES PROCESS STABILITY AND PRODUCTION EFFICIENCY",
-      description:
-        "By restoring signal integrity and eliminating the operational disruptions caused by instrumentation system noise.",
-    },
-    {
-      id: 6,
-      title: "DOCUMENTED COMPLIANCE WITH INTERNATIONAL STANDARDS",
-      description:
-        "Audit reports referenced to IEEE 1050-2004, IEEE 1100-2005, IEC 61000-5-2, and related standards, supporting regulatory, insurance, and operator requirements.",
-    },
-  ];
-
   return (
     <>
       {/* Landing Img Section */}
@@ -413,39 +372,73 @@ const lpsaa = () => {
 
           {/* Slide In Panel */}
           <div
-            className={`fixed top-0 right-0 h-screen bg-[#F9F7F2] z-[9999]
-    transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+            className={`fixed top-0 right-0 h-screen bg-[#F9F7F2] z-[9999] transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
     ${showLightningPanel ? "translate-x-0" : "translate-x-full"}`}
             style={{
-              width: "700px",
+              width: "557px",
             }}
           >
-            {/* PANEL HEADER */}
-            <div className="flex items-center justify-between px-[54px] pt-[48px]">
-              <h2 className="text-[#1B1818] font-bold text-[26px] leading-[43.4px] tracking-[1.49px] uppercase font-montserrat">
+            {/* HEADER */}
+            <div className="flex items-start justify-between pt-[64px] px-[42px]">
+              <h2
+                className="
+        uppercase
+        text-[#C02429]
+        font-bold
+        font-montserrat
+        text-[24px]
+        leading-[38px]
+        tracking-[1.2px]
+        max-w-[360px]
+      "
+              >
                 LIGHTNING PROTECTION SYSTEM ADEQUACY AUDIT
               </h2>
 
-             <button
-        onClick={() => setShowLightningPanel(false)}
-        style={{ width: "48px", height: "48px", borderRadius: "30px" }}
-        className="bg-[#C02429] text-white flex items-center justify-center hover:bg-red-700 hover:scale-110 transition flex-shrink-0"
-      >
-        ✕
-      </button>
+              {/* CLOSE BUTTON */}
+              <button
+                onClick={() => setShowLightningPanel(false)}
+                className="
+        bg-[#C02429]
+        text-white
+        flex
+        items-center
+        justify-center
+        hover:bg-red-700
+        hover:scale-110
+        transition
+        rounded-full
+        w-[46px]
+        h-[46px]
+        shrink-0
+      "
+              >
+                ✕
+              </button>
             </div>
 
-            {/* PANEL BODY */}
+            {/* PANEL CONTENT */}
             <div
-              className="flex flex-col"
-              style={{
-                width: "560px",
-                gap: "24px",
-                marginTop: "167px",
-                marginLeft: "54px",
-              }}
+              className="
+      flex
+      flex-col
+      ml-[42px]
+      mt-[60px]
+      w-[470px]
+      gap-[32px]
+    "
             >
-              <p className="text-[24px] font-light leading-[150%] text-400 font-montserrat text-[#1B1818]">
+              <p
+                className="
+        text-[#1B1818]
+        font-normal
+        font-montserrat
+        text-[22px]
+        leading-[160%]
+        tracking-[0px]
+        text-left
+      "
+              >
                 Lightning Protection Adequacy Audit is needed to check the
                 adequacy and healthiness of the existing LPS and its conformity
                 to the latest standards in such a manner that prevents injury to
@@ -460,110 +453,12 @@ const lpsaa = () => {
         <WhatGoesWrong />
       </section>
 
-      {/*----------------------------------------------WHY US SECTION------------------------------------------------------------------- */}
-      <section className="w-full bg-[#161414] py-[72px] overflow-hidden">
-        <div className="pl-[100px]">
-          {/* Heading Section */}
-          <div className="max-w-[1385px] flex flex-col gap-[27px]">
-            <h2 className="font-montserrat text-[32px] leading-[60px] tracking-[4.53px] uppercase font-bold text-[#C02429]">
-              WHY US FOR INSTRUMENTATION EARTHING AUDIT
-            </h2>
-          </div>
-
-          {/* Horizontal Scroll Cards */}
-          <div
-            className="
-            mt-[82px]
-            flex
-            gap-[48px]
-            overflow-x-auto
-            overflow-y-visible
-            scrollbar-hide
-            pr-[120px]
-            pt-[8px]
-            pb-[20px]
-          "
-            style={{
-              scrollbarWidth: "none",
-              msOverflowStyle: "none",
-            }}
-          >
-            {cards.map((card) => (
-              <div
-                key={card.id}
-                className="flex-shrink-0"
-                style={{
-                  width: "463px",
-                }}
-              >
-                <div
-                  key={card.id}
-                  className="flex-shrink-0 flex flex-col"
-                  style={{
-                    width: "463px",
-                  }}
-                >
-                  {/* Card */}
-                  <div
-                    className="
-    w-[463px]
-    h-[239px]
-    rounded-[20px]
-    bg-[#4A4545]
-    px-[48px]
-    py-[40px]
-    flex
-    items-center
-    justify-center
-    text-center
-    transition-all
-    duration-500
-    border
-    border-transparent
-    hover:border-[#C02429]
-    hover:-translate-y-1
-  "
-                  >
-                    {/* Content */}
-                    <p
-                      className="
-      font-montserrat
-      text-white
-    "
-                      style={{
-                        fontWeight: 300,
-                        fontSize: "16px",
-                        lineHeight: "150%",
-                      }}
-                    >
-                      {card.description}
-                    </p>
-                  </div>
-
-                  <h3
-                    className="
-      font-montserrat
-      uppercase
-      text-white
-      mt-[20px]
-    "
-                    style={{
-                      fontWeight: 500,
-                      fontSize: "16px",
-                      lineHeight: "31px",
-                    }}
-                  >
-                    {card.title}
-                  </h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      <section>
+        <Deliverables />
       </section>
 
       <section>
-        <Deliverables />
+        <ReferenceStandards />
       </section>
 
       <section>
@@ -580,73 +475,34 @@ const lpsaa = () => {
 //-------------------------WHAT ACTUALLY GOES WRONG--------------------------------------------------------------------------
 const whatWeDoData = [
   {
-    label: "WHAT ACTUALLY GOES WRONG",
-    title: "WHAT ACTUALLY GOES WRONG",
-    content: `The following 12 factors are identified as capable of interrupting the operation of instrumentation systems
+    label: "WHY DO YOU NEED LPS ADEQUACY AUDIT?",
+    title: "WHY DO YOU NEED LPS ADEQUACY AUDIT?",
+    content: `1. To measure lightning risk to the structure and its contents.
 
-1. Surges, Spikes, and Glitches
-2. Leakage Current
-3. Circulating Current
-4. Differential Grid / Earth Potential
-5. Incorrect Earthing Philosophy
-6. Incorrect Cabling Philosophy
-7. Compromised Common Earthing Point (CEP)
-8. High Shield Current
-9. EMI and EMF
-10. Looping of Excess Power Cables Inside Panels
-11. Unused and Unterminated Cables
-12. Power Quality Disturbances`,
+2. Identify structures which require protection and determine the level of protection required as per latest standards.
+
+3. To check the healthiness of the existing LPS system.
+
+4. To know whether lightning protection system is provided in the facility to mitigate the risk from Radiated and Conducted Surges.
+
+5. Identify gaps in the present System with respect to latest and relevant standards.
+
+6. Compliance to latest and relevant standards.
+
+7. Recommendations for Corrective Action with BOQ & Drawings to ensure adequate protection.
+
+8. Design risk mitigation/ management measures to enhance safety.`,
   },
 
   {
-    label: "SCALE OF THE PROBLEM IN OPERATING PLANTS",
-    title: "THE SCALE OF THE PROBLEM IN OPERATING PLANTS",
-    content: `The challenge is compounded by the sheer scale of instrumentation infrastructure in a typical process plant or generating station. A medium-sized plant may have hundreds of panels, thousands of junction boxes, and tens of thousands of individual field instruments — each with its own earthing connections, cable shields, and bonding points. The grounding system is physically extensive, installed over years by multiple contractors, and subject to ongoing modifications and additions that incrementally degrade the original design intent.
+    label: "APPLICATION AREA",
+    title: "APPLICATION AREA",
+    content: `Commercial & Cultural Heritage Buildings, Public Service Structures & Utilities, IT/ITES Facilities, Hospitals, Hotels, Retails outlets & shopping malls, Factories, Industries, Manufacturing plants, Oil & Gas, Metro rail, Process plants, Wind & Solar Plants, Tank farms, Critical structures like communication towers, power plants, substations and more
 
-Errors accumulate silently.
-
-• A shield grounded at both ends in one junction box.
-
-• A signal ground bar inadvertently connected to a PE bar during a panel modification.
-
-• An instrument earth pit left isolated from the plant grid.
-
-None of these individually cause an immediate, visible failure. Together, they create the conditions for the intermittent, hard-to-diagnose problems that operations teams experience as unexplained trips and nuisance alarms — and which plant engineering teams are unable to resolve through standard troubleshooting.
-
-IEC 61000-5-2 (Clause 5.3) clearly identifies the practice of maintaining a separate, isolated earth electrode for instrumentation as a misconception—one that not only fails to improve EMC performance but can also introduce serious safety hazards. Similarly, IEEE 1050-2004 (Clause 5.1) cautions that isolated grounding elements pose both safety and operational risks. Despite these explicit warnings in internationally recognized standards, the practice of isolated earthing continues to be widely observed in operating plants.`,
-  },
-
-  {
-    label: "WHY STANDARD ELECTRICAL TESTING",
-    title: "WHY STANDARD ELECTRICAL TESTING DOES NOT SOLVE THIS",
-    content: `Routine electrical testing — insulation resistance, continuity, earth pit resistance — is designed for the protective earthing system. It does not examine the signal reference ground, shield termination practices, shield loop current, earth bar segregation, or the global earthing architecture. An installation that passes all routine electrical tests can still have an instrumentation earthing system that is comprehensively non-compliant with IEEE 1050-2004, IEC 61000-5-2, and IEEE 1100-2005 — and that is actively causing operational problems.
-
-This is the gap that a specialist Instrumentation Earthing Audit addresses.`,
-  },
-
-  {
-    label: "INSTRUMENTATION EARTHING AUDIT?",
-    title: "WHAT IS AN INSTRUMENTATION EARTHING AUDIT?",
-    content: `An Instrumentation Earthing Audit is a detailed, structured and end-to-end technical evaluation of the grounding architecture that supports instrumentation and control systems in industrial facilities. It traces the entire earthing path—from field instruments and cable shields, through junction boxes, marshalling cabinets, and DCS panels, up to system cabinets, control room earth buses, and finally the below ground instrumentation and protective earthing systems which are interconnected to the plant earth grid—verifying equipotential bonding, noise control, and safety compliance at every node against globally accepted standards.
-
-Aligned with IEEE 1050-2004, IEEE 1100-2005, and IEC 61000-5-2, the audit combines precision measurements—such as shield loop current, millivolt drop, continuity, EM field intensity, and power quality—with structured visual inspection. The outcome is not just compliance verification, but a diagnostic insight into hidden risks like circulating currents, EMI susceptibility, and unsafe grounding practices—translated into actionable findings directly referenced to international standards.`,
-  },
-
-  {
-    label: "JEF APPROACH",
-    title: "JEF APPROACH",
-    content: `JEF's Instrumentation Earthing Audit covers 15 structured tests and inspections applied across panels, junction boxes, field instruments. The scope escalates logically: where shield loop current measurements at the panel level indicate a ground loop condition, the audit is extended to junction boxes and field assets to locate the source. It doesn’t end with measurements alone, we rectify the anomalies identified and also perform measurements to cross verify the quality of rectification not just by visual inspection but also check whether the measured values after post rectification are within the acceptable limits prescribed in standards there by ensuring a fool proof system.
-
-The approach involves 3 phases
-
-1. Phase -1 – Audit and Identification of gaps / anomalies
-
-2. Phase-2 – Rectification of anomalies
-
-3. Phase -3 – Retesting after rectification.`,
+Get your risk assessment report, concept design drawings & bill of materials.`,
+    button: true,
   },
 ];
-
 function WhatGoesWrong() {
   const [activeTab, setActiveTab] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -722,7 +578,7 @@ function WhatGoesWrong() {
         {/* CONTENT */}
         <div
           key={`content-${activeTab}`}
-          className="font-montserrat whitespace-pre-line animate-fadeSlide"
+          className="font-montserrat whitespace-pre-line animate-fadeSlide flex flex-col"
           style={{
             width: "100%",
             maxWidth: "1385px",
@@ -731,15 +587,45 @@ function WhatGoesWrong() {
             fontWeight: 400,
             fontSize: "20px",
             lineHeight: "150%",
+            gap: "32px",
           }}
         >
-          {whatWeDoData[activeTab].content}
+          <div>{whatWeDoData[activeTab].content}</div>
+
+          {/* BUTTON ONLY FOR APPLICATION AREA */}
+          {whatWeDoData[activeTab].button && (
+            <button
+              className="
+        w-[183px]
+        h-[50px]
+        rounded-full
+        border
+        border-[#C02429]
+        text-[#C02429]
+        bg-transparent
+        font-montserrat
+        text-[16px]
+        font-medium
+        transition-all
+        duration-300
+        hover:bg-[#C02429]
+        hover:text-white
+      "
+            >
+              JEF Shield
+            </button>
+          )}
         </div>
       </div>
 
       {/* BOTTOM TABS */}
       <div className="w-full mt-[60px] px-[94px] overflow-hidden">
-        <div className="flex items-start justify-between w-full max-w-[1540px]">
+        <div
+          className="flex items-start gap-[60px] overflow-x-auto scrollbar-hide"
+          style={{
+            width: "fit-content",
+          }}
+        >
           {whatWeDoData.map((tab, index) => (
             <button
               key={index}
@@ -793,21 +679,25 @@ const deliverables = [
   {
     id: 1,
     description:
-      "Detailed engineering report with all measurement results, test locations, and test conditions",
+      "Site Survey, data collection and measurements from qualified and experienced Engineers.",
   },
   {
     id: 2,
     description:
-      "Site photographs documenting the installation condition and all visible deficiencies identified",
+      "Lightning Risk Assessment, study of existing LPS & Earthing system, inspection of air terminations & down conductors and checking the internal LPS.",
   },
   {
     id: 3,
-    description:
-      "List of all identified anomalies and defects, with specific locations and BOM required for correction",
+    description: "Providing cost optimal solution.",
   },
   {
     id: 4,
-    description: "Detailed report and site photographs post re-audit.",
+    description: "Minimize lightning risk to your assets and personnel.",
+  },
+  {
+    id: 5,
+    description:
+      "Recommendations by experts based on detailed site survey and in compliance with latest Indian and International Standards.",
   },
 ];
 
@@ -827,7 +717,7 @@ function Deliverables() {
 
   return (
     <section
-      className="relative w-full overflow-hidden text-white px-[94px] py-20 max-md:px-5"
+      className="relative w-full overflow-hidden text-white pt-[120px] pb-[120px] px-[94px] py-20 max-md:px-5"
       style={{
         background: "#161414",
         fontFamily: "Montserrat, sans-serif",
@@ -844,7 +734,7 @@ function Deliverables() {
             letterSpacing: "4.53px",
           }}
         >
-          INSTRUMENTATION SYSTEM DELIVERABLES
+          JEF VALUE ADDS
         </h1>
 
         {/* TOP LINE */}
@@ -941,6 +831,298 @@ function Deliverables() {
               </div>
             );
           })}
+        </div>
+      </div>
+    </section>
+  );
+}
+//--------------------------------------------------REFERENCE STANDARD----------------------------------------------------
+const referenceStandards = [
+  {
+    id: 1,
+    title: "IEC 62305-1:2024",
+    description:
+      "IEC 62305-1:2024 provides the general principles related to protection against lightning including risk to life, physical damage, and service continuity. This standard forms the foundation for lightning protection system design and implementation.",
+  },
+  {
+    id: 2,
+    title: "IEC 62305-2:2024",
+    description:
+      "This standard covers lightning risk management and assessment methodologies for structures and facilities exposed to lightning strikes and surge effects.",
+  },
+  {
+    id: 3,
+    title: "IEC 62305-3:2024",
+    description:
+      "IEC 62305-3 focuses on physical damage to structures and life hazard protection through external lightning protection systems.",
+  },
+  {
+    id: 4,
+    title: "IEC 62305-4:2024",
+    description:
+      "This section addresses protection of electrical and electronic systems within structures against lightning electromagnetic impulse.",
+  },
+  {
+    id: 5,
+    title: "IEC 62561 series",
+    description:
+      "IEC 62561 specifies the requirements and testing procedures for lightning protection system components.",
+  },
+  {
+    id: 6,
+    title: "IEC 61643-11",
+    description:
+      "IEC 61643-11 defines requirements and test methods for surge protective devices connected to low-voltage power systems.",
+  },
+  {
+    id: 7,
+    title: "IS/IEC 62305",
+    description:
+      "Indian adaptation of IEC 62305 standards governing lightning protection system design and safety practices.",
+  },
+  {
+    id: 8,
+    title: "NBC 2016",
+    description:
+      "National Building Code 2016 provides guidelines for lightning protection and electrical safety in buildings and infrastructure.",
+  },
+  {
+    id: 9,
+    title: "IS 3043",
+    description:
+      "IS 3043 is the Indian Standard Code of Practice for Earthing which defines requirements for grounding systems and electrical safety.",
+  },
+];
+
+function ReferenceStandards() {
+  const [activeStandard, setActiveStandard] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const currentStandard = referenceStandards[activeStandard];
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  return (
+    <section className="relative w-full min-h-[500px] bg-[#F9F7F2] overflow-hidden py-[80px]">
+      {/* OVERLAY */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-[9998]"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+      {/* MAIN CONTENT */}
+      <div className="pl-[100px] relative z-10">
+        {/* HEADING */}
+        <h2
+          className="
+            text-[#C02429]
+            uppercase
+            font-montserrat
+            font-bold
+            text-[32px]
+            tracking-[2px]
+            leading-[150%]
+          "
+        >
+          REFERENCE STANDARDS
+        </h2>
+
+        {/* BUTTON GRID */}
+        <div className="mt-[72px] flex flex-wrap gap-[24px] max-w-[980px]">
+          {referenceStandards.map((item, index) => (
+            <button
+              key={item.id}
+              onClick={() => {
+                setActiveStandard(index);
+                setIsOpen(true);
+              }}
+              className="
+                px-[28px]
+                h-[48px]
+                rounded-full
+                border
+                border-[#D9D9D9]
+                bg-white
+                text-[#3E3E3E]
+                text-[16px]
+                font-montserrat
+                transition-all
+                duration-300
+                hover:bg-[#C02429]
+                hover:text-white
+              "
+            >
+              {item.title}
+            </button>
+          ))}
+        </div>
+      </div>
+      {/* SLIDE PANEL */}
+      <div
+        className={`
+    fixed
+    top-0
+    right-0
+    h-screen
+    w-[620px]
+    bg-white
+    z-[9999]
+    shadow-[-20px_0px_60px_rgba(0,0,0,0.08)]
+    transform
+    transition-all
+    duration-1000
+    ease-[cubic-bezier(0.22,1,0.36,1)]
+    flex
+    flex-col
+    ${isOpen ? "translate-x-0" : "translate-x-full"}
+  `}
+      >
+        {/* PANEL HEADER */}
+        <div className="flex items-start justify-between pt-[56px] px-[48px]">
+          <h2
+            className="
+        uppercase
+        text-[#1B1818]
+        font-bold
+        font-montserrat
+        text-[24px]
+        leading-[40px]
+        tracking-[1.4px]
+        max-w-[420px]
+      "
+          >
+            {currentStandard.title}
+          </h2>
+
+          {/* CLOSE BUTTON */}
+          <button
+            onClick={() => setIsOpen(false)}
+            className="
+        bg-[#C02429]
+        text-white
+        flex
+        items-center
+        justify-center
+        hover:bg-red-700
+        hover:scale-110
+        transition-all
+        duration-300
+        rounded-full
+        w-[46px]
+        h-[46px]
+        shrink-0
+      "
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* PANEL CONTENT */}
+        <div
+          className="
+      flex-1
+      flex
+      flex-col
+      justify-center
+      px-[48px]
+      pb-[40px]
+    "
+        >
+          <p
+            className="
+        text-[#1B1818]
+        font-light
+        font-montserrat
+        text-[22px]
+        leading-[160%]
+        text-left
+      "
+          >
+            {currentStandard.description}
+          </p>
+        </div>
+
+        {/* NAVIGATION BUTTONS */}
+        <div className="absolute bottom-[48px] right-[48px] flex gap-[16px]">
+          {/* PREV */}
+          <button
+            onClick={() =>
+              setActiveStandard((prev) =>
+                prev === 0 ? referenceStandards.length - 1 : prev - 1,
+              )
+            }
+            className="
+        w-[56px]
+        h-[56px]
+        rounded-full
+        border
+        border-[#C02429]
+        flex
+        items-center
+        justify-center
+        transition-all
+        duration-300
+        hover:bg-[#C02429]
+        group
+      "
+          >
+            <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+              <path
+                d="M17 7H1M1 7L7 1M1 7L7 13"
+                stroke="#C02429"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="group-hover:stroke-white transition-all duration-300"
+              />
+            </svg>
+          </button>
+
+          {/* NEXT */}
+          <button
+            onClick={() =>
+              setActiveStandard((prev) =>
+                prev === referenceStandards.length - 1 ? 0 : prev + 1,
+              )
+            }
+            className="
+        w-[56px]
+        h-[56px]
+        rounded-full
+        bg-[#C02429]
+        border
+        border-[#C02429]
+        flex
+        items-center
+        justify-center
+        transition-all
+        duration-300
+        hover:bg-white
+        group
+      "
+          >
+            <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+              <path
+                d="M1 7H17M17 7L11 1M17 7L11 13"
+                stroke="white"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="group-hover:stroke-[#C02429] transition-all duration-300"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
@@ -1133,43 +1315,56 @@ function FAQSection() {
 //DOWNLOAD
 function DownloadSection() {
   return (
-    <section className="w-full bg-[#F9F7F2] pt-[80px] pb-[120px] overflow-hidden">
+    <section className="w-full bg-[#F9F7F2] pt-[50px] pb-[120px] overflow-hidden">
       <div className="w-[1508px] ml-[100px] flex flex-col gap-[61px]">
-        {" "}
         <h2 className="font-montserrat font-bold text-[32px] leading-[55px] uppercase text-[#C02429]">
           Download
         </h2>
+
         <div className="w-[554px] flex flex-col gap-[24px]">
-          <div className="w-[554px] h-[369px] overflow-hidden">
+          {/* Image Container */}
+          <div className="w-[554px] h-[369px] overflow-hidden group/image cursor-pointer">
             <img
               src="/clps/Lighting Protection Guide.png"
               alt="Lightning Protection Solution Guide"
-              className="w-full h-full object-cover"
+              className="
+                w-full
+                h-full
+                object-cover
+                transition-transform
+                duration-500
+                ease-in-out
+                group-hover/image:scale-110
+              "
             />
           </div>
 
+          {/* Content */}
           <div className="w-[540px] flex flex-col gap-[17px]">
             <h3 className="font-montserrat font-normal text-[24px] leading-[100%] uppercase text-[#1E1E1E]">
-              INSTRUMENTATION SYSTEM GUIDE
+              LPS ADEQUACY AUDIT GUIDE
             </h3>
 
             <p className="font-montserrat font-light text-[16px] leading-[150%] text-[#6B6B6B]">
-              December 14, 2025
+              December 11, 2025
             </p>
 
             <a
               href="/pdfs/lightning-protection-guide.pdf"
               download
-              className="w-[260px] h-[24px] flex items-center gap-[32px] group"
+              className="w-[260px] h-[24px] flex items-center gap-[32px] group/download"
             >
-              <span className="font-montserrat font-medium text-[14px] uppercase text-[#1E1E1E] group-hover:text-[#C02429] transition-colors duration-300">
+              <span className="font-montserrat font-medium text-[14px] uppercase text-[#1E1E1E] transition-colors duration-300 group-hover/download:text-[#C02429]">
                 Select To Download
               </span>
 
               <img
                 src="/clps/download-icon.png"
                 alt="Download"
-                className="w-[16px] h-[16px]"
+                className="
+                  w-[16px]
+                  h-[16px]
+                "
               />
             </a>
           </div>

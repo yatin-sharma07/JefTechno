@@ -7,7 +7,7 @@ import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const eha = () => {
+const efsa = () => {
   //For Read More Slide In Panel
   const [showLightningPanel, setShowLightningPanel] = useState(false);
 
@@ -241,7 +241,7 @@ const eha = () => {
     { label: "HOME", isActive: true },
     { label: "OUR BUSINESS", isActive: true },
     { label: "AUDIT SERVICES", isActive: true },
-    { label: "EARTHING HEALTH ASSESSMENT", isActive: false },
+    { label: "ELECTRICAL & FIRE SAFETY AUDIT", isActive: false },
   ];
 
   //Why Us Section Data
@@ -249,44 +249,51 @@ const eha = () => {
   const cards = [
     {
       id: 1,
-      title: "ASSESSMENT, NOT JUST TESTING",
-      description:
-        "Each test result is interpreted in the context of the complete earthing system — soil conditions, grid geometry, fault current levels, and protection settings — to produce directly actionable findings.",
+      title: "CEA 2023 COMPLIANCE",
+      description: "FORM I / II / III reports satisfying Regulation 32",
     },
     {
       id: 2,
-      title: "CARRIED OUT ON LIVE SYSTEM",
+      title: "REDUCED FIRE RISK",
       description:
-        "Designed for live systems, eliminating the production impact that would make comprehensive testing impractical for most facilities.",
+        "Identification and remediation of electrical root causes behind 60% of India's fire incidents",
     },
     {
       id: 3,
-      title: "LOCATION-SPECIFIC FINDINGS",
+      title: "PERSONNEL SAFETY",
       description:
-        "JEF’s methodology pin points the specific location of each deficiency — open riser, isolated grid section, or corroded connection — enabling targeted corrective action.",
+        "Verified earthing, contact protection, and confirmed protective device operation",
     },
     {
       id: 4,
-      title: "EARTH GRID MODELLING AND SIMULATION",
+      title: "ASSET PROTECTION",
       description:
-        "Computer modelling using CDEGS software produces quantitative assessments of GPR, touch potential distribution, and step potential profiles across the site.",
+        "Early detection of insulation degradation, overheating, harmonics, and power quality issues",
     },
     {
       id: 5,
-      title: "COMPLIANCE WITH CURRENT STANDARDS",
-      description:
-        "Findings and recommendations are in accordance with IEEE Std 80-2013, IEEE Std 81-2025, IS 3043-2018, and CEA (Measures Relating to Safety and Electric Supply) Regulations, 2023.",
+      title: "INSURANCE READINESS",
+      description: "Documented evidence of periodic inspection for insurers",
     },
     {
       id: 6,
-      title: "QUALIFIED AND EXPERIENCED ENGINEERS",
-      description:
-        "All assessments are carried out by qualified electrical engineers with experience across EHV substations, LV industrial installations, oil and gas, power generation, and critical infrastructure.",
+      title: "PREVENTIVE MAINTENANCE PROGRAMME",
+      description: "Asset-level PM schedule to extend asset life",
+    },
+    {
+      id: 7,
+      title: "CERTIFIED STAFF",
+      description: "Assessed, competent, documented",
+    },
+    {
+      id: 8,
+      title: "JEF SAFETY CERTIFICATION",
+      description: "Displayed where the people it protects can see it",
     },
   ];
 
   return (
-    <>
+    <section>
       {/* Landing Img Section */}
 
       <section className="flex overflow-hidden h-screen flex-col bg-white">
@@ -299,7 +306,7 @@ const eha = () => {
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source
-              src="/Audit Services/Earthing Audit - Audit Services.mp4"
+              src="/Audit Services/Electrical & Fire Safety - Audit Services.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -324,35 +331,14 @@ const eha = () => {
           font-montserrat
         "
               >
-                EARTHING HEALTH ASSESSMENT
+                ELECTRICAL & FIRE SAFETY AUDIT
               </h1>
-
-              <p
-                className="
-          mt-8
-          text-white
-          text-base
-          md:text-lg
-          lg:text-[22px]
-          leading-[150%]
-          font-normal
-          font-montserrat
-          max-w-[1330px]
-        "
-              >
-                As a pioneer in Earthing integrity testing services, we at JEF
-                have over two decades of experience covering 300,000 riser
-                connections spread across 18 countries, 400 substations ranging
-                from 33kV to 765kV process plants and other critical
-                installations. With several patents in this field, our level of
-                expertise is unmatched even as we keep innovating further.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Home > OUR BUSINESS > AUDIT SERVICES > Earthing Health Assessment  */}
+      {/* Home > OUR BUSINESS > AUDIT SERVICES > ELECTRICAL & FIRE SAFETY AUDIT  */}
 
       <section className="flex h-auto -mb-11 md:mb-0 overflow-hidden flex-col bg-[#F9F7F2]">
         <div className="flex overflow-hidden flex-col w-full bg-white max-md:max-w-full" />
@@ -393,29 +379,51 @@ const eha = () => {
 
         <header className="flex flex-col items-center justify-center text-center w-full px-5 mx-auto mt-[30px] pb-[10px]">
           <header className="flex flex-col items-center justify-center w-full px-5 mt-[80px]">
+            {/* MAIN LAYOUT */}
             <div className="flex flex-col items-center w-full max-w-[1391px] gap-[48px]">
-              <div className=" flex flex-col items-center text-center w-full max-w-[1359px] gap-[48px]">
+              {/* CONTENT BLOCK */}
+              <div className="flex flex-col items-center text-center w-full max-w-[1359px] h-[365px] gap-[48px]">
                 <Image
-                  src="/Audit Services/eha logo.png"
-                  alt="Earthing Health Assessment Logo"
+                  src="/efsa.png"
+                  alt="Electrical & Fire Safety Audit Logo"
                   width={80}
                   height={80}
                   className="w-[80px] h-[80px]"
                 />
 
-                <div className=" flex flex-col items-center w-full max-w-[1359px] gap-[48px] ">
-                  <h1 className=" uppercase text-[#C02429] font-bold font-montserrat tracking-[1px] leading-[100%] text-[36px] max-w-[1071px] ">
-                    EARTHING HEALTH ASSESSMENT
+                {/* TEXT CONTENT */}
+                <div className="flex flex-col items-center w-full max-w-[1359px] h-[168px] gap-[16px]">
+                  <h1
+                    className="
+              uppercase
+              text-[#C02429]
+              font-bold
+              font-montserrat
+              tracking-[1px]
+              leading-[100%]
+              text-[36px]
+              max-w-[1071px]
+              pb-[40px]
+            "
+                  >
+                    ELECTRICAL & FIRE SAFETY AUDIT
                   </h1>
-                  <div className="w-full max-w-[1359px]">
-                    <p className="text-center text-[#4B4B4B] font-normal font-montserrat text-[20px] leading-[150%] ">
-                      Most earthing systems are designed carefully, installed
-                      correctly, and then largely forgotten. They are
-                      underground, inaccessible, and out of sight. Periodic
-                      maintenance typically consists of measuring the resistance
-                      of the earth electrode — a number that may show no cause
-                      for alarm even when the earthing system integrity is
-                      significantly compromised.
+
+                  <div className="w-full max-w-[1359px] flex flex-col gap-[16px]">
+                    <p className="text-center text-[#4B4B4B] font-normal font-montserrat text-[20px] leading-[150%]">
+                      Building a Safer India — One Facility At A Time
+                    </p>
+
+                    <p className="text-center text-[#4B4B4B] font-normal font-montserrat text-[20px] leading-[150%]">
+                      Most safety audits produce reports. JEF produces outcomes.
+                    </p>
+
+                    <p className="text-center text-[#4B4B4B] font-normal font-montserrat text-[20px] leading-[150%]">
+                      A comprehensive, multi-discipline inspection of your
+                      facility's complete electrical installation and fire
+                      safety systems — conducted by qualified engineers,
+                      structured in alignment with CEA Regulations 2023 (FORM I,
+                      II & III)
                     </p>
                   </div>
                 </div>
@@ -442,45 +450,33 @@ const eha = () => {
 
             {/* SLIDE PANEL */}
             <div
-              className={`fixed top-0 right-0 h-screen bg-[#F9F7F2] z-[9999] transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-    ${showLightningPanel ? "translate-x-0" : "translate-x-full"}`}
-              style={{
-                width: "557px",
-              }}
+              className={`
+    fixed top-0 right-0 h-screen bg-[#F9F7F2] z-[9999]
+    transform transition-transform duration-700
+    ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden
+    ${showLightningPanel ? "translate-x-0" : "translate-x-full"}
+  `}
+              style={{ width: "557px" }}
             >
               {/* HEADER */}
-              <div className="flex items-start justify-between pt-[64px] px-[42px]">
+              <div className="flex items-start justify-between pt-[64px] px-[56px]">
                 <h2
                   className="
-        uppercase
-        text-[#C02429]
-        font-bold
-        font-montserrat
-        text-[24px]
-        leading-[38px]
-        tracking-[1.2px]
-        max-w-[360px]
+        uppercase text-[#C02429] font-montserrat
+        font-semibold text-[22px] leading-[150%]
+        tracking-[0px] max-w-[360px]
       "
                 >
-                  EARTHING HEALTH ASSESSMENT
+                  Our Four Audit Domains:
                 </h2>
 
                 {/* CLOSE BUTTON */}
                 <button
                   onClick={() => setShowLightningPanel(false)}
                   className="
-        bg-[#C02429]
-        text-white
-        flex
-        items-center
-        justify-center
-        hover:bg-red-700
-        hover:scale-110
-        transition
-        rounded-full
-        w-[46px]
-        h-[46px]
-        shrink-0
+        bg-[#C02429] text-white flex items-center justify-center
+        hover:bg-red-700 hover:scale-110 transition-all duration-300
+        rounded-full w-[42px] h-[42px] shrink-0
       "
                 >
                   ✕
@@ -489,37 +485,67 @@ const eha = () => {
 
               {/* PANEL CONTENT */}
               <div
-                className="
-      flex
-      flex-col
-      ml-[42px]
-      mt-[60px]
-      w-[470px]
-      gap-[32px]
-    "
+                className="mt-[44px] px-[56px] w-full overflow-y-auto"
+                style={{ maxHeight: "calc(100vh - 160px)" }}
               >
-                <p
-                  className="
-        text-[#1B1818]
-        font-normal
-        font-montserrat
-        text-[22px]
-        leading-[160%]
-        tracking-[0px]
-        text-left
-      "
-                >
-                  JEF’s Earthing Health Assessment is a systematic,
-                  multi-parameter evaluation of the earthing system as a whole —
-                  not just the earth electrode in isolation. The assessment is
-                  carried out on live systems, without requiring a shutdown,
-                  using sophisticated meters and test equipment. It assesses the
-                  condition of buried conductors, the integrity of connections
-                  throughout the grid, the adequacy of earth loop impedance for
-                  protective device operation, and the safety of the
-                  installation for the personnel and assets who work on and
-                  around it.
-                </p>
+                <div className="flex flex-col gap-[22px] w-full">
+                  {/* ITEM 1 */}
+                  <div className="flex items-start gap-[10px]">
+                    <span className="text-[#D62B2B] font-montserrat font-normal text-[18px] leading-[165%] shrink-0">
+                      1.
+                    </span>
+
+                    <p className="font-montserrat font-normal text-[18px] leading-[165%] text-[#2B2B2B]">
+                      <span className="text-[#D62B2B]">
+                        Electrical Safety —{" "}
+                      </span>
+                      500+ checkpoints, 15+ tests and measurements
+                    </p>
+                  </div>
+
+                  {/* ITEM 2 */}
+                  <div className="flex items-start gap-[10px]">
+                    <span className="text-[#D62B2B] font-montserrat font-normal text-[18px] leading-[165%] shrink-0">
+                      2.
+                    </span>
+
+                    <p className="font-montserrat font-normal text-[18px] leading-[165%] text-[#2B2B2B]">
+                      <span className="text-[#D62B2B]">
+                        General Fire Safety —{" "}
+                      </span>
+                      200+ checkpoints, Prevention, Life Safety, Active &
+                      Passive Fire Protection, Mock Drill Review
+                    </p>
+                  </div>
+
+                  {/* ITEM 3 */}
+                  <div className="flex items-start gap-[10px]">
+                    <span className="text-[#D62B2B] font-montserrat font-normal text-[18px] leading-[165%] shrink-0">
+                      3.
+                    </span>
+
+                    <p className="font-montserrat font-normal text-[18px] leading-[165%] text-[#2B2B2B]">
+                      <span className="text-[#D62B2B]">
+                        Lift & Escalator —{" "}
+                      </span>
+                      150+ checkpoints, Electrical, control, operational and
+                      emergency systems
+                    </p>
+                  </div>
+
+                  {/* ITEM 4 */}
+                  <div className="flex items-start gap-[10px]">
+                    <span className="text-[#D62B2B] font-montserrat font-normal text-[18px] leading-[165%] shrink-0">
+                      4.
+                    </span>
+
+                    <p className="font-montserrat font-normal text-[18px] leading-[165%] text-[#2B2B2B]">
+                      <span className="text-[#D62B2B]">HVAC — </span>
+                      100+ checkpoints, Electrical safety and operational
+                      performance
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </header>
@@ -527,7 +553,7 @@ const eha = () => {
       </section>
 
       <section>
-        <EarthingAssessmentTabs />
+        <ElectricalAuditTabs />
       </section>
 
       {/*----------------------------------------------WHY US SECTION-------------------------------------------------------------------------- */}
@@ -536,17 +562,8 @@ const eha = () => {
           {/* Heading Section */}
           <div className="max-w-[1385px] flex flex-col gap-[27px]">
             <h2 className="font-montserrat text-[32px] leading-[60px] tracking-[4.53px] uppercase font-bold text-[#C02429]">
-              WHY US FOR EARTHING HEALTH ASSESSMENT
+              WHAT THE AUDIT DELIVERS
             </h2>
-
-            <p className="max-w-[1131px] font-montserrat font-medium text-[16px] leading-[150%] text-white">
-              As a pioneer in Earthing integrity testing services, we at JEF
-              have over two decades of experience covering 300,000 riser
-              connections spread across 18 countries, 400 substations ranging
-              from 33kV to 765kV process plants and other critical
-              installations. With several patents in this field, our level of
-              expertise is unmatched even as we keep innovating further.
-            </p>
           </div>
 
           {/* Horizontal Scroll Cards */}
@@ -642,8 +659,12 @@ const eha = () => {
       </section>
 
       <section>
-        <Deliverables />
-      </section>
+        <ExcellenceinElectricalEngineering />
+          </section>
+          
+          <section>
+              <GeneralFireSafety/>
+          </section>
 
       <section>
         <FAQSection />
@@ -678,7 +699,7 @@ const eha = () => {
             {/* Content */}
             <div className="w-[540px] flex flex-col gap-[17px]">
               <h3 className="font-montserrat font-normal text-[24px] leading-[100%] uppercase text-[#1E1E1E]">
-                EARTHING HEALTH ASSESSMENT GUIDE
+                ELECTRICAL AND FIRE SAFETY GUIDE
               </h3>
 
               <p className="font-montserrat font-light text-[16px] leading-[150%] text-[#6B6B6B]">
@@ -707,134 +728,132 @@ const eha = () => {
           </div>
         </div>
       </section>
-    </>
+    </section>
   );
 };
 
 //-------------------------Earthing Assessment TAB--------------------------------------------------------------------------
-const earthingAssessmentData = [
+const electricalAuditTabs = [
   {
-    label: "CONVENTIONAL EARTHING ASSESSMENT",
-    title: "THE GAP IN CONVENTIONAL EARTHING ASSESSMENT",
-    content: `Standard practice is to measure the resistance of the earth electrode and compare it against the design value. If within acceptable limits, the earthing system is considered satisfactory and safe.
+    label: "ELECTRICAL SAFETY TESTS",
+    title: "ELECTRICAL SAFETY TESTS",
+    content: (
+      <>
+        <p>
+          Electrical Safety Audit incorporating 500+ checkpoints and precision
+          measurements across grounding, protection systems, insulation, and
+          power quality.
+        </p>
 
-This has a significant limitation addressed in both IEEE Std 80 and IEEE Std 81. A ground grid has multiple parallel current paths. A corroded joint, disconnected riser, or isolated grid section creates a local deficiency without changing the overall measured resistance — the healthy parallel paths continue to return a satisfactory reading. Some or many equipment may have no effective earthing connection at all, yet the resistance test gives no indication regarding the defects.
+        <div className="mt-[28px] flex flex-col gap-[18px]">
+          <p>1. Grounding & Earthing System Evaluation</p>
+          <p>2. Electrical Network Integrity & Continuity Checks</p>
+          <p>3. Insulation Health & Leakage Current Analysis</p>
+          <p>4. Fault Current & Protection System Verification</p>
+          <p>5. Power Quality & Load Performance Assessment</p>
+          <p>6. Thermal Imaging & Preventive Diagnostics</p>
+          <p>7. Lighting & Emergency System Assessment</p>
+        </div>
 
-A facility can show a satisfactory earth resistance measurement while specific switchgear panels, transformer neutrals, or plant structures have open or high-resistance connections to the grid that would prevent the protection system from operating timely during a fault.
+        <h3 className="mt-[48px] uppercase text-[#C02429] font-bold tracking-[2px]">
+          Additional Offerings
+        </h3>
 
-JEF's Earthing Health Assessment is designed specifically to address these gaps.`,
+        <p className="mt-[24px]">
+          In addition to 500+ checkpoints and 15+ tests, our audit evaluates
+          maintenance systems, critical records, and utility performance for
+          risk mitigation and efficiency improvement.
+        </p>
+      </>
+    ),
   },
+
   {
-    label: "WHY EARTHING SYSTEMS DETERIORATE",
-    title: "WHY EARTHING SYSTEMS DETERIORATE",
-    content: `An earthing system which is adequate during commissioning may become deficient over its service life through several mechanisms:
+    label: "JEF SAFETY CERTIFICATION PROGRAMME",
+    title: "THE JEF SAFETY CERTIFICATION PROGRAMME",
+    content: (
+      <>
+        <p>India's first facility-specific safety certification.</p>
 
-• Environmental corrosion — electrochemical interaction between buried conductors and soil causes progressive corrosion of conductor cross-sections and at joints
+        <p className="mt-[24px]">The 4-step path to certification:</p>
 
-• Galvanic corrosion — dissimilar metals in contact accelerate corrosion at buried and above ground joints, which are the most difficult points to inspect
+        <div className="mt-[28px] flex flex-col gap-[22px]">
+          <p>
+            1. Audit — Comprehensive electrical & fire safety audit against all
+            applicable Indian standards
+          </p>
 
-• Thermal and mechanical stress at joints — repeated fault events introduce thermal cycling that gradually loosens mechanical joints; even exothermic welded connections generally tend to develop cracks in buried installations as there is no allowance for movement or thermal expansion
+          <p>
+            2. Rectification — Facility addresses all findings using JEF's
+            recommendations
+          </p>
 
-• Changes to the installation — plant modifications, extensions, and civil works may alter the earthing system without being fully documented or accounted for in the original protection system design
+          <p>
+            3. Closure Audit — JEF independently verifies all critical
+            deficiencies are resolved
+          </p>
 
-• Workmanship at installation — under-torqued clamps, incomplete welds, and risers not bonded to the buried grid may not be detectable during commissioning but worsen in service
+          <p>
+            4. Certification — Facility is awarded its JEF Safety Certification
+          </p>
 
-Periodic comprehensive health assessment — not just resistance measurement — is necessary to identify these deficiencies before they compromise safety.`,
+          <p>
+            5. Staff Training & Certification - Structured training for facility
+            electrical management teams and certificates issued based on
+            assessment scores
+          </p>
+        </div>
+
+        <p className="mt-[34px]">
+          Note: Our periodic audit significantly reduces the probability of
+          electrical and fire accidents. While we cannot guarantee 24/7 safety,
+          our certification programme and post-certification training aim to
+          build a lasting safety-first culture within your facility.
+        </p>
+      </>
+    ),
   },
+
   {
-    label: "WHAT IS AT STAKE",
-    title: "WHAT IS AT STAKE",
-    content: `A deficient earthing system puts three things at risk:
+    label: "LIFT / ESCALATOR & HVAC AUDITS",
+    title: "LIFT / ESCALATOR & HVAC AUDITS",
+    content: (
+      <>
+        <div className="flex flex-col gap-[28px]">
+          <p>
+            1. Lift & Escalator Full inspection across: lift pit, car interior,
+            car roof, machine room, floor landings, and lift shaft.
+          </p>
 
-A. Protection system operation — The CEA (Measures Relating to Safety and Electric Supply) Regulations, 2023 require that earthing system impedance be maintained as low as possible to ensure timely breaker operation. If earth loop impedance has increased due to a corroded conductor, disconnected riser, loose connections, or a joint opened under thermal stress, the fault current may be insufficient to operate the protection in time. The fault persists, with consequences including fire, equipment damage, or exposure of personnel to hazardous touch potentials larger than the safe limits.
+          <p>
+            2. HVAC Assessed for electrical safety, fire alarm integration, and
+            air quality.
+          </p>
+        </div>
 
-B. Personnel safety — During a fault, current flowing through the earthing system causes Ground Potential Rise (GPR). IEEE Std 80 defines tolerable limits for touch and step potentials as a function of sub-surface resistivity, soil resistivity, body weight, and fault duration. Exceeding these limits results in electric shock, ventricular fibrillation, and fatality.
+        <h3 className="mt-[56px] uppercase text-[#C02429] font-bold tracking-[2px]">
+          Codes & Standards Referenced
+        </h3>
 
-C. Equipment reliability — High neutral-to-ground voltages, electromagnetic interference from inadequate equipotential bonding, and nuisance tripping of earth fault protection are symptoms of earthing deficiencies. Sensitive electronic equipment — control systems, PLCs, instrumentation, communications — is also exposed to voltage transients and interference that progressively degrade performance and service life.`,
-  },
-  {
-    label: "JEF EARTHING HEALTH ASSESSMENT",
-    title: "JEF EARTHING HEALTH ASSESSMENT",
-    content: `JEF's assessment covers the full circuit from the equipment to be protected, through the earthing conductor, through the buried grid, to the electrode — not just the electrode in isolation.
-
-It is structured around the specific failure modes which a resistance measurement will not detect - open and defective risers, disconnected grid sections, high-resistance connections, and inadequate earth loop impedance.
-
-All measurements are carried out on live systems, without requiring a shutdown, with sophisticated meters and test equipment and these values are processed using our proprietary algorithm to determine the condition of the connection.`,
-  },
-  {
-    label: "EHV SUBSTATION EARTHING ASSESSMENT",
-    title: "EHV SUBSTATION EARTHING ASSESSMENT",
-    content: `1. Soil Resistivity Test
-2. Earth Electrode Resistance Test
-3. Grid Resistance
-4. Riser Integrity Test
-5. Grid Integrity Test
-6. Effect of Corrosion
-7. Touch and Step Potential Test
-8. Earth Grid Modelling and Simulation — computer modelling using CDEGS software
-9. Gravel Resistivity
-10. Surface Layer
-11. Continuity Test
-12. Vertical Loop Impedance Test
-
-LV EARTHING ASSESSMENT – INDUSTRIAL AND COMMERCIAL
-
-1. Soil Resistivity Test
-2. Earth Electrode Resistance Test
-3. Earth Loop Impedance Test
-4. Earth Leakage Protection Test / Prospective Fault Current Test
-5. Riser Integrity Test
-6. Effect of Corrosion`,
-  },
-  {
-    label: "ASSESSMENT IDENTIFIES AND DELIVERS",
-    title: "WHAT THE ASSESSMENT IDENTIFIES AND DELIVERS",
-    content: `What We Identify
-
-1. Open and defective risers
-2. Grid islanding (intra-grid)
-3. Disconnected grids (inter-grid)
-4. Inadequate earth loop impedance
-5. Unsafe touch and step potentials
-6. Corrosion-affected conductors and connections
-
-Our study doesn't end with identification of anomalies but will also provide corrective actions with practically implementable solutions.`,
-  },
-  {
-    label: "APPLICATION AREA",
-    title: "APPLICATION AREAS",
-    content: `JEF provides earthing health assessment and grounding testing services across:
-
-1. AIS and GIS substations — EHV, HV, and MV
-2. Transmission
-3. Power generating stations
-4. Industrial manufacturing and process plants
-5. Oil and gas — onshore and offshore
-6. Tank farms and fuel storage facilities
-7. Petrochemical and refinery complexes
-8. Automobile and heavy industries
-9. Chemical and paints
-10. Pharmaceutical
-11. Data centres
-12. Metro rail and railway infrastructure
-13. Earthing audit for renewables — wind farms and solar power plants
-14. Communication towers and broadcast infrastructure
-15. Commercial buildings, retail complexes, and warehouses
-16. Hotels and Hospitals
-
-JEF has conducted comprehensive earthing health assessments at over 500+ substations and carried out earth grid simulation for over 650+ grids.`,
+        <p className="mt-[24px]">
+          CEA Regulations 2023, NEC 2023, NBC 2016, along with applicable BIS,
+          IEC, IEEE, BS and NFPA standards.
+        </p>
+      </>
+    ),
   },
 ];
 
-const TOTAL = earthingAssessmentData.length;
-const VISIBLE = 5;
+const TOTAL = electricalAuditTabs.length;
+const VISIBLE = 3;
 const TICK_MS = 100;
 const SLIDE_DURATION_MS = 10000;
 const INCREMENT = (TICK_MS / SLIDE_DURATION_MS) * 100;
 
-function EarthingAssessmentTabs() {
+function ElectricalAuditTabs() {
   const [activeTab, setActiveTab] = useState(0);
   const [progress, setProgress] = useState(0);
+
   const windowStart = activeTab < VISIBLE ? 0 : activeTab - VISIBLE + 1;
 
   const activeTabRef = useRef(0);
@@ -843,6 +862,7 @@ function EarthingAssessmentTabs() {
   const handleTabClick = (index) => {
     activeTabRef.current = index;
     progressRef.current = 0;
+
     setActiveTab(index);
     setProgress(0);
   };
@@ -853,9 +873,12 @@ function EarthingAssessmentTabs() {
 
       if (progressRef.current >= 100) {
         progressRef.current = 0;
+
         const nextTab =
           activeTabRef.current === TOTAL - 1 ? 0 : activeTabRef.current + 1;
+
         activeTabRef.current = nextTab;
+
         setActiveTab(nextTab);
         setProgress(0);
       } else {
@@ -888,15 +911,26 @@ function EarthingAssessmentTabs() {
           maxWidth: "1385px",
         }}
       >
+        {/* TITLE */}
         <div className="relative h-[60px] overflow-hidden">
-          {earthingAssessmentData.map((tab, index) => (
+          {electricalAuditTabs.map((tab, index) => (
             <h2
               key={index}
-              className={`uppercase font-montserrat absolute left-0 top-0 transition-all duration-700 ease-in-out ${
-                activeTab === index
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4 pointer-events-none"
-              }`}
+              className={`
+                uppercase
+                font-montserrat
+                absolute
+                left-0
+                top-0
+                transition-all
+                duration-700
+                ease-in-out
+                ${
+                  activeTab === index
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4 pointer-events-none"
+                }
+              `}
               style={{
                 color: "#C02429",
                 fontWeight: 700,
@@ -910,6 +944,7 @@ function EarthingAssessmentTabs() {
           ))}
         </div>
 
+        {/* CONTENT */}
         <div
           className="relative overflow-hidden"
           style={{
@@ -918,19 +953,29 @@ function EarthingAssessmentTabs() {
             minHeight: "594px",
           }}
         >
-          {earthingAssessmentData.map((tab, index) => (
+          {electricalAuditTabs.map((tab, index) => (
             <div
               key={index}
-              className={`font-montserrat whitespace-pre-line absolute left-0 top-0 w-full transition-all duration-700 ease-in-out ${
-                activeTab === index
-                  ? "opacity-100 translate-y-0 pointer-events-auto"
-                  : "opacity-0 translate-y-4 pointer-events-none"
-              }`}
+              className={`
+                absolute
+                left-0
+                top-0
+                w-full
+                transition-all
+                duration-700
+                ease-in-out
+                ${
+                  activeTab === index
+                    ? "opacity-100 translate-y-0 pointer-events-auto"
+                    : "opacity-0 translate-y-4 pointer-events-none"
+                }
+              `}
               style={{
                 color: "#1B1818",
                 fontWeight: 400,
                 fontSize: "20px",
                 lineHeight: "150%",
+                fontFamily: "Montserrat",
               }}
             >
               {tab.content}
@@ -942,16 +987,16 @@ function EarthingAssessmentTabs() {
       {/* BOTTOM TABS */}
       <div className="w-full mt-[60px] pl-[100px] overflow-hidden">
         <div
-          className="flex gap-[24px]"
+          className="flex gap-[48px]"
           style={{
-            width: "1220px",
+            width: "1050px",
             height: "83px",
           }}
         >
-          {earthingAssessmentData
+          {electricalAuditTabs
             .slice(windowStart, windowStart + VISIBLE)
             .map((tab) => {
-              const realIndex = earthingAssessmentData.findIndex(
+              const realIndex = electricalAuditTabs.findIndex(
                 (item) => item.label === tab.label,
               );
 
@@ -963,7 +1008,7 @@ function EarthingAssessmentTabs() {
                   onClick={() => handleTabClick(realIndex)}
                   className="flex flex-col items-start cursor-pointer flex-shrink-0"
                   style={{
-                    width: "220px",
+                    width: "318px",
                     height: "83px",
                   }}
                 >
@@ -982,7 +1027,7 @@ function EarthingAssessmentTabs() {
                     className="uppercase text-left font-montserrat transition-all duration-300"
                     style={{
                       fontWeight: isActive ? 600 : 500,
-                      fontSize: "12px",
+                      fontSize: "14px",
                       lineHeight: "150%",
                       letterSpacing: "1.5px",
                       color: isActive ? "#2E2E2E" : "#4B4B4B",
@@ -999,71 +1044,114 @@ function EarthingAssessmentTabs() {
   );
 }
 
-//--------------------------------------------------------DELIVERABLES-----------------------------------------------------------------
-const deliverables = [
-  {
-    id: 1,
-    description:
-      "Detailed engineering report with all measurement results, test locations, and test conditions",
-  },
-  {
-    id: 2,
-    description:
-      "Site photographs documenting the installation condition and all visible deficiencies identified",
-  },
-  {
-    id: 3,
-    description:
-      "List of all identified anomalies and defects, with specific locations and BOM required for correction",
-  },
-  {
-    id: 4,
-    description:
-      "List of all identified anomalies and defects, with specific locations and BOM required for correction",
-  },
-  {
-    id: 5,
-    description:
-      "Recommendations for corrective action, prioritised by safety impact",
-  },
-  {
-    id: 6,
-    description:
-      "Earth grid simulation outputs where modelling was performed — GPR, touch potentials distribution, and step potential profile",
-  },
-  {
-    id: 7,
-    description:
-      "Confirmation of compliance or non-compliance with applicable standards and CEA Regulations, 2023",
-  },
-];
-
-function Deliverables() {
-  const scrollRef = useRef(null);
+//--------------------------------------------------------Smart Safety Audit Tools-----------------------------------------------------------------
+function ExcellenceinElectricalEngineering() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleScroll = () => {
-    if (!scrollRef.current) return;
+  const sectors = [
+    {
+      name: "UNMATCHED ACCURACY",
+      description:
+        "AI-guided auditing eliminates human variability — anomalies detected consistently, regardless of auditor",
+    },
+    {
+      name: "HIGH RELIABILITY",
+      description:
+        "Identical, documented audit sequence across all your facilities",
+    },
+    {
+      name: "FULL TRANSPARENCY",
+      description:
+        "Every finding captured with photograph, observation, recommendation & standard reference",
+    },
+    {
+      name: "GUIDED MOBILE APP",
+      description:
+        "Field auditors guided step-by-step — nothing missed, nothing left to individual memory",
+    },
+    {
+      name: "PROVEN AT SCALE",
+      description: "16,000+ reports, 6,30,000+ data points, zero data mix-ups",
+    },
+    {
+      name: "SPEED",
+      description:
+        "Real-time data transfer, automated validation, auto-generated reports",
+    },
+    {
+      name: "CUSTOM REPORTS",
+      description:
+        "Standardised formats, customisable per client — compare findings across facilities and audit cycles",
+    },
+    {
+      name: "DATA SECURITY",
+      description:
+        "Enterprise-grade, web-based infrastructure — your data stays yours",
+      },
+    {
+      name: "CLIENT DASHBOARD",
+      description:
+        "Custom dashboards, status updates, reports and collaterals",
+    },  
+  ];
 
-    const scrollLeft = scrollRef.current.scrollLeft;
-    const cardWidth = 346 + 24;
+  const maxIndex = sectors.length - 1;
 
-    const index = Math.round(scrollLeft / cardWidth);
-    setActiveIndex(index);
-  };
+  const next = () => setActiveIndex((prev) => Math.min(prev + 1, maxIndex));
+  const prev = () => setActiveIndex((prev) => Math.max(prev - 1, 0));
+
+  const atStart = activeIndex === 0;
+  const atEnd = activeIndex === maxIndex;
 
   return (
     <section
-      className="relative w-full overflow-hidden text-white px-[94px] py-20 max-md:px-5"
+      className="relative w-full overflow-hidden text-white flex flex-col justify-center px-[94px] max-md:px-5 py-20"
       style={{
-        background: "#161414",
+        minHeight: "920px",
+        backgroundImage: "url(/AboutUs/Area_of_Expertise.png)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
         fontFamily: "Montserrat, sans-serif",
       }}
     >
+      <div className="absolute inset-0 bg-[#1a1a1a]/75" />
+
       <div className="relative z-10 w-full max-w-[1540px] mx-auto">
+        <div className="absolute top-0 right-0 flex gap-4 z-20">
+          {/* PREV BUTTON */}
+          <button
+            onClick={prev}
+            disabled={atStart}
+            className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300"
+            style={{
+              opacity: atStart ? 0.4 : 1,
+              background: atStart ? "#ffffff" : "transparent",
+              border: "1px solid white",
+              color: atStart ? "#000000" : "#ffffff",
+            }}
+          >
+            ←
+          </button>
+
+          {/* NEXT BUTTON */}
+          <button
+            onClick={next}
+            disabled={atEnd}
+            className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300"
+            style={{
+              opacity: atEnd ? 0.4 : 1,
+              background: atEnd ? "transparent" : "#ffffff",
+              border: "1px solid white",
+              color: atEnd ? "#ffffff" : "#000000",
+            }}
+          >
+            →
+          </button>
+        </div>
+
         {/* HEADING */}
         <h1
-          className="text-[#C02429] uppercase mb-14"
+          className="text-[#C02429] uppercase mb-6"
           style={{
             fontWeight: 700,
             fontSize: "32px",
@@ -1071,108 +1159,200 @@ function Deliverables() {
             letterSpacing: "4.53px",
           }}
         >
-          EARTHING HEALTH ASSESSMENT DELIVERABLES
+          JEF'S PATENTED SMART SAFETY AUDIT TOOL
         </h1>
 
-        {/* TOP LINE */}
-        <div className="relative w-full mb-[40px]">
-          <div className="absolute top-1/2 left-[-50vw] right-[-50vw] h-[1px] bg-white/30" />
-
-          <div className="relative flex gap-[370px]">
-            {deliverables.map((_, index) => (
-              <div key={index} className="relative shrink-0 w-[14px] h-[14px]">
-                <div
-                  className={`rounded-full transition-all duration-300 ${
-                    activeIndex === index
-                      ? "bg-[#C02429] w-[14px] h-[14px]"
-                      : "bg-white w-[10px] h-[10px] mt-[2px] ml-[2px]"
-                  }`}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* SCROLLABLE CARDS */}
-        <div
-          ref={scrollRef}
-          onScroll={handleScroll}
-          className="
-            flex
-            gap-[24px]
-            overflow-x-auto
-            scroll-smooth
-            scrollbar-hide
-            pb-4
-          "
+        {/* DESCRIPTION */}
+        <p
+          className="text-gray-300 mb-16"
           style={{
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
+            fontWeight: 400,
+            fontSize: "16px",
+            lineHeight: "160%",
+            maxWidth: "900px",
           }}
         >
-          {deliverables.map((item, index) => {
-            const isActive = activeIndex === index;
+          The world's first automated safety audit platform.
+        </p>
 
-            return (
-              <div
-                key={item.id}
-                className="shrink-0"
-                style={{
-                  width: "346px",
-                  height: "208px",
-                }}
-              >
-                {/* CARD */}
+        {/* SLIDER WRAPPER */}
+        <div className="relative w-full mt-10">
+          {/* GLOBAL CONTINUOUS LINE */}
+          <div className="absolute top-[39px] left-[-50vw] right-[-50vw] h-[1px] bg-white/30 z-0" />
+
+          {/* SLIDING TRACK */}
+          <div
+            className="relative flex gap-[20px] transition-transform duration-700 ease-in-out z-10"
+            style={{ transform: `translateX(-${activeIndex * (346 + 20)}px)` }}
+          >
+            {sectors.map((item, index) => {
+              const isActive = activeIndex === index;
+
+              return (
                 <div
-                  className="
-                    relative
-                    w-full
-                    h-full
-                    overflow-hidden
-                    transition-all
-                    duration-500
-                    border
-                  "
-                  style={{
-                    background: isActive ? "#F9F7F2" : "rgba(27, 24, 24, 0.85)",
-                    borderColor: isActive
-                      ? "#F9F7F2"
-                      : "rgba(255,255,255,0.12)",
-                    backdropFilter: "blur(6px)",
-                    padding: "28px",
-                  }}
+                  key={index}
+                  className="flex flex-col w-[346px] shrink-0 cursor-pointer group"
+                  onClick={() => setActiveIndex(index)}
                 >
-                  {/* GLOW */}
-                  <div
-                    className="absolute inset-0 opacity-20"
-                    style={{
-                      background:
-                        "radial-gradient(circle at top left, rgba(192,36,41,0.22), transparent 55%)",
-                    }}
-                  />
+                  {/* TAB LABEL */}
+                  <div className="h-[30px] flex items-end mb-[8px]">
+                    <span
+                      className={`uppercase tracking-[0.1em] text-[11px] transition-colors duration-300 ${
+                        isActive
+                          ? "font-bold text-white"
+                          : "font-normal text-gray-400 group-hover:text-white"
+                      }`}
+                    >
+                      {item.name}
+                    </span>
+                  </div>
 
-                  {/* CONTENT */}
-                  <div className="relative z-10 h-full flex items-center justify-center text-center">
+                  {/* DOT CONTAINER */}
+                  <div className="relative w-full h-[2px] flex items-center">
+                    {isActive ? (
+                      // Active dot: red
+                      <div className="absolute left-0 w-[14px] h-[14px] bg-[#C02429] rounded-full z-10" />
+                    ) : (
+                      // Inactive dot: white
+                      <div className="absolute left-0 w-2.5 h-2.5 bg-white rounded-full z-10" />
+                    )}
+                  </div>
+
+                  <div
+                    className="mt-[32px] p-8 transition-all duration-500 ease-in-out"
+                    style={{
+                      height: "360px",
+                      background: isActive
+                        ? "#F9F7F2"
+                        : "rgba(27, 24, 24, 0.85)",
+                    }}
+                  >
                     <p
                       style={{
-                        fontWeight: 300,
-                        fontSize: "18px",
-                        lineHeight: "153%",
-                        color: isActive ? "#2B2B2B" : "#FFFFFF",
+                        fontSize: "14px",
+                        lineHeight: "1.6",
+                        color: isActive ? "#312d2d" : "#e5e7eb",
                       }}
                     >
                       {item.description}
                     </p>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
   );
 }
+//-----------------------------------------------GENERAL FIRE SAFETY-------------------------------------------------------
+function GeneralFireSafety() {
+  const covers = [
+    "Fire Prevention",
+    "Life Safety",
+    "Active Fire Protection",
+    "Passive Fire Protection",
+    "Mock Drill Review",
+  ];
+
+  return (
+    <section
+      className="
+        w-full
+        h-[425px]
+        bg-[#F5F3EF]
+        flex items-center
+        px-[90px]
+      "
+    >
+      <div className="w-full max-w-[1728px]">
+        {/* Heading */}
+        <h2
+          className="
+            text-[#C62828]
+            uppercase
+            font-bold
+            tracking-[2px]
+            leading-[150%]
+            mb-[28px]
+          "
+          style={{
+            fontFamily: "Montserrat",
+            fontSize: "32px",
+          }}
+        >
+          GENERAL FIRE SAFETY
+        </h2>
+
+        {/* Paragraph */}
+        <p
+          className="
+            text-[#2B2B2B]
+            max-w-[1450px]
+            mb-[34px]
+          "
+          style={{
+            fontFamily: "Montserrat",
+            fontWeight: 400,
+            fontSize: "20px",
+            lineHeight: "150%",
+          }}
+        >
+          A fire audit that examines the complete system as an integrated whole
+          — not just extinguisher counts and detector placement.
+        </p>
+
+        {/* Subheading */}
+        <p
+          className="text-[#2B2B2B] mb-[28px]"
+          style={{
+            fontFamily: "Montserrat",
+            fontWeight: 400,
+            fontSize: "20px",
+            lineHeight: "150%",
+          }}
+        >
+          what JEF Techno Covers:
+        </p>
+
+        {/* Buttons */}
+        <div className="flex flex-wrap gap-[14px] max-w-[1400px]">
+          {covers.map((item, index) => (
+            <button
+              key={index}
+              className="
+                bg-[#FFFFFF]
+                border
+                border-[#E4E4E4]
+                rounded-full
+                px-[28px]
+                py-[12px]
+                transition-all
+                duration-300
+                ease-in-out
+                hover:bg-[#C62828]
+                hover:text-white
+                hover:border-[#C62828]
+                hover:shadow-md
+              "
+              style={{
+                fontFamily: "Montserrat",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "150%",
+                color: "#2B2B2B",
+              }}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 //-----------------------------------------FAQ-------------------------------------------------------------------------------------
 
@@ -1356,4 +1536,4 @@ function FAQSection() {
   );
 }
 
-export default eha;
+export default efsa;

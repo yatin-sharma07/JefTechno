@@ -1976,58 +1976,6 @@ useEffect(() => {
        buttonImg: "/HomePageImg/Instrumentation btn.png",
        background:"./HomePageImg/WhatWeDoSection/Solution-5.png",
      },
-
-    {
-      id: 1,
-      title: "LIGHTNING PROTECTION SYSTEM STUDIES",
-      heading: "LIGHTNING PROTECTION SYSTEM STUDIES",
-      description:
-        "The purpose of Lightning Protection Systemaudit is to conduct lightning risk assessment and determine the level of protectionrequired to the structure/facility as per the latest relevant standards. LPS Adequacyaudit helps to manage and mitigate the risk due to lightning and protect the life andassets.",
-      top: "290px",
-      left: "420px",
-      width: "280px",
-      buttonImg: "/HomePageImg/LPS-Studies-btn.png",
-      background:"/HomePageImg/WhatWeDoSection/Solution-4.png",
-    },
-
-    {
-      id: 2,
-      title: "POWER SYSTEM STUDIES",
-      heading: "POWER SYSTEM STUDIES",
-      description:
-        "A Power System Study involves analyzing various aspectsof an electrical power system to identify potential issues and optimize performance. These studies include load flow analysis, short circuit studies, relay coordination, arcflash analysis, and more, all aimed at enhancing system reliability and safety.",
-      top: "410px",
-      left: "190px",
-      width: "300px",
-      buttonImg: "/HomePageImg/Power-System-Studies-btn.png",
-      background:"/HomePageImg/WhatWeDoSection/Solution-3.png",
-    },
-
-    {
-      id: 3,
-      title: "POWER QUALITY & ROOT CAUSE ANALYSIS",
-      heading: "POWER QUALITY & ROOT CAUSE ANALYSIS",
-      description:
-        "A Power Quality Study involves acomprehensive analysis of your electrical system to identify disturbances anddeviations in voltage, current, and frequency. These studies are essential forensuring that your power supply is stable and free from issues that can lead toequipment malfunction or inefficiencies.",
-      top: "490px",
-      left: "550px",
-      width: "300px",
-      buttonImg: "/HomePageImg/PQ-and-RC btn.png",
-      background:"/HomePageImg/WhatWeDoSection/Solution-2.png",
-    },
-
-    {
-      id: 4,
-      title: "INSTRUMENTATION EARTHING",
-      heading: "INSTRUMENTATION EARTHING",
-      description:
-        "An Instrumentation Earthing Study involves evaluatingthe earthing system of instrumentation and control systems to ensure propergrounding. This study helps prevent electrical noise, surges, and other issues thatcan affect the accuracy and reliability of instrumentation.",
-      top: "580px",
-      left: "310px",
-      width: "300px",
-      buttonImg: "/HomePageImg/Instrumentation btn.png",
-      background:"/HomePageImg/WhatWeDoSection/Solution-5.png",
-    },
   ];
 
    const handleCardClick = (service) => {

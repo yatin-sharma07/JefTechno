@@ -517,7 +517,7 @@ const services = [
    {
     icon: "/nav-clps-icon.png",
     text: "CLPS",
-    path: "/coming-soon",
+    path: "/clps-products",
   },
   {
     icon: "/nav-earthing-icon3.png",

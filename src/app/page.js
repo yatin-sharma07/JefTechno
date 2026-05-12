@@ -1881,6 +1881,7 @@ function Home() {
 function WhatWeDoSection() {
   const [activeCard, setActiveCard] = useState(0);
   const [panelOpen, setPanelOpen] = useState(false);
+  const[background,setBackground] = useState("/HomePageImg/WhatWeDoBg.png");
   const sectionRef = useRef(null);
 const videoRef = useRef(null);
 
@@ -1910,18 +1911,71 @@ useEffect(() => {
   return () => observer.disconnect();
 }, [videoStarted]);
 
-  const services = [
-    {
-      id: 0,
-      title: "EARTHING STUDIES",
-      heading: "GROUNDING EARTHING STUDIES",
-      description:
-        "Earthing is an essential part of any electrical installation, essentialfor the safety from electrical shock, and fire and for operation of most of theprotective systems of the electrical installation.",
-      top: "180px",
-      left: "140px",
-      width: "280px",
-      buttonImg: "/HomePageImg/Earthing-studies-btn.png",
-    },
+    const services = [
+     {
+       id: 0,
+       title: "EARTHING STUDIES",
+       heading: "GROUNDING EARTHING STUDIES",
+       description:
+         "Earthing is an essential part of any electrical installation, essentialfor the safety from electrical shock, and fire and for operation of most oftheprotective systems of the electrical installation.",
+       top: "180px",
+       left: "140px",
+       width: "280px",
+       buttonImg: "/HomePageImg/Earthing-studies-btn.png",
+       background:"./HomePageImg/WhatWeDoSection/Solution-1.png",
+     },
+
+     {
+       id: 1,
+       title: "LIGHTNING PROTECTION SYSTEM STUDIES",
+       heading: "LIGHTNING PROTECTION SYSTEM STUDIES",
+       description:
+         "The purpose of Lightning Protection Systemaudit is to conduct lightning risk assessment and determine the level of protectionrequired to the structure/facility as per the latest relevant standards. LPS Adequacyaudit helps to manage and mitigate the risk due to lightning and protect the life andassets.",
+       top: "290px",
+       left: "420px",
+       width: "280px",
+       buttonImg: "/HomePageImg/LPS-Studies-btn.png",
+       background:"./HomePageImg/WhatWeDoSection/Solution-2.png",
+     },
+
+     {
+       id: 2,
+       title: "POWER SYSTEM STUDIES",
+       heading: "POWER SYSTEM STUDIES",
+       description:
+         "A Power System Study involves analyzing various aspectsof an electrical power system to identify potential issues and optimize performance. These studies include load flow analysis, short circuit studies, relay coordination, arcflash analysis, and more, all aimed at enhancing system reliability and safety.",
+       top: "410px",
+       left: "190px",
+       width: "300px",
+       buttonImg: "/HomePageImg/Power-System-Studies-btn.png",
+       background:"./HomePageImg/WhatWeDoSection/Solution-3.png",
+     },
+
+     {
+       id: 3,
+       title: "POWER QUALITY & ROOT CAUSE ANALYSIS",
+       heading: "POWER QUALITY & ROOT CAUSE ANALYSIS",
+       description:
+         "A Power Quality Study involves acomprehensive analysis of your electrical system to identify disturbances anddeviations in voltage, current, and frequency. These studies are essential forensuring that your power supply is stable and free from issues that can lead toequipment malfunction or inefficiencies.",
+       top: "490px",
+       left: "550px",
+       width: "300px",
+       buttonImg: "/HomePageImg/PQ-and-RC btn.png",
+       background:"./HomePageImg/WhatWeDoSection/Solution-4.png",
+     },
+
+     {
+       id: 4,
+       title: "INSTRUMENTATION EARTHING",
+       heading: "INSTRUMENTATION EARTHING",
+       description:
+         "An Instrumentation Earthing Study involves evaluatingthe earthing system of instrumentation and control systems to ensure propergrounding. This study helps prevent electrical noise, surges, and other issues thatcan affect the accuracy and reliability of instrumentation.",
+       top: "580px",
+       left: "310px",
+       width: "300px",
+       buttonImg: "/HomePageImg/Instrumentation btn.png",
+       background:"./HomePageImg/WhatWeDoSection/Solution-5.png",
+     },
 
     {
       id: 1,
@@ -1933,6 +1987,7 @@ useEffect(() => {
       left: "420px",
       width: "280px",
       buttonImg: "/HomePageImg/LPS-Studies-btn.png",
+      background:"/HomePageImg/WhatWeDoSection/Solution-4.png",
     },
 
     {
@@ -1945,6 +2000,7 @@ useEffect(() => {
       left: "190px",
       width: "300px",
       buttonImg: "/HomePageImg/Power-System-Studies-btn.png",
+      background:"/HomePageImg/WhatWeDoSection/Solution-3.png",
     },
 
     {
@@ -1957,6 +2013,7 @@ useEffect(() => {
       left: "550px",
       width: "300px",
       buttonImg: "/HomePageImg/PQ-and-RC btn.png",
+      background:"/HomePageImg/WhatWeDoSection/Solution-2.png",
     },
 
     {
@@ -1969,13 +2026,15 @@ useEffect(() => {
       left: "310px",
       width: "300px",
       buttonImg: "/HomePageImg/Instrumentation btn.png",
+      background:"/HomePageImg/WhatWeDoSection/Solution-5.png",
     },
   ];
 
-  const handleCardClick = (service) => {
-    setActiveCard(service.id);
-    setPanelOpen(true);
-  };
+   const handleCardClick = (service) => {
+     setActiveCard(service.id);
+     setPanelOpen(true);
+     setBackground(service.background)
+   };
 
   const handlePrev = () => {
     const prevIndex = (activeCard - 1 + services.length) % services.length;
@@ -2003,7 +2062,7 @@ useEffect(() => {
     <section  ref={sectionRef} className="relative w-full min-h-[850px] overflow-hidden bg-black">
       {/* Background Image */}
 <img
-  src="/HomePageImg/WhatWeDoBg.png"
+  src={background}
   alt="What We Do Background"
   className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
     showContent ? "opacity-100" : "opacity-0"

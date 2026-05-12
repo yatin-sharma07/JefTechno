@@ -340,9 +340,9 @@ const efsa = () => {
 
       {/* Home > OUR BUSINESS > AUDIT SERVICES > ELECTRICAL & FIRE SAFETY AUDIT  */}
 
-      <section className="flex h-auto -mb-11 md:mb-0 overflow-hidden flex-col bg-[#F9F7F2]">
+      <section className="flex h-auto -mb-11 md:mb-0 overflow-hidden flex-col bg-[#1B1818]">
         <div className="flex overflow-hidden flex-col w-full bg-white max-md:max-w-full" />
-        <nav className="flex flex-col justify-center py-6 px-24 w-full bg-[#F9F7F2] min-h-[64px] max-md:px-5 max-md:max-w-full">
+        <nav className="flex flex-col justify-center py-6 px-24 w-full bg-[#1B1818] min-h-[64px] max-md:px-5 max-md:max-w-full">
           <div className="flex w-full max-md:max-w-full">
             <div className="flex items-center h-full min-w-[240px]">
               {navItems.map((item, index) => (
@@ -410,15 +410,15 @@ const efsa = () => {
                   </h1>
 
                   <div className="w-full max-w-[1359px] flex flex-col gap-[16px]">
-                    <p className="text-center text-[#4B4B4B] font-normal font-montserrat text-[20px] leading-[150%]">
+                    <p className="text-center text-[#ffffff] font-normal font-montserrat text-[20px] leading-[150%]">
                       Building a Safer India — One Facility At A Time
                     </p>
 
-                    <p className="text-center text-[#4B4B4B] font-normal font-montserrat text-[20px] leading-[150%]">
+                    <p className="text-center text-[#ffffff] font-normal font-montserrat text-[20px] leading-[150%]">
                       Most safety audits produce reports. JEF produces outcomes.
                     </p>
 
-                    <p className="text-center text-[#4B4B4B] font-normal font-montserrat text-[20px] leading-[150%]">
+                    <p className="text-center text-[#ffffff] font-normal font-montserrat text-[20px] leading-[150%]">
                       A comprehensive, multi-discipline inspection of your
                       facility's complete electrical installation and fire
                       safety systems — conducted by qualified engineers,
@@ -451,7 +451,7 @@ const efsa = () => {
             {/* SLIDE PANEL */}
             <div
               className={`
-    fixed top-0 right-0 h-screen bg-[#F9F7F2] z-[9999]
+    fixed top-0 right-0 h-screen bg-[#1B1818] z-[9999]
     transform transition-transform duration-700
     ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden
     ${showLightningPanel ? "translate-x-0" : "translate-x-full"}
@@ -495,7 +495,7 @@ const efsa = () => {
                       1.
                     </span>
 
-                    <p className="font-montserrat font-normal text-[18px] leading-[165%] text-[#2B2B2B]">
+                    <p className="font-montserrat font-normal text-[18px] leading-[165%] text-[#ffffff]">
                       <span className="text-[#D62B2B]">
                         Electrical Safety —{" "}
                       </span>
@@ -509,7 +509,7 @@ const efsa = () => {
                       2.
                     </span>
 
-                    <p className="font-montserrat font-normal text-[18px] leading-[165%] text-[#2B2B2B]">
+                    <p className="font-montserrat font-normal text-[18px] leading-[165%] text-[#ffffff]">
                       <span className="text-[#D62B2B]">
                         General Fire Safety —{" "}
                       </span>
@@ -524,7 +524,7 @@ const efsa = () => {
                       3.
                     </span>
 
-                    <p className="font-montserrat font-normal text-[18px] leading-[165%] text-[#2B2B2B]">
+                    <p className="font-montserrat font-normal text-[18px] leading-[165%] text-[#ffffff]">
                       <span className="text-[#D62B2B]">
                         Lift & Escalator —{" "}
                       </span>
@@ -539,7 +539,7 @@ const efsa = () => {
                       4.
                     </span>
 
-                    <p className="font-montserrat font-normal text-[18px] leading-[165%] text-[#2B2B2B]">
+                    <p className="font-montserrat font-normal text-[18px] leading-[165%] text-[#ffffff]">
                       <span className="text-[#D62B2B]">HVAC — </span>
                       100+ checkpoints, Electrical safety and operational
                       performance
@@ -672,7 +672,7 @@ const efsa = () => {
 
       {/*---------------------------------------DOWNLOAD SECTION----------------------------------------------------------------------------*/}
 
-      <section className="w-full bg-[#F9F7F2] pt-[50px] pb-[120px] overflow-hidden">
+      <section className="w-full bg-[#1B1818] pt-[50px] pb-[120px] overflow-hidden">
         <div className="w-[1508px] ml-[100px] flex flex-col gap-[61px]">
           <h2 className="font-montserrat font-bold text-[32px] leading-[55px] uppercase text-[#C02429]">
             Download
@@ -898,7 +898,7 @@ function ElectricalAuditTabs() {
         minHeight: "980px",
         paddingTop: "80px",
         paddingBottom: "60px",
-        background: "#F9F7F2",
+        background: "#1B1818",
       }}
     >
       {/* TOP CONTENT */}
@@ -971,7 +971,7 @@ function ElectricalAuditTabs() {
                 }
               `}
               style={{
-                color: "#1B1818",
+                color: "#ffffff",
                 fontWeight: 400,
                 fontSize: "20px",
                 lineHeight: "150%",
@@ -1261,7 +1261,7 @@ function GeneralFireSafety() {
       className="
         w-full
         h-[425px]
-        bg-[#F5F3EF]
+        bg-[#1B1818]
         flex items-center
         px-[90px]
       "
@@ -1288,7 +1288,7 @@ function GeneralFireSafety() {
         {/* Paragraph */}
         <p
           className="
-            text-[#2B2B2B]
+            text-[#ffffff]
             max-w-[1450px]
             mb-[34px]
           "
@@ -1305,7 +1305,7 @@ function GeneralFireSafety() {
 
         {/* Subheading */}
         <p
-          className="text-[#2B2B2B] mb-[28px]"
+          className="text-[#ffffff] mb-[28px]"
           style={{
             fontFamily: "Montserrat",
             fontWeight: 400,
@@ -1416,7 +1416,7 @@ function FAQSection() {
   };
 
   return (
-    <section className="w-full bg-[#F9F7F2] pt-[86px] pb-[50px] overflow-hidden">
+    <section className="w-full bg-[#1B1818] pt-[86px] pb-[50px] overflow-hidden">
       {/* Internal FAQ Layout */}
       <div className="max-w-[1508px] mx-auto flex flex-col gap-[48px] px-[100px]">
         {/* FAQ Heading */}
@@ -1425,7 +1425,7 @@ function FAQSection() {
         </h2>
 
         {/* FAQ Panels */}
-        <div className="w-full flex flex-col gap-[32px]">
+        <div className="w-full flex flex-col gap-[32px] bg-[#1B1818]">
           {/* FAQ Grid */}
           <div className="grid grid-cols-2 gap-x-[48px] gap-y-[32px] w-full">
             {faqData.map((item) => {
@@ -1436,7 +1436,7 @@ function FAQSection() {
                   key={item.id}
                   className={`
                     w-full
-                    bg-white
+                    bg-[#1B1818]
                     border-[0.5px]
                     border-[#C02429]
                     overflow-hidden
@@ -1471,7 +1471,7 @@ function FAQSection() {
                           ${
                             isOpen
                               ? "font-bold text-[#C02429]"
-                              : "font-normal text-[#4A4A4A]"
+                              : "font-normal text-[#FFFFFF]"
                           }
                         `}
                       >
@@ -1520,7 +1520,7 @@ function FAQSection() {
                   >
                     <div className="overflow-hidden">
                       <div className="px-[24px] pb-[28px]">
-                        <p className="font-montserrat font-normal text-[16px] leading-[150%] text-[#4A4A4A]">
+                        <p className="font-montserrat font-normal text-[16px] leading-[150%] text-[#FFFFFF]">
                           {item.answer}
                         </p>
                       </div>

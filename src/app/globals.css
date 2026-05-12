@@ -243,3 +243,22 @@ button {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 } */
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  100% {
+    width: 350px;
+    height: 350px;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.animate-ripple {
+  animation: ripple 700ms ease-out forwards;
+}

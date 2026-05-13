@@ -2058,18 +2058,18 @@ useEffect(() => {
       left: "140px",
       width: "280px",
       background: "./HomePageImg/WhatWeDoSection/Solution-1.png",
-       x: 260,
-  y: 140,
-  xmob: 265,
-ymob: 395,
+       x: 290,
+  y: 180,
+  xmob: 305,
+ymob:449,
 
-  labelLeft: "-160px",
+  labelLeft: "-100px",
   labelTop: "-35px",
-  labelWidth: "170px",
+  labelWidth: "100px",
 
   mobileLabelLeft: "-50px",
   mobileLabelTop: "-22px",
-  mobileLabelWidth: "100px",
+  mobileLabelWidth: "50px",
 
     },
 
@@ -2083,17 +2083,17 @@ ymob: 395,
       left: "420px",
       width: "280px",
       background: "./HomePageImg/WhatWeDoSection/Solution-4.png",
-       x: 260,
-  y: 300,
-  xmob: 265,
-ymob: 600,
- labelLeft: "10px",
-  labelTop: "-35px",
+       x: 25,
+  y: 355,
+  xmob: -15,
+ymob: 660,
+ labelLeft: "-70px",
+  labelTop: "-50px",
   labelWidth: "170px",
 
   mobileLabelLeft: "15px",
   mobileLabelTop: "-22px",
-  mobileLabelWidth: "100px",
+  mobileLabelWidth: "150px",
     },
 
     {
@@ -2106,16 +2106,16 @@ ymob: 600,
       left: "190px",
       width: "300px",
       background: "./HomePageImg/WhatWeDoSection/Solution-3.png",
-       x: 260,
-  y:480,
-  xmob: 265,
-ymob: 800,
- labelLeft: "20px",
-  labelTop: "-35px",
-  labelWidth: "170px",
+       x: 140,
+  y:500,
+  xmob: 130,
+ymob: 830,
+ labelLeft: "10px",
+  labelTop: "50px",
+  labelWidth: "150px",
 
   mobileLabelLeft: "15px",
-  mobileLabelTop: "-22px",
+  mobileLabelTop: "20px",
   mobileLabelWidth: "100px",
     },
 
@@ -2129,17 +2129,17 @@ ymob: 800,
       left: "550px",
       width: "300px",
       background: "./HomePageImg/WhatWeDoSection/Solution-2.png",
-        x:80,
-  y: 450,
-  xmob: 45,
-ymob: 770,
- labelLeft: "-230px",
-  labelTop: "-35px",
+        x:250,
+  y: 390,
+  xmob: 265,
+ymob: 700,
+ labelLeft: "-00px",
+  labelTop: "60px",
   labelWidth: "170px",
 
-  mobileLabelLeft: "-150px",
-  mobileLabelTop: "-22px",
-  mobileLabelWidth: "100px",
+  mobileLabelLeft:" 20px",
+  mobileLabelTop: "20px",
+  mobileLabelWidth: "150px",
 
     },
 
@@ -2153,16 +2153,16 @@ ymob: 770,
       left: "310px",
       width: "300px",
       background: "./HomePageImg/WhatWeDoSection/Solution-5.png",
-       x: 135,
-  y: 350,
-    xmob: 115,
-ymob: 650,
-   labelLeft: "-200px",
-  labelTop: "-35px",
+        x: 375,
+  y: 275,
+    xmob: 410,
+ymob: 555,
+   labelLeft: "-20px",
+  labelTop: "30px",
   labelWidth: "170px",
 
-  mobileLabelLeft: "-150px",
-  mobileLabelTop: "-22px",
+  mobileLabelLeft: "-0px",
+  mobileLabelTop: "25px",
   mobileLabelWidth: "100px",
 
     },
@@ -2272,6 +2272,7 @@ ymob: 650,
         alt="J Path"
         className="
     absolute
+    rotate-[46deg]
           top-[400px]
           left-[30px]
           md:top-[145px]
@@ -2305,20 +2306,27 @@ ymob: 650,
 
             {/* LABEL */}
             <div
-              className={`
-                absolute whitespace-nowrap
-                text-[8px] md:text-[11px]
-                tracking-[1px] md:tracking-[2px]
-                uppercase
-                font-medium
-                transition-all
-                duration-500
-                ${
-                  isActive
-                    ? "text-white"
-                    : "text-white/70 group-hover:text-white"
-                }
-              `}
+             
+               className={`
+    absolute
+    text-[8px] md:text-[11px]
+    tracking-[1px] md:tracking-[2px]
+    uppercase
+    font-medium
+    leading-[1.35]
+    break-words
+    whitespace-normal
+    transition-all
+    duration-500
+    flex
+    items-end
+    text-center
+    ${
+      isActive
+        ? "text-white"
+        : "text-white/70 group-hover:text-white"
+    }
+  `}
               style={{
   left: isMobile
     ? service.mobileLabelLeft

@@ -65,7 +65,7 @@ useEffect(() => {
       background: "./HomePageImg/WhatWeDoSection/Solution-1.png",
        x: 290,
   y: 180,
-  xmob: 305,
+  xmob: 315,
 ymob:449,
 
   labelLeft: "-100px",
@@ -114,7 +114,7 @@ ymob: 660,
        x: 140,
   y:500,
   xmob: 130,
-ymob: 830,
+ymob: 845,
  labelLeft: "10px",
   labelTop: "50px",
   labelWidth: "150px",
@@ -137,7 +137,7 @@ ymob: 830,
         x:250,
   y: 390,
   xmob: 265,
-ymob: 700,
+ymob: 715,
  labelLeft: "-00px",
   labelTop: "60px",
   labelWidth: "170px",
@@ -160,8 +160,8 @@ ymob: 700,
       background: "./HomePageImg/WhatWeDoSection/Solution-5.png",
         x: 375,
   y: 275,
-    xmob: 410,
-ymob: 555,
+    xmob: 425,
+ymob: 560,
    labelLeft: "-20px",
   labelTop: "30px",
   labelWidth: "170px",
@@ -266,7 +266,9 @@ ymob: 555,
         z-[50] 
 
         left-1/2
-       -translate-x-[70%]
+       lg:-translate-x-[70%]
+       -translate-x-[50%]
+
 
         scale-[0.62]
         sm:scale-[0.72]

@@ -56,7 +56,7 @@ function MainFooter() {
         { name: 'All Blogs', path: '/blog' },
         {name:"Resources",path:""},
         {name:'Events',path:""},
-        {name:"Contact Us",path:""}
+      
     ];
     const itemInternalUse = [
         {name:'Employee Login',path:'/coming-soon'  }

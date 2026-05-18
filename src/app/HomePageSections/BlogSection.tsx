@@ -206,7 +206,7 @@ export default function BlogsSection() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               viewport={{ once: true, amount: 0.2 }}
-              className="w-full lg:w-[840px] h-[200px] sm:h-[400px] lg:h-[530px] overflow-hidden rounded-2xl"
+              className="w-full lg:w-[840px] h-[200px] sm:h-[400px] lg:h-[530px] overflow-hidden "
             >
               <img
                 src={blogData[0].imageSrc}
@@ -215,7 +215,7 @@ export default function BlogsSection() {
                   w-full
                   h-full
                   object-cover
-                  rounded-2xl
+                  
                   transition-transform
                   duration-700
                   hover:scale-105
@@ -354,7 +354,7 @@ function BlogCard({ imageSrc, title, path }) {
             transition-transform
             duration-500
             hover:scale-105
-            rounded-2xl
+         
           "
         />
       </div>

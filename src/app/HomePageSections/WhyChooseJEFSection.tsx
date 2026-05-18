@@ -22,16 +22,16 @@ export default function WhyChooseJEFSection() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               viewport={{ once: true, amount: 0.2 }}
-              className="w-full lg:w-[667px] h-[250px] sm:h-[320px] lg:h-[375px] overflow-hidden rounded-2xl"
+              className="w-full lg:w-[667px] h-[250px] sm:h-[320px] lg:h-[375px] overflow-hidden "
             >
               <img
-                src="/HomePageImg/WhyChooseJEFImg/SmartSafetyAuditTool.png"
+              src="/HomePageImg/WhyChooseJEFImg/WhyChooseJef1.png"
                 alt="Smart Digitization"
                 className="
                   w-full
                   h-full
                   object-cover
-                  rounded-2xl
+                  
                   transition-transform
                   duration-[1200ms]
                   ease-[cubic-bezier(0.22,1,0.36,1)]
@@ -354,16 +354,16 @@ export default function WhyChooseJEFSection() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               viewport={{ once: true, amount: 0.2 }}
-              className="w-full lg:w-[667px] h-[250px] sm:h-[320px] lg:h-[375px] overflow-hidden rounded-2xl"
+              className="w-full lg:w-[667px] h-[250px] sm:h-[320px] lg:h-[375px] overflow-hidden "
             >
               <img
-                src="/HomePageImg/WhyChooseJEFImg/ld center.png"
+                src="/HomePageImg/WhyChooseJEFImg/WhyChooseJef2.png"
                 alt="L&D Center"
                 className="
                   w-full
                   h-full
                   object-cover
-                  rounded-2xl
+                 
                   transition-transform
                   duration-[1200ms]
                   ease-[cubic-bezier(0.22,1,0.36,1)]

@@ -260,6 +260,7 @@ export default function OurIndustriesSection() {
     transition-all
     duration-700
     ease-[cubic-bezier(0.22,1,0.36,1)]
+    text-center
 
     ${
       isActive

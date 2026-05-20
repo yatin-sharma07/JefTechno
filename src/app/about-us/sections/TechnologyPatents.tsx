@@ -7,7 +7,7 @@ const technologyData = [
   {
     id: 0,
     title: "TECHNOLOGY AND PATENTS",
-    image: "/HomePageImg/IndustriesWeServe/weServe6.png",
+    image: "/AboutUs/brownng.png",
     description:
       "9 granted patents — India, United States, European Union. JEF's proprietary tools are not incremental improvements to existing approaches. They are purpose-built responses to specific gaps in what the industry was delivering.",
   },

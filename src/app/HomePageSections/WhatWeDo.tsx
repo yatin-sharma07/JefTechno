@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 export default function WhatWeDoSection() {
   const [activeCard, setActiveCard] = useState(0);
   const [panelOpen, setPanelOpen] = useState(false);
-  const [background, setBackground] = useState("/HomePageImg/WhatWeDoBg.png");
+  const [background, setBackground] = useState("./HomePageImg/WhatWeDoSection/Solution-1.png");
   const sectionRef = useRef(null);
   const videoRef = useRef(null);
 
@@ -184,10 +184,7 @@ ymob: 560,
     setActiveCard(prevIndex);
   };
 
-  const handleNext = () => {
-    const nextIndex = (activeCard + 1) % services.length;
-    setActiveCard(nextIndex);
-  };
+ 
 
   // Lock body scroll when panel is open
   useEffect(() => {
@@ -232,6 +229,22 @@ ymob: 560,
   <h2 className="font-montserrat font-bold text-[24px] sm:text-[30px] lg:text-[36px] leading-none tracking-[3px] lg:tracking-[4px] uppercase text-white">
     WHAT WE DO
   </h2>
+  <div className="w-full max-w-sm  text-white p-3">
+  {["ABOUT US", "OUR REGION", "OUR NATURE"].map((item, index) => (
+    <div key={index} className="group py-4 cursor-pointer">
+      
+      {/* Line */}
+      <div className="relative h-[1px] bg-gray-500 overflow-hidden">
+        <span className="absolute left-0 top-0 h-full w-0 bg-white transition-all duration-500 group-hover:w-full"></span>
+      </div>
+
+      {/* Text */}
+      <h2 className="mt-6 text-lg md:text-lg font-semibold tracking-[3px] transition-colors duration-300 group-hover:text-[#C02427]">
+        {item}
+      </h2>
+    </div>
+  ))}
+</div>
 </div>
 
   {/* MAIN CONTENT WRAPPER */}
@@ -266,7 +279,7 @@ ymob: 560,
         z-[50] 
 
         left-1/2
-       lg:-translate-x-[70%]
+       lg:-translate-x-[50%]
        -translate-x-[50%]
 
 
@@ -287,6 +300,8 @@ ymob: 560,
         className="
     absolute
     rotate-[46deg]
+    hidden
+    md:block
           top-[400px]
           left-[30px]
           md:top-[145px]

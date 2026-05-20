@@ -206,7 +206,7 @@ export default function BlogsSection() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               viewport={{ once: true, amount: 0.2 }}
-              className="w-full lg:w-[840px] h-[200px] sm:h-[400px] lg:h-[530px] overflow-hidden "
+              className="w-full lg:w-[800px] h-[170px] sm:h-[400px] lg:h-[500px] overflow-hidden "
             >
               <img
                 src={blogData[0].imageSrc}
@@ -340,7 +340,7 @@ export default function BlogsSection() {
 
 function BlogCard({ imageSrc, title, path }) {
   return (
-    <article className="w-full max-w-[400px] mx-auto">
+    <article className="w-full max-w-[400px] mx-auto mr-20">
       {/* IMAGE */}
       <div className="w-full h-[290px] overflow-hidden">
         <img

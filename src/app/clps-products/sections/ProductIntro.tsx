@@ -16,7 +16,7 @@ export default function ProductIntro() {
   return (
     <section className="flex flex-col bg-[#232427] overflow-hidden -mb-11 md:mb-0">
       {/* Breadcrumb */}
-      <nav className="bg-[#2D2E30] hidden md:flex py-6 px-24 w-full">
+      <nav className="bg-[#2D2E30] hidden md:flex py-6 px-18 w-full">
         <div className="flex items-center gap-2">
           {navItems.map((item, index) => (
             <React.Fragment key={index}>

@@ -324,23 +324,45 @@ export default function WhatWeDoSection() {
       <div className="absolute inset-0 bg-black/35 z-10" />
 
       {/* MAIN */}
-      <div className="absolute inset-0 z-20 flex items-center justify-center">
-        <div className="section-container flex flex-col lg:flex-row items-center lg:items-center justify-between gap-10 lg:gap-30 xl:gap-50 h-full pt-20 lg:pt-0">
+    {/* MAIN */}
+<div className="absolute inset-0 z-20 flex items-center justify-center w-full overflow-hidden">
+  <div
+    className="
+      section-container
+      w-full
+      h-full
+      px-6
+      sm:px-8
+      lg:px-12
+      xl:px-16
+      flex
+      flex-col
+      lg:flex-row
+      items-center
+      justify-between
+      gap-12
+      lg:gap-12
+      xl:gap-16
+      pt-20
+      lg:pt-0
+      overflow-hidden
+    "
+  >
 
           {/* LEFT */}
-         <div className="w-full h-full flex flex-col justify-start lg:mt-40">
-           <div
-            className="
-              w-full
-              lg:w-[250px]
-              shrink-0
-              flex
-              flex-col
-              items-start
-              text-left
-              z-[60]
-            "
-          >
+         {/* LEFT */}
+<div className="w-full lg:flex-1 min-w-0 h-full flex flex-col justify-start lg:mt-40">
+       <div
+  className="
+    w-full
+    max-w-[260px]
+    flex
+    flex-col
+    items-start
+    text-left
+    z-[60]
+  "
+>
             <div className="mb-8 lg:mb-12 ">
               <h2
                 className="
@@ -414,21 +436,24 @@ export default function WhatWeDoSection() {
          </div>
 
           {/* CENTER GRAPH */}
-          <div
-            className={`
-              relative
-              shrink-0
-              w-[450px]
-              h-[550px]
-              scale-[0.55]
-              sm:scale-[0.7]
-              md:scale-[0.85]
-              lg:scale-100
-              transition-opacity
-              duration-1000
-              ${showContent ? "opacity-100" : "opacity-0"}
-            `}
-          >
+         {/* CENTER GRAPH */}
+<div
+  className={`
+    relative
+    w-full
+    max-w-[450px]
+    h-[550px]
+    flex-shrink
+    min-w-0
+    scale-[0.55]
+    sm:scale-[0.7]
+    md:scale-[0.85]
+    lg:scale-100
+    transition-opacity
+    duration-1000
+    ${showContent ? "opacity-100" : "opacity-0"}
+  `}
+>
 
             {!isMobile && (
               <img
@@ -585,17 +610,20 @@ export default function WhatWeDoSection() {
           </div>
 
           {/* RIGHT */}
-          <div
-            className={`
-              w-full
-              lg:w-[450px]
-              shrink-0
-              transition-opacity
-              duration-1000
-              ${showContent ? "opacity-100" : "opacity-0"}
-              z-[60]
-            `}
-          >
+         {/* RIGHT */}
+<div
+  className={`
+    w-full
+    lg:flex-1
+    min-w-0
+    max-w-full
+    lg:max-w-[480px]
+    transition-opacity
+    duration-1000
+    ${showContent ? "opacity-100" : "opacity-0"}
+    z-[60]
+  `}
+>
             <div className="w-full h-[2px] bg-[#C61F26] mb-6" />
 
             <div

@@ -119,18 +119,14 @@ import Image from "next/image";
       {/* CARDS */}
       <div
         className="
+          section-container
           grid
           grid-cols-1
           md:grid-cols-2
           xl:grid-cols-3
-
-          gap-10
-          lg:mx-[50px]
-          md:gap-12
-          xl:gap-16
-
-          
-          mx-auto
+          gap-12
+          md:gap-16
+          xl:gap-24
         "
       >
         {locations.map((location, index) => (

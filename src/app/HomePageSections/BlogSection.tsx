@@ -162,7 +162,7 @@ export default function BlogsSection() {
           </header>
 
           {/* FEATURED BLOG */}
-          <div className="mt-[50px] md:mt-[64px] flex flex-col lg:flex-row gap-[40px] lg:gap-[64px]">
+          <div className="mt-[50px] md:mt-[64px] flex flex-col lg:flex-row gap-[40px] lg:gap-[80px] xl:gap-[120px]">
             
             {/* LEFT IMAGE */}
             <motion.div
@@ -174,7 +174,7 @@ export default function BlogsSection() {
               }}
               viewport={{ once: true }}
               style={{ willChange: "transform, opacity" }}
-              className="w-full lg:w-[800px] h-[170px] sm:h-[400px] lg:h-[500px] overflow-hidden "
+              className="w-full lg:w-[60%] h-[250px] sm:h-[400px] lg:h-[500px] overflow-hidden "
             >
               <img
                 src={blogData[0].imageSrc}
@@ -202,7 +202,7 @@ export default function BlogsSection() {
               }}
               viewport={{ once: true }}
               style={{ willChange: "transform, opacity" }}
-              className="w-full lg:w-[616px] lg:pt-[50px] flex flex-col"
+              className="w-full lg:w-[35%] lg:pt-[50px] flex flex-col"
             >
               <span
                 className="
@@ -263,7 +263,7 @@ export default function BlogsSection() {
       </main>
 
       {/* LOWER BLOG CARDS */}
-      <section className="px-5 sm:px-8 lg:px-[55px]  mt-[50px] md:mt-[52px] w-screen overflow-hidden">
+      <section className="section-container mt-[50px] md:mt-[64px] overflow-hidden">
         
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -280,8 +280,9 @@ export default function BlogsSection() {
             grid-cols-1
             md:grid-cols-2
             xl:grid-cols-3
-            gap-[28px]
-            md:gap-[60px]
+            gap-[32px]
+            md:gap-[48px]
+            xl:gap-[64px]
           "
         >
           {blogData.slice(1, 4).map((blog, index) => (
@@ -312,7 +313,7 @@ export default function BlogsSection() {
 
 function BlogCard({ imageSrc, title, path }) {
   return (
-    <article className="w-full lg:w-[clamp(300px,25vw,500px)] mx-auto mr-20 ">
+    <article className="w-full flex flex-col">
       {/* IMAGE */}
       <div className="w-full h-[290px] overflow-hidden">
         <img

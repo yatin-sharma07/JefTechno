@@ -11,19 +11,19 @@ export default function CookiePrivacyCenter({
   return (
     <>
       <h2
-        style={{ margin: "0 0 16px", fontSize: 22, fontWeight: 700, color: "#1a1a1a" }}
+        style={{ margin: "0 0 16px", fontSize: 22, fontWeight: 700, color: "#fff" }}
       >
         Privacy Preference Center
       </h2>
 
-      <p style={{ fontSize: 13, color: "#555", lineHeight: 1.75, margin: "0 0 12px" }}>
+      <p style={{ fontSize: 13, color: "#fff", lineHeight: 1.75, margin: "0 0 12px" }}>
         When you visit any website, it may store or retrieve information on your
         browser, mostly in the form of cookies. This information might be about you,
         your preferences or your device and is mostly used to make the site work as
         you expect it to.
       </p>
 
-      <p style={{ fontSize: 13, color: "#555", lineHeight: 1.75, margin: "0 0 20px" }}>
+      <p style={{ fontSize: 13, color: "#fff", lineHeight: 1.75, margin: "0 0 20px" }}>
         Because we respect your right to privacy, you can choose not to allow some
         types of cookies. Click on the different category headings to find out more
         and change our default settings. However, blocking some types of cookies may
@@ -71,7 +71,7 @@ export default function CookiePrivacyCenter({
         style={{
           fontSize: 13,
           fontWeight: 700,
-          color: "#1a1a1a",
+          color: "#fff",
           margin: "0 0 12px",
           textTransform: "uppercase",
           letterSpacing: "0.07em",

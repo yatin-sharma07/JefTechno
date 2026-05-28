@@ -16,12 +16,12 @@ export default function ProductIntro() {
   return (
     <section className="flex flex-col bg-[#232427] overflow-hidden -mb-11 md:mb-0">
       {/* Breadcrumb */}
-      <nav className="bg-[#2D2E30] hidden md:flex py-6 w-full">
-        <div className="section-container flex items-center gap-2">
+      <nav className="bg-[#2D2E30] flex py-4 md:py-6 w-full">
+        <div className="section-container flex items-center gap-2 overflow-x-auto no-scrollbar whitespace-nowrap">
           {navItems.map((item, index) => (
             <React.Fragment key={index}>
               <span
-                className={`text-xs tracking-wide uppercase ${
+                className={`text-[10px] md:text-xs tracking-wide uppercase flex-shrink-0 ${
                   item.isActive ? "text-[#C02429]" : "text-neutral-300"
                 }`}
               >
@@ -29,7 +29,7 @@ export default function ProductIntro() {
               </span>
 
               {index !== navItems.length - 1 && (
-                <span className="text-neutral-500">›</span>
+                <span className="text-neutral-500 flex-shrink-0">›</span>
               )}
             </React.Fragment>
           ))}

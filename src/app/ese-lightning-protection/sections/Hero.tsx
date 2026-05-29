@@ -25,7 +25,7 @@ const Hero = () => {
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/30" />
 
-        <div className="absolute top-[80%] md:top-[75%] lg:max-md:top-[80%] xl:top-[80%] inset-x-0 z-10 flex justify-start w-full">
+        <div className="absolute top-[70%] md:top-[65%] lg:top-[70%] xl:top-[75%] inset-x-0 z-10 flex justify-start w-full">
           <div className="w-full md:ml-10 lg:ml-20">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}

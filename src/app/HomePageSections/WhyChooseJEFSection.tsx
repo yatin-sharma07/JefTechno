@@ -90,7 +90,7 @@ export default function WhyChooseJEFSection() {
               Our patented Smart Digitization process delivers consistency,
               speed, accuracy and reliability at scale. Trusted by over 450+
               customers globally, it delivers secure, standardized reports
-              with customizable formats - over 5,000 reports and a million
+              with customizable formats - over 15,000+ reports and 600k+
               data points captured to date.
             </p>
 

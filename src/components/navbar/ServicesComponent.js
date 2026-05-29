@@ -99,7 +99,7 @@ const ServicesComponent = () => {
                 onMouseEnter={() => { setIsHovered(true); setIsHovered2(false); setIsHovered3(false); }}
                 className="flex gap-5 cursor-pointer"
               >
-                <h2 className="text-lg text-white hover:text-gray-400 tracking-[3.36px]">OUR PRODUCTS</h2>
+                <h2 className="text-lg text-white hover:text-gray-400 tracking-[3.36px]">PRODUCTS</h2>
                 <div className="flex items-center">
                   <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2bb3117bb1e657fdbc997cd15e47263db3ce1251843c4a3543e9042a61e0fd2a" alt="" className="w-2" />
                 </div>

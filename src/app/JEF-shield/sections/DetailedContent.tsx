@@ -3,7 +3,31 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const pages = [
+type TagDescription = {
+  title: string;
+  description: string;
+};
+
+type Subsection = {
+  heading: string;
+  tags?: string[];
+  body?: string;
+  isListOnly?: boolean;
+  layout?: "row" | "col" | string;
+  customContent?: React.ReactNode;
+  tagDescriptions?: Array<TagDescription | null | undefined>;
+  footer?: string;
+};
+
+type PageItem = {
+  label: string;
+  nav: string;
+  title: string;
+  content: React.ReactElement<{ children?: React.ReactNode }>;
+  subsections?: Subsection[] | null;
+};
+
+const pages: PageItem[] = [
   {
     label: "JEF SHIELD",
     nav: "JEF\nSHIELD",
@@ -150,12 +174,12 @@ const PROGRESS_DURATION = 6000;
 const PROGRESS_INTERVAL = 50;
 
 const DetailedContent = () => {
-  const [activePage, setActivePage] = useState(0);
-  const [activeTags, setActiveTags] = useState({});
-  const [progress, setProgress] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const intervalRef = useRef(null);
-  const startTimeRef = useRef(null);
+  const [activePage, setActivePage] = useState<number>(0);
+  const [activeTags, setActiveTags] = useState<Record<number, number>>({});
+  const [progress, setProgress] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const startTimeRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (isPaused) {
@@ -220,13 +244,16 @@ const DetailedContent = () => {
               className="flex flex-col"
             >
               {React.Children.map(page.content.props.children, (child, i) => {
-                if (child.type === "p") {
+                if (React.isValidElement(child) && child.type === "p") {
+                  const paragraphChild =
+                    child as React.ReactElement<{ children?: React.ReactNode }>;
+
                   return (
                     <p
                       key={i}
                       className="text-[16px] md:text-[18px] lg:text-[20px] font-normal leading-[1.5] text-white text-justify"
                     >
-                      {child.props.children}
+                      {paragraphChild.props.children}
                     </p>
                   );
                 }

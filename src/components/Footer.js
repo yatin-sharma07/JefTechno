@@ -79,7 +79,7 @@ function MainFooter() {
     </div>
 
     {/* SECOND ROW */}
-    <div className="section-container hidden md:flex mt-10 gap-20">
+    <div className="section-container hidden lg:flex mt-10 gap-20">
         <Section title="Internal Use" items={itemInternalUse} />
         <Section title="Jef Shield" items={itemJefShield} />
     </div>
@@ -100,11 +100,11 @@ function Footer() {
     return (
         <footer className="card-slider-footer flex flex-col items-center pt-10 bg-[#2D2E30] w-full">
             <hr className="section-conxtainer hidden lg:block shrink-0 mt-2 border border-solid border-neutral-400 max-md:mt-8" />
-            <div className="section-container flex X-axis-card-anm-footer-footer flex-row gap-10 justify-between items-start mt-5 py-6 bg-[#2D2E30]">
+            <div className="section-container flex X-axis-card-anm-footer-footer flex-row gap-10 justify-center lg:justify-between items-start mt-5 py-6 bg-[#2D2E30]">
                 <div className="hidden  card-slider-footer X-axis-card-anm-footer lg:block text-xl tracking-widest text-white uppercase max-md:max-w-full">
                     FOLLOW jef ON SOCIAL MEDIA
                 </div>
-                <div className="flex X-axis-card-anm-footer flex-row h-full space-x-12 lg:space-x-6">
+                <div className="flex X-axis-card-anm-footer flex-row items-center h-full space-x-12 lg:space-x-6">
                     <a href="https://www.youtube.com/@JEFgroup" target="_blank" className="object-contain card-slider-footer"><img src="../FooterLogo/Link - Youtube.png" alt="YoutubeImg" /></a>
                     <a href="https://www.facebook.com/JEFTECHNO/" target="_blank" className="object-contain card-slider-footer"><img src="../FooterLogo/Link - Facebook.png" alt="FacebookImg" /></a>
                     <a href="https://www.linkedin.com/showcase/jef-engineering-services-middle-east/" target="_blank" className="object-contain  card-slider-footer"><img src="../FooterLogo/Link - Linkedin.png" alt="LinkedInImg" /></a>

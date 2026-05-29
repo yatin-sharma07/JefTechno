@@ -26,7 +26,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-black/30" />
 
         <div className="absolute top-[70%] md:top-[65%] lg:top-[70%] xl:top-[75%] inset-x-0 z-10 flex justify-start w-full">
-          <div className="w-full md:ml-10 lg:ml-20">
+          <div className="w-full  px-5 md:ml-10 lg:ml-20">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

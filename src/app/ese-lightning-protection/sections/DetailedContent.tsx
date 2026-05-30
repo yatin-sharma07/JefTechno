@@ -191,10 +191,11 @@ const DetailedContent = () => {
   const [activeTags, setActiveTags] = useState({});
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isManualPaused, setIsManualPaused] = useState(false);
   const [restartKey, setRestartKey] = useState(0);
 
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || isManualPaused) return;
 
     const interval = setInterval(() => {
       setProgress((prev) => {
@@ -204,7 +205,7 @@ const DetailedContent = () => {
     }, PROGRESS_INTERVAL);
 
     return () => clearInterval(interval);
-  }, [activePage, isPaused, restartKey]);
+  }, [activePage, isPaused, isManualPaused, restartKey]);
 
   // Effect to handle page transition when progress reaches 100
   useEffect(() => {
@@ -217,11 +218,19 @@ const DetailedContent = () => {
   }, [progress, activePage]);
 
   const handleTabClick = (index) => {
-    setIsPaused(false);
-    setActivePage(index);
-    setActiveTags({});
-    setProgress(0);
     if (index === activePage) {
+      if (isManualPaused) {
+        setIsManualPaused(false);
+        setIsPaused(false);
+      } else {
+        setIsManualPaused(true);
+      }
+    } else {
+      setIsManualPaused(false);
+      setIsPaused(false);
+      setActivePage(index);
+      setActiveTags({});
+      setProgress(0);
       setRestartKey((prev) => prev + 1);
     }
   };
@@ -233,7 +242,7 @@ const DetailedContent = () => {
       className="bg-[#161414] font-montserrat py-10 md:pt-16 md:pb-12 overflow-hidden min-h-[1000px] flex flex-col"
     >
       <div 
-        onMouseEnter={() => setIsPaused(true)}
+        onMouseEnter={() => !isManualPaused && setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         className="section-container flex flex-col flex-1 gap-6 md:gap-8"
       >

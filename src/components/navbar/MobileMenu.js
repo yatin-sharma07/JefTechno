@@ -43,22 +43,24 @@ const MobileMenu = () => {
       { label: "ESE", path: "/ese-lightning-protection" },
       { label: "ESA Lightning Protection", path: "/lightning-protection-studies" },
       { label: "JEF-SHIELD & E-BUILD", path: "/coming-soon" },
-      { label: "SPD", path: "/coming-soon" },
+      { label: "SPD", path: "/surge-protective-devices" },
     ],
     audit: [
       { label: "Earthing Health Assessment", path: "/audit-services/earthing-health-assessment" },
-      { label: "Electrical & Fire Safety", path: "/audit-services/electical-and-fire-safety-audit" },
-      { label: "Instrumentation System", path: "/audit-services/instrumentation-system" },
-      { label: "Power Quality System", path: "/audit-services/power-quality-studies-and-analysis-services" },
-      { label: "LPS Adequacy", path: "/audit-services/lightning-protection-sytem-adequacy-audit" },
+      { label: "Instrumentation Systems", path: "/audit-services/instrumentation-system" },
+      { label: "Lightning Protection Audit", path: "/audit-services/lightning-protection-sytem-adequacy-audit" },
+      { label: "Power Quality Studies", path: "/audit-services/power-quality-studies-and-analysis-services" },
+      { label: "Electrical Fire Safety", path: "/audit-services/electical-and-fire-safety-audit" },
     ],
     consulting: [
-      { label: "INDUSTRIAL", path: "/industrial" },
+      { label: "INDUSTRIAL", path: "/power-system-studies" },
       { 
         label: "Renewable", 
+        path: "/renewable",
         subItems: [
-          { label: "PSS", path: "/pss" },
-          { label: "RSA", path: "/rsa" },
+          { label: "Renewable", path: "/renewable" },
+          { label: "PSA", path: "/power-system-studies" },
+          { label: "RCA", path: "/root-cause-analysis" },
         ]
       },
     ],
@@ -245,7 +247,29 @@ const MobileMenu = () => {
         </div>
         {faqData.consulting.map((item, index) => (
           <div key={index}>
-            {item.path ? (
+            {item.subItems ? (
+              <div
+                onClick={() => {
+                  if (item.path && expandedItems[item.label]) {
+                    window.location.href = item.path;
+                  } else {
+                    toggleItem(item.label);
+                  }
+                }}
+                className="flex justify-between items-center px-6 py-5 border-b border-gray-700 cursor-pointer"
+              >
+                <span className="uppercase text-white-500 text-lg">
+                  {item.label}
+                </span>
+                <img
+                  src="/AboutUs/DropDownArr.png"
+                  alt="v"
+                  className={`w-3 h-3 object-contain transition-transform duration-300 ${
+                    expandedItems[item.label] ? "rotate-0" : "-rotate-90"
+                  }`}
+                />
+              </div>
+            ) : item.path ? (
               <Link href={item.path}>
                 <div className="flex justify-between items-center px-6 py-5 border-b border-gray-700 cursor-pointer">
                   <span>{item.label}</span>

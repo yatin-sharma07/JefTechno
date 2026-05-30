@@ -25,8 +25,8 @@ const Hero = () => {
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/30" />
 
-        <div className="absolute top-[70%] md:top-[65%] lg:top-[70%] xl:top-[75%] inset-x-0 z-10 flex justify-start w-full">
-          <div className="w-full  px-5 md:ml-10 lg:ml-20">
+        <div className="absolute top-[70%] md:top-[65%] lg:top-[70%] xl:top-[75%] inset-x-0 z-10 flex justify-center">
+          <div className="section-container">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ const Hero = () => {
               </h1>
 
               {/* Body */}
-              <div className=" mt-2  mx-auto w-full">
+              <div className=" mt-2 w-full">
                <p className="font-md sm:text-[12px] md:text-[18px] lg:text-[22px]">Preventing Plant Shutdowns and Revenue Loss from Lightning strikes, deploy scientifically validated protection <br /> designed specifically for high-risk, open-area solar installations.</p>
               </div>
             </motion.div>

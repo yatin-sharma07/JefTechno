@@ -1,23 +1,19 @@
-  import EHA from "./eha";
 
-  export const metadata = {
-    title: "Earthing Health Assessment | JEF UAE",
-    description:
-      "Professional Earthing Health Assessment services by JEF UAE.",
-    keywords:
-      "earthing health assessment, grounding system audit, electrical safety, JEF UAE",
+import EarthingHealthAssessment from "./solution";
+
+export const metadata = {
+    title: 'Earthing Health Assessment: Integrity Testing & Audits | JEF',
+    description: 'Ensure the safety and reliability of your earthing system with JEF’s comprehensive health assessment. We test grid integrity, buried conductors, and connection health.',
+    keywords: 'earthing health assessment, ground grid testing, earthing audit, IEEE 80 compliance, electrical safety audit, JEF engineering',
     alternates: {
-      canonical:
-        "https://www.jefuae.com/audit-services/earthing-health-assessment",
+        canonical: 'https://www.jefuae.com/audit-services/earthing-health-assessment',
     },
-    openGraph: {
-      url: "https://www.jefuae.com/audit-services/earthing-health-assessment",
-      description:
-        "Expert Earthing Health Assessment services by JEF UAE.",
-      siteName: "Earthing Health Assessment | JEF UAE",
-    },
-  };
+}
 
-  export default function EHAPage() {
-    return <EHA />;
-  }
+export default function EHAPage() {
+    return (
+        <>
+           <EarthingHealthAssessment/>
+        </>
+    );
+}   

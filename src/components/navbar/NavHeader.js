@@ -13,7 +13,7 @@ const menuItems = [
   { label: "Our Blogs", hasDropdown: false, path: "/blog" },
   //{ label: "Our Industries", hasDropdown: true },
   { label: "JEF UAE", hasDropdown: false },
-  { label: "JEF SHIELD", hasDropdown: false,path:"/JEF-shield" },
+  { label: "JEF SHIELD", hasDropdown: false,path:"https://www.jeftechno.com/JEF_SHIELD/login.php" },
  
 ];
 

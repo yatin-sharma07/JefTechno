@@ -145,51 +145,52 @@ const pages = [
       },
     ],
   },
-  {
-    label: "JEF CLPS PRODUCTS",
-    nav: "JEF CLPS\nPRODUCTS",
-    title: "JEF CLPS PRODUCTS — TYPE-TESTED TO 200 KA / 10/350 MS",
-    content: (
-      <>
-        <p>
-          The CLPS range covers every component required for a comprehensive
-          lightning protection system, from air termination to point-of-use
-          surge protection. All components are type-tested to the IEC 62561
-          series — the product testing companion to IEC 62305. The IEC 62561
-          series defines the specific tests that LPS components must pass
-          before they can be specified in a standards-compliant system.
-        </p>
-      </>
-    ),
-    subsections: [
-      {
-        heading: "TYPE TESTING — JEF'S 200 KA CREDENTIAL",
-        body: "The IEC 62561 series specifies that external LPS components be type-tested to a 10/350 μs lightning impulse current. JEF type-tests its CLPS components at 200 kA on the 10/350 μs waveform — double the limit specified in the IEC standard series. This means that every JEF CLPS component has been verified to withstand twice the current magnitude that the standard requires, providing a margin of confidence that standard-minimum testing does not.\n\nType testing covers three sequential stages:",
-        tags: ["Ageing Test", "Lightning Impulse Test", "Mechanical Test"],
-        isListOnly: false,
-        layout: "col",
-        tagDescriptions: [
-          {
-            title: "Ageing Test",
-            description:
-              "The component is subjected to a defined sequence of environmental exposure — humidity, salt mist, Sulphur, Electrical impulse test and Mechanical test — to simulate long-term installation conditions. Electrical and Mechanical properties are assessed after ageing to verify that performance is not degraded over service life.",
-          },
-          {
-            title: "Lightning Impulse Test — 10/350 µs waveform at 200 kA",
-            description:
-              "The component is subjected to a current waveform with parameters representing a direct lightning current. JEF tests at 200 kA — double the IEC standard limit — verifying that the component survives the thermal, mechanical, and electrical stress of the test without failure, permanent deformation, or physical damage.",
-          },
-          {
-            title: "Mechanical Test",
-            description:
-              "The component is subjected to the mechanical forces it will experience during installation and in service — including pull-out test. Component integrity is verified under these conditions.",
-          },
-        ],
-        footer:
-          "Type-test documentation is available for review. Certificates can be requested from JEF's engineering team.",
-      },
-    ],
-  },
+{
+  label: "JEF CLPS PRODUCTS",
+  nav: "JEF CLPS\nPRODUCTS",
+  title: "JEF CLPS PRODUCTS — TYPE-TESTED TO 200 KA / 10/350 μs",
+  content: (
+    <>
+      <p>
+        The CLPS range covers every component required for a comprehensive
+        lightning protection system, from air termination to point-of-use
+        surge protection. All components are type-tested to the IEC 62561
+        series — the product testing companion to IEC 62305. The IEC 62561
+        series defines the specific tests that LPS components must pass
+        before they can be specified in a standards-compliant system.
+      </p>
+    </>
+  ),
+  subsections: [
+    {
+      heading: "TYPE TESTING — JEF'S 200 KA CREDENTIAL",
+      body:
+        "The IEC 62561 series specifies that external LPS components be type-tested to a 10/350 μs lightning impulse current. JEF type-tests its CLPS components at 200 kA on the 10/350 μs waveform — double the limit specified in the IEC standard series. This means that every JEF CLPS component has been verified to withstand twice the current magnitude that the standard requires, providing a margin of confidence that standard-minimum testing does not.\n\nType testing covers three sequential stages:",
+      tags: ["Ageing Test", "Lightning Impulse Test", "Mechanical Test"],
+      isListOnly: false,
+      layout: "col",
+      tagDescriptions: [
+        {
+          title: "Ageing Test",
+          description:
+            "The component is subjected to a defined sequence of environmental exposure — humidity, salt mist, Sulphur, Electrical impulse test and Mechanical test — to simulate long-term installation conditions. Electrical and Mechanical properties are assessed after ageing to verify that performance is not degraded over service life.",
+        },
+        {
+          title: "Lightning Impulse Test — 10/350 μs waveform at 200 kA",
+          description:
+            "The component is subjected to a current waveform with parameters representing a direct lightning current. JEF tests at 200 kA — double the IEC standard limit — verifying that the component survives the thermal, mechanical, and electrical stress of the test without failure, permanent deformation, or physical damage.",
+        },
+        {
+          title: "Mechanical Test",
+          description:
+            "The component is subjected to the mechanical forces it will experience during installation and in service — including pull-out test. Component integrity is verified under these conditions.",
+        },
+      ],
+      footer:
+        "Type-test documentation is available for review. Certificates can be requested from JEF's engineering team.",
+    },
+  ],
+}
 ];
 
 const PROGRESS_DURATION = 6000;
@@ -200,51 +201,65 @@ const DetailedContent = () => {
   const [activeTags, setActiveTags] = useState({}); // format: { [si]: ti }
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isManualPaused, setIsManualPaused] = useState(false);
+  const [restartKey, setRestartKey] = useState(0);
   const intervalRef = useRef(null);
-  const startTimeRef = useRef(null);
 
   useEffect(() => {
-    if (isPaused) {
-      clearInterval(intervalRef.current);
+    if (isPaused || isManualPaused) {
+      if (intervalRef.current) clearInterval(intervalRef.current);
       return;
     }
 
-    if (startTimeRef.current === null) {
-      startTimeRef.current = Date.now();
-    } else {
-      startTimeRef.current = Date.now() - (PROGRESS_DURATION * (progress / 100));
-    }
-
-    intervalRef.current = setInterval(() => {
-      const elapsed = Date.now() - startTimeRef.current;
-      const pct = Math.min((elapsed / PROGRESS_DURATION) * 100, 100);
-      setProgress(pct);
-
-      if (pct >= 100) {
-        clearInterval(intervalRef.current);
-        const next = (activePage + 1) % pages.length;
-        setActivePage(next);
-        setActiveTags({});
-        setProgress(0);
-        startTimeRef.current = Date.now();
-      }
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) return 100;
+        return prev + (PROGRESS_INTERVAL / PROGRESS_DURATION) * 100;
+      });
     }, PROGRESS_INTERVAL);
 
-    return () => clearInterval(intervalRef.current);
-  }, [activePage, isPaused, progress]);
+    return () => clearInterval(interval);
+  }, [activePage, isPaused, isManualPaused, restartKey]);
+
+  // Effect to handle page transition when progress reaches 100
+  useEffect(() => {
+    if (progress >= 100) {
+      const next = (activePage + 1) % pages.length;
+      setActivePage(next);
+      setActiveTags({});
+      setProgress(0);
+    }
+  }, [progress, activePage]);
 
   const handleTabClick = (index) => {
-    setActivePage(index);
-    setActiveTags({});
-    setProgress(0);
-    startTimeRef.current = Date.now();
+    if (index === activePage) {
+      if (isManualPaused) {
+        setIsManualPaused(false);
+        setIsPaused(false);
+      } else {
+        setIsManualPaused(true);
+      }
+    } else {
+      setIsManualPaused(false);
+      setIsPaused(false);
+      setActivePage(index);
+      setActiveTags({});
+      setProgress(0);
+      setRestartKey((prev) => prev + 1);
+    }
   };
 
   const page = pages[activePage];
 
   return (
-    <section className="bg-[#161414] font-montserrat py-10 md:pt-16 md:pb-12 overflow-hidden min-h-[1000px] flex flex-col">
-      <div className="section-container flex flex-col flex-1 gap-6 md:gap-8">
+    <section 
+      className="bg-[#161414] font-montserrat py-10 md:pt-16 md:pb-12 overflow-hidden min-h-[1000px] flex flex-col"
+    >
+      <div 
+        onMouseEnter={() => !isManualPaused && setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        className="section-container flex flex-col flex-1 gap-6 md:gap-8"
+      >
         {/* Heading */}
         <motion.h2
           key={`title-${activePage}`}
@@ -433,47 +448,50 @@ const DetailedContent = () => {
         {/* Bottom Navigation */}
         <div className="mt-12 md:mt-20 pb-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
-            {pages.map((tab, index) => (
-              <button
-                key={index}
-                onClick={() => handleTabClick(index)}
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
-                className="bg-none border-none cursor-pointer flex flex-col items-start w-full group"
-              >
-                {/* Progress bar */}
-                <div className="w-full h-[2px] bg-[#d4d0c8] mb-3 relative z-10">
-                  <motion.div
-                    className="absolute top-0 left-0 h-full bg-[#C02429]"
-                    initial={{ width: 0 }}
-                    animate={{ width: activePage === index ? `${progress}%` : "0%" }}
-                    transition={{ ease: "linear" }}
-                  />
-                </div>
-
-                {/* Label */}
-                <span
-                  className={`
-                    text-[12px] md:text-[18px] 
-                    tracking-[1px] md:tracking-[2.5px] 
-                    font-medium 
-                    uppercase 
-                    mt-1 
-                    transition-all 
-                    duration-300
-                    whitespace-pre-line
-                    text-left
-                    ${
-                      activePage === index
-                        ? "text-[#C02429]"
-                        : "text-[#d4d0c8] group-hover:text-white"
-                    }
-                  `}
+            {pages.map((tab, index) => {
+              const isCurrent = activePage === index;
+              return (
+                <button
+                  key={index}
+                  onClick={() => handleTabClick(index)}
+                  className="bg-none border-none cursor-pointer flex flex-col items-start w-full group"
                 >
-                  {tab.nav}
-                </span>
-              </button>
-            ))}
+                  {/* Progress bar */}
+                  <div className="w-full h-[2px] bg-[#d4d0c8] mb-3 relative z-10">
+                    <motion.div
+                        className="absolute top-0 left-0 h-full bg-[#C02429]"
+                        initial={{ width: 0 }}
+                        animate={{
+                          width: isCurrent ? `${progress}%` : activePage > index ? "100%" : "0%",
+                        }}
+                        transition={{ ease: "linear" }}
+                      />
+                    </div>
+
+                    {/* Label */}
+                    <span
+                      className={`
+                        text-[12px] md:text-[18px] 
+                        tracking-[1px] md:tracking-[2.5px] 
+                        font-medium 
+                        uppercase 
+                        mt-1 
+                        transition-all 
+                        duration-300
+                        whitespace-pre-line
+                        text-left
+                        ${
+                          isCurrent
+                            ? "text-[#C02429]"
+                            : "text-[#d4d0c8] group-hover:text-white"
+                        }
+                      `}
+                    >
+                    {tab.nav}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

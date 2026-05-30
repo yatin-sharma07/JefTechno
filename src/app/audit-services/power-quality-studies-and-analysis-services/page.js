@@ -1,25 +1,19 @@
-import PowerQualityStudiesAndAnalysisServices from "./pqsas";
+
+import PowerQualityStudiesAudit from "./solution";
 
 export const metadata = {
-  title: "Power Quality Studies and Analysis Services | JEF UAE",
-  description:
-    "Professional Power Quality Studies and Analysis Services by JEF UAE. Expert solutions for harmonic analysis, voltage disturbances, power system performance, and electrical reliability.",
-  keywords:
-    "power quality studies, harmonic analysis, power system analysis, voltage disturbances, electrical system studies, power quality audit, JEF UAE",
-  alternates: {
-    canonical:
-      "https://www.jefuae.com/audit-services/power-quality-studies-and-analysis-services",
-  },
-  openGraph: {
-    url:
-      "https://www.jefuae.com/audit-services/power-quality-studies-and-analysis-services",
-    title: "Power Quality Studies and Analysis Services | JEF UAE",
-    description:
-      "Expert Power Quality Studies and Analysis Services by JEF UAE.",
-    siteName: "JEF UAE",
-  },
-};
-
-export default function PowerQualityStudiesAndAnalysisServicesPage() {
-  return <PowerQualityStudiesAndAnalysisServices />;
+    title: 'Power Quality Studies & Analysis: Harmonic Mitigation | JEF',
+    description: 'Resolve power quality issues with JEF’s expert studies. We analyze harmonics, transients, and voltage fluctuations to ensure system reliability and efficiency.',
+    keywords: 'power quality studies, harmonic analysis, voltage sags, transients, IEEE 519 compliance, JEF engineering',
+    alternates: {
+        canonical: 'https://www.jefuae.com/audit-services/power-quality-studies-and-analysis-services',
+    },
 }
+
+export default function PQSPage() {
+    return (
+        <>
+           <PowerQualityStudiesAudit/>
+        </>
+    );
+}   

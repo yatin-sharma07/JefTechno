@@ -64,26 +64,27 @@ const ServicesComponent = () => {
     { icon: "/nav-ese.png", text: "ESE", path: "/ese-lightning-protection" },
     { icon: "/nav-ese-lightning-protection.png", text: "ESA LIGHTNING PROTECTION", path: "/lightning-protection-studies" },
     { icon: "/nav-jef-shield.png", text: "JEF-SHIELD & E-BUILD", path: "/JEF-shield" },
-    { icon: "/nav-spd.png", text: "SPD", path: "/coming-soon" },
+    { icon: "/nav-spd.png", text: "SPD", path: "/surge-protective-devices" },
   ];
 
   const services2 = [
     { icon: "/nav-ehs.png", text: "EARTHING HEALTH ASSESSMENT", path: "/audit-services/earthing-health-assessment" },
-    { icon: "/nav-efs.png", text: "ELECTRICAL & FIRE SAFETY", path: "/audit-services/electical-and-fire-safety-audit" },
-    { icon: "/nav-ie.png", text: "INSTRUMENTATION SYSTEM", path: "/audit-services/instrumentation-system" },
-    { icon: "/nav-pqs.png", text: "POWER QUALITY SYSTEM", path: "/audit-services/power-quality-studies-and-analysis-services" },
-    { icon: "/nav-lps.png", text: "LPS ADEQUACY", path: "/audit-services/lightning-protection-sytem-adequacy-audit" },
+    { icon: "/nav-ie.png", text: "INSTRUMENTATION SYSTEMS", path: "/audit-services/instrumentation-system" },
+    { icon: "/nav-lps.png", text: "LIGHTNING PROTECTION AUDIT", path: "/audit-services/lightning-protection-sytem-adequacy-audit" },
+    { icon: "/nav-pqs.png", text: "POWER QUALITY STUDIES", path: "/audit-services/power-quality-studies-and-analysis-services" },
+    { icon: "/nav-efs.png", text: "ELECTRICAL FIRE SAFETY", path: "/audit-services/electical-and-fire-safety-audit" },
   ];
 
   const services3 = [
-    { icon: "/nav-industrial.png", text: "INDUSTRIAL", path: "/industrial" },
+    { icon: "/nav-industrial.png", text: "INDUSTRIAL", path: "/power-system-studies" },
     {
       icon: "/nav-renewable.png",
       text: "RENEWABLE",
       path: "/renewable",
       subItems: [
-        { text: "1. PSS", path: "/pss" },
-        { text: "2. RSA", path: "/rsa" },
+        { text: "1. RENEWABLE", path: "/renewable" },
+        { text: "2. PSA", path: "/power-system-studies" },
+        { text: "3. RCA", path: "/root-cause-analysis" },
       ],
     },
   ];

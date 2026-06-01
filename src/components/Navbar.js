@@ -90,10 +90,10 @@ const Navbar = () => {
     <div
       className={`flex fixed w-full z-[60] overflow-hidden flex-col transition-colors duration-900 ${
         scrollNav || activeSection
-          ? "bg-[#312D2D]"
+          ? "bg-[#2D2E30]"
           : pathname === "/" || pathname === "/about-us" || pathname === "/leadership-team"
             ? "lg:bg-transparent"
-            : "bg-[#312D2D]"
+            : "bg-[#2D2E30]"
       }`}
     >
       <NavHeader
@@ -152,7 +152,7 @@ const Navbar = () => {
 
       {/* Mobile Slide-out Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-full min-[475px]:w-[420px] md:w-[500px] bg-stone-900 z-50 transform lg:hidden transition-transform duration-500 ease-in-out
+        className={`fixed top-0 right-0 h-full w-full min-[475px]:w-[420px] md:w-[500px] bg-[#2D2E30] z-50 transform lg:hidden transition-transform duration-500 ease-in-out
                     ${isSlideOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <button

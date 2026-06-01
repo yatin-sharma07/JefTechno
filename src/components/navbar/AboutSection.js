@@ -18,7 +18,7 @@ const AboutSection = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
 
   return (
-    <section className="flex overflow-hidden flex-col h-[80vh] pl-[11%] items-start px-16 pt-5 pb-96 bg-[#312D2D] max-md:px-5 max-md:pb-24">
+    <section className="flex overflow-hidden flex-col h-[80vh] pl-[11%] items-start px-16 pt-5 pb-96 bg-[#2D2E30] max-md:px-5 max-md:pb-24">
       <div className="ml-10 max-w-full w-[994px]">
         <div className="flex gap-5 max-md:flex-col">
           <nav className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">

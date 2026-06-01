@@ -90,7 +90,7 @@ const ServicesComponent = () => {
   ];
 
   return (
-    <section className="flex flex-col h-[82vh] pl-[11%] px-16 pt-5 bg-[#312D2D] max-md:px-5">
+    <section className="flex flex-col h-[82vh] pl-[11%] px-16 pt-5 bg-[#2D2E30] max-md:px-5">
       <div className="ml-10 w-full max-w-[1016px] h-full">
         <div className="flex gap-5 h-full max-md:flex-col">
           <div className="flex flex-col justify-start w-2/5 max-md:w-full">

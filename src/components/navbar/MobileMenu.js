@@ -72,7 +72,7 @@ const MobileMenu = () => {
   };
 
   return (
-    <div className="h-full w-full bg-[#1a1a1a] text-white relative overflow-hidden">
+    <div className="h-full w-full bg-[#2D2E30] text-white relative overflow-hidden">
       {/* MAIN MENU */}
       <div
         className={`absolute w-full h-full transition-transform duration-300  ${

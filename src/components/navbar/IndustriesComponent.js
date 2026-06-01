@@ -30,7 +30,7 @@ const IndustriesComponent = () => {
   ];
 
   return (
-    <section className="flex overflow-hidden flex-col h-[80vh] pl-[11%] items-start px-16 pt-5 pb-96 bg-[#312D2D] max-md:px-5 max-md:pb-24">
+    <section className="flex overflow-hidden flex-col h-[80vh] pl-[11%] items-start px-16 pt-5 pb-96 bg-[#2D2E30] max-md:px-5 max-md:pb-24">
       <div className="ml-10 w-full">
         <div className="flex gap-5 max-md:flex-col">
           <div className="flex flex-col w-2/5 max-md:w-full">

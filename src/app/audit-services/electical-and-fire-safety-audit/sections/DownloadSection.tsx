@@ -85,22 +85,9 @@ export default function DownloadSection() {
                 mb-2
               "
             >
-              Registration Guide
+              ELECTRICAL FIRE SAFETY GUIDE
             </motion.h3>
 
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 15 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              className="
-                text-white/65
-                text-sm
-                mb-5
-              "
-            >
-              Explore our comprehensive registration guide for detailed insights.
-            </motion.p>
 
             <motion.a
               variants={{

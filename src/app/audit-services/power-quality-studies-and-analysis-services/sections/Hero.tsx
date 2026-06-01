@@ -1,48 +1,38 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 
-const Hero = ({ title, videoSrc }) => {
+const Hero = ({
+  title = "POWER QUALITY STUDIES AND ANALYSIS SERVICES",
+  videoSrc,
+}) => {
   return (
-    <section className="flex overflow-hidden h-screen flex-col bg-[#232427] relative">
-      <div className="flex relative flex-col w-full h-screen max-md:pb-24 max-md:max-w-full">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={videoSrc} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+    <section className="relative h-[75vh] sm:h-[85vh] lg:h-screen overflow-hidden bg-[#232427] font-montserrat">
+      <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover">
+        <source src={videoSrc} type="video/mp4" />
+      </video>
 
-        <div className="absolute inset-0 bg-black/40 z-0"></div>
+      <div className="absolute inset-0 bg-black/45" />
 
-        <div className="absolute top-[70%] md:top-[65%] lg:top-[70%] xl:top-[75%] inset-x-0 z-10 flex justify-center">
-          <div className="section-container">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="flex flex-col gap-[16px] text-white px-6 md:px-0"
-            >
-              <h1 className="font-montserrat font-lg text-[40px] md:text-[40px] leading-[1.2] md:leading-[100%] tracking-[0.5px] uppercase mb-4 sm:font-bold">
-                {title}
-              </h1>
+      <div className="relative z-10 flex h-full items-end pb-14 sm:pb-20 lg:pb-28">
+        <div className="section-container w-full px-5 md:px-0">
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-[1500px] text-white"
+          >
+            <h1 className="mb-4 text-[23px] sm:text-[25px] md:text-[30px] lg:text-[36px] font-bold uppercase leading-[1.15] tracking-[1px]">
+              {title}
+            </h1>
 
-              <div className="flex gap-6 items-center self-start mt-4">
-                <Link href={'/get-in-touch'}>
-                  <button className="uppercase px-6 md:px-10 py-2 md:py-3 bg-white border border-solid border-zinc-900 border-opacity-10 text-black text-[14px] md:text-[16px] font-medium hover:bg-red-700 hover:text-white transition-all rounded-[50px]">
-                    Get in touch
-                  </button>
-                </Link>
-              </div>
-            </motion.div>
-          </div>
+            <p className="max-w-[1500px] text-[13px] sm:text-[15px] md:text-[17px] lg:text-[22px] leading-[1.7] text-white/90">
+              Stop random equipment trips and sudden breakdowns. Identify hidden
+              power issues early to protect your machinery, reduce downtime, and
+              cut operational costs.
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,24 +1,19 @@
-import RootCause from "./rca";
+
+import RootCauseAnalysis from "./solution";
 
 export const metadata = {
-  title: 'Root Cause Analysis: Enhancing Reliability in Electrical Systems',
-  description:
-    'JEF UAE offers expert Root Cause Analysis to identify and resolve underlying issues in electrical systems, ensuring enhanced reliability and performance.',
-  keywords:
-    'Root Cause Analysis, electrical systems, reliability improvement, fault diagnosis, system optimization, electrical engineering, failure analysis, preventive maintenance, JEF UAE, engineering solutions',
-  alternates: {
-    canonical: 'https://www.jefuae.com/root-cause-analysis',
-  },
-  openGraph: {
-    url: 'https://www.jefuae.com/root-cause-analysis',
-    description:
-      'JEF UAE offers expert Root Cause Analysis to identify and resolve underlying issues in electrical systems, ensuring enhanced reliability and performance.',
-    siteName: 'Root Cause Analysis: Enhancing Reliability in Electrical Systems',
-  },
+    title: 'Root Cause Analysis: Electrical System Troubleshooting | JEF',
+    description: 'Expert Root Cause Analysis services for electrical system failures. Identify underlying issues, prevent recurring problems, and optimize performance.',
+    keywords: 'root cause analysis, RCA, electrical failure analysis, system troubleshooting, power system reliability, JEF engineering',
+    alternates: {
+        canonical: 'https://www.jefuae.com/root-cause-analysis',
+    },
 }
 
 export default function RCAPage() {
-  return (
-    <RootCause />
-  );
-}
+    return (
+        <>
+           <RootCauseAnalysis/>
+        </>
+    );
+}   

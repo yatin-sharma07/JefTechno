@@ -35,8 +35,9 @@ function MainFooter() {
 
     const itemsAbout = [
         { name: 'Who we are', path: '/about-us' },
-        { name: 'JEF Leadership Team', path: '/leadership-team' },
-        {name:'Careers',path:'/careers'}
+
+        {name:'Careers',path:'/careers'},
+                { name: 'Contact us', path: '/contact-us' },
     ];
 
     const itemsLocation = [
@@ -55,7 +56,7 @@ function MainFooter() {
         { name: 'All Blogs', path: '/blog' },
         {name:"Resources",path:""},
         {name:'Events',path:""},
-        {name:"Contact Us",path:""}
+      
     ];
     const itemInternalUse = [
         {name:'Employee Login',path:'/coming-soon'  }
@@ -67,24 +68,29 @@ function MainFooter() {
   
 
     return (
-        <main className="flex overflow-hidden flex-col items-center  lg:pt-24 bg-stone-800">
-            <div className="hidden lg:flex flex-col md:flex-row w-[88vw] max-w-[95vw] tracking-wider justify-between ">
-                <Section title="About" items={itemsAbout} />
-                <Section title="Locations" items={itemsLocation} />
-                <Section title="Our Businesses" items={itemsBusiness} />
-                <Section title="News" items={itemNews} />
-               
-            </div>
-            <div className='flex justify-start gap-20 w-full md:pl-20'>
-                <Section title="Internal USe" items={itemInternalUse} />
-                <Section title="Jef Shield" items={itemJefShield}/>
-            </div>
-            <div className='lg:hidden'>
-                < FAQComponent />
+       <main className="flex overflow-hidden flex-col items-center lg:pt-24 bg-[#2D2E30]">
 
-            </div>
-            <Footer />
-        </main>
+    {/* FIRST ROW */}
+    <div className="section-container hidden lg:flex flex-row tracking-wider justify-between">
+        <Section title="About" items={itemsAbout} />
+        <Section title="Locations" items={itemsLocation} />
+        <Section title="Our Businesses" items={itemsBusiness} />
+        <Section title="News" items={itemNews} />
+    </div>
+
+    {/* SECOND ROW */}
+    <div className="section-container hidden lg:flex mt-10 gap-20">
+        <Section title="Internal Use" items={itemInternalUse} />
+        <Section title="Jef Shield" items={itemJefShield} />
+    </div>
+
+    {/* MOBILE FAQ */}
+    <div className="lg:hidden w-full">
+        <FAQComponent />
+    </div>
+
+    <Footer />
+</main>
     );
 }
 
@@ -92,54 +98,74 @@ function MainFooter() {
 function Footer() {
 
     return (
-        <footer className="card-slider-footer flex flex-col items-center pt-10 bg-stone-800">
-            <hr className="hidden lg:block shrink-0 mt-2 max-w-[95vw] w-[88vw] border border-solid border-neutral-400 max-md:mt-8" />
-            <div className="flex X-axis-card-anm-footer-footer flex-row gap-10 justify-between items-start mt-5 lg:w-[88vw] max-w-[95vw]">
+        <footer className="card-slider-footer flex flex-col items-center pt-10 bg-[#2D2E30] w-full">
+            <hr className="section-conxtainer hidden lg:block shrink-0 mt-2 border border-solid border-neutral-400 max-md:mt-8" />
+            <div className="section-container flex X-axis-card-anm-footer-footer flex-row gap-10 justify-center lg:justify-between items-start mt-5 py-6 bg-[#2D2E30]">
                 <div className="hidden  card-slider-footer X-axis-card-anm-footer lg:block text-xl tracking-widest text-white uppercase max-md:max-w-full">
                     FOLLOW jef ON SOCIAL MEDIA
                 </div>
-                <div className="flex X-axis-card-anm-footer flex-row h-full space-x-12 lg:space-x-6">
+                <div className="flex X-axis-card-anm-footer flex-row items-center h-full space-x-12 lg:space-x-6">
                     <a href="https://www.youtube.com/@JEFgroup" target="_blank" className="object-contain card-slider-footer"><img src="../FooterLogo/Link - Youtube.png" alt="YoutubeImg" /></a>
                     <a href="https://www.facebook.com/JEFTECHNO/" target="_blank" className="object-contain card-slider-footer"><img src="../FooterLogo/Link - Facebook.png" alt="FacebookImg" /></a>
                     <a href="https://www.linkedin.com/showcase/jef-engineering-services-middle-east/" target="_blank" className="object-contain  card-slider-footer"><img src="../FooterLogo/Link - Linkedin.png" alt="LinkedInImg" /></a>
                     <a href="https://x.com/JeftechnoIndia" target="_blank" className="object-contain card-slider-footer"><img src="../FooterLogo/Link - Twitter.png" alt="TwitterImg" /></a>
+                    <a href="https" target="_blank" className="object-contain h-8 text-gray-400 w-8 card-slider-footer"><img src="../FooterLogo/Instagram.png" alt="InstagramImg" /></a>
                 </div>
             </div>
-            <div className="flex overflow-hidden flex-col justify-center items-center  py-7 mt-6 w-screen text-white bg-stone-900  max-md:max-w-full">
-                <div className="flex X-axis-card-anm-footer flex-wrap justify-between gap-6 w-full lg:w-[88vw] max-w-[95vw] max-md:max-w-full">
-                    <div className="flex card-slider-footer shrink gap-4 mx-auto lg:mx-0 lg:self-start text-[10px] sm:text-xs font-light basis-auto grow-0 tracking-widest">
-                        <Link href="/privacypolicy" >Privacy Policy</Link>
-                        <Link href="/termsandconditions" >· Terms of Use</Link>
-                        <Link href="/cookiepolicy" >· Cookie Policy</Link>
-                        <span>2026 © Jef</span>
-                    </div>
-                    <div className='flex gap-2 items-center'>
-                        <p className='text-white text-sm'>
-                            Production company · Obrive
-                        </p>
-                         <a className=' ml-[5px]' href="https://obnov.in" target="_blank" rel="noopener noreferrer"><img src="../FooterLogo/obriveLogo.png" alt="ObnovLogo" className='h-4' /></a>
+            <div className="flex overflow-hidden flex-col justify-center items-center py-7 mt-6 w-screen text-white bg-stone-900">
+  <div className="section-container flex flex-col lg:flex-row items-center lg:items-center justify-between gap-5">
 
-                    </div>
-                    <div className="sm:text-xs text-[10px] card-slider-footer mx-auto lg:mx-0 flex gap-0 tracking-wide max-md:max-w-full">
-                       <p className="text-xs text-gray-400">
-  This site is protected by reCaptcha and the google{" "}
-  <span>
-    <Link href="/privacypolicy" className="text-white transition text-sm">
-      Privacy Policy
-    </Link>
-  </span>{" "}
-  and{" "}
-  <span>
-    <Link href="/termsandconditions" className="text-white transition text-sm">
-      Terms of Use
-    </Link>
-  </span>
-   {" "}apply
-</p>
-                       
-                    </div>
-                </div>
-            </div>
+    {/* LEFT */}
+    <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-4 text-[10px] sm:text-xs font-light tracking-widest text-center">
+      <Link href="/privacypolicy">Privacy Policy</Link>
+      <Link href="/termsandconditions">· Terms of Use</Link>
+      <Link href="/cookiepolicy">· Cookie Policy</Link>
+      <span>2026 © Jef</span>
+    </div>
+
+    {/* CENTER */}
+    <div className="flex flex-wrap justify-center items-center gap-2 text-center">
+      <p className="text-white text-xs sm:text-sm">
+        Production company · Obrive
+      </p>
+
+      <a
+        className="ml-[2px]"
+        href="https://obrive.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="../FooterLogo/obrive-footer-logo.png"
+          alt="ObnovLogo"
+          className="h-4 object-contain"
+        />
+      </a>
+    </div>
+
+    {/* RIGHT */}
+    <div className="w-full lg:w-auto text-center lg:text-right">
+      <p className="text-[10px] sm:text-xs text-gray-400 leading-relaxed">
+        This site is protected by reCaptcha and the Google{" "}
+        <Link
+          href="/privacypolicy"
+          className="text-white transition text-[10px] sm:text-xs"
+        >
+          Privacy Policy
+        </Link>{" "}
+        and{" "}
+        <Link
+          href="/termsandconditions"
+          className="text-white transition text-[10px] sm:text-xs"
+        >
+          Terms of Use
+        </Link>{" "}
+        apply
+      </p>
+    </div>
+
+  </div>
+</div>
         </footer>
     );
 }
@@ -148,7 +174,7 @@ function Footer() {
 
 function Section({ title, items }) {
     return (
-        <section className="flex .card-slider-footer X-axis-card-anm-footer flex-col min-h-[234px] w-[219px]">
+        <section className="flex card-slider-footer X-axis-card-anm-footer flex-col min-h-[234px] w-full sm:w-[219px]">
             <header className="w-full text-xl font-bold tracking-widest text-red-700 uppercase whitespace-nowrap">
                 {title}
             </header>
@@ -156,7 +182,11 @@ function Section({ title, items }) {
                 {items.map((item, index) => (
                     <li key={index} className="flex flex-col justify-center items-start py-2.5 w-full">
                         <div className="flex items-center">
-                            <Link href={item.path}><div className="self-stretch my-auto">{item.name}</div></Link>
+                           <Link href={item.path}>
+  <div className="self-stretch my-auto transition-colors duration-300 hover:text-[#C02429]">
+    {item.name}
+  </div>
+</Link>
                         </div>
                     </li>
                 ))}
@@ -178,23 +208,20 @@ const FAQComponent = () => {
         {
             question: "ABOUT",
             content: [
-                { label: 'What is JEF', path: '/about-us' },
-                { label: 'JEF leadership team', path: '/leadership-team' },
-                { label: 'JEF Smart Digitization', path: '/SmartDigitalization' },
-                { label: 'JEF L&D Centre', path: '/L&D-Centre' }
+                { label: 'Who we are', path: '/about-us' },
+               
+                { label: 'Career', path: '/careers' },
+                { label: 'Contact Us', path: '/contact' }
             ],
             isOpen: false
         },
         {
             question: "Our Business",
             content: [
-                { label: 'Power System Studies', path: '/power-system-studies' },
-                { label: 'Power Quality Studies', path: '/power-quality-studies' },
-                { label: 'Earthing Studies', path: '/earthing-studies' },
-                { label: 'LPS System Studies', path: '/lightning-protection-studies' },
-                { label: 'Instrumentation Studies', path: '/instrumentation-earthing-studies' },
-                { label: 'Root Cause Analysis', path: '/root-cause-analysis' },
-                { label: 'EMI EMC', path: '/emi-emc' },
+                { label: 'Our Products', path: '/power-system-studies' },
+                { label: 'Audit Services', path: '/audit-services' },
+                { label: 'Consulting Services', path: '/consulting-services' },
+               
 
             ],
             isOpen: false
@@ -202,24 +229,33 @@ const FAQComponent = () => {
         {
             question: "Locations",
             content: [
-                { label: 'Mena', path: '' },
-                { label: 'Europe', path: '' },
-                { label: 'Asia', path: '' },
+                { label: 'India', path: '' },
+                { label: 'UAE', path: '' },
+                { label: 'USA', path: '' },
             ],
             isOpen: false
         },
+        
         {
-            question: "Industries",
+            question: "News",
             content: [
-                { label: 'Sectors', path: '/industries/oilandgas' },
-                { label: 'Partners', path: '/industries/powerutilities' },
+                { label: 'All Blogs', path: '/blogs' },
+                 { label: 'Resources', path: '/resources' },
+                  { label: 'Events', path: '/events' },
             ],
             isOpen: false
         },
-        {
-            question: "Careers",
+         {
+            question: "Jef Shield",
             content: [
-                { label: 'Working at jef', path: '/careers' },
+                { label: 'Risk Assesment Tool', path: '/coming-soon' },
+            ],
+            isOpen: false
+        },
+         {
+            question: "Internal Use",
+            content: [
+                { label:"Employee login", path:"/coming-soon" },
             ],
             isOpen: false
         },
@@ -238,18 +274,15 @@ const FAQComponent = () => {
         const contentRef = useRef(null);
         const [height, setHeight] = useState(0);
 
-        useEffect(() => {
-            if (isOpen && contentRef.current) {
-                setHeight(contentRef.current.scrollHeight);
-            } else {
-                const timeout = setTimeout(() => {
-                    setHeight(0);
-                }, 1000); // Match this duration with the transition duration
-
-                return () => clearTimeout(timeout);
-            }
-        }, [isOpen]);
-
+       useEffect(() => {
+    if (contentRef.current) {
+        if (isOpen) {
+            setHeight(contentRef.current.scrollHeight);
+        } else {
+            setHeight(0);
+        }
+    }
+}, [isOpen]);
 
         useEffect(() => {
             // Select all elements with the 'X-axis-anm' class and apply staggered animation
@@ -272,7 +305,7 @@ const FAQComponent = () => {
         }, []);
 
         return (
-            <div className=" flex flex-col justify-center p-px self-center border-b w-[85%] border-solid bg-transparent bg-opacity-70 max-md:max-w-full">
+            <div className="flex flex-col justify-center p-px self-center border-b w-full px-5 border-solid bg-transparent bg-opacity-70 max-md:max-w-full">
                 <div onClick={onToggle} className="flex gap-10 justify-between items-start py-5 md:py-10 w-full max-md:max-w-full">
                     <h2 className="self-stretch py-px leading-relaxed my-auto font-semibold text-lg md:text-xl tracking-wider uppercase text-red-600">
                         {question}
@@ -298,7 +331,7 @@ const FAQComponent = () => {
                 </div>
                 <div
                     ref={contentRef}
-                    className="overflow-hidden transition-all w-[100vw] duration-300 ease-in-out"
+                   className="overflow-hidden transition-[max-height] duration-500 ease-in-out w-full"
                     style={{ maxHeight: `${height}px` }}
                 >
                     <div className="px-5 py-5">
@@ -308,7 +341,7 @@ const FAQComponent = () => {
                                 {content.map((item, idx) => (
                                     <li key={idx} className="mb-2">
                                         <Link href={item.path}>
-                                            <div className="text-stone-300 hover:underline">
+                                            <div className="text-stone-300 hover:text-[#C02429] transition-colors duration-300">
                                                 {item.label}
                                             </div>
                                         </Link>
@@ -328,12 +361,10 @@ const FAQComponent = () => {
         <section className="flex overflow-hidden relative flex-col">
             <div className="flex absolute inset-0 z-0 flex-col py-0.5 w-full max-md:max-w-full"></div>
             <div className="flex z-0 flex-col self-center w-[95%] xl:w-[70%] lg:w-[80%]">
-                <h1 className="pb-px w-full text-4xl leading-loose uppercase whitespace-nowrap text-zinc-800 tracking-[3.36px] max-md:max-w-full">
-                    FAQ
-                </h1>
+               
                 <div className="flex max-md:flex-col justify-between items-start w-full max-md:max-w-full">
                     <div className="flex flex-col pt-5 min-w-[240px] w-full lg:w-[48%] max-md:max-w-full">
-                        {faqData.slice(0, 5).map((item, index) => (
+                        {faqData.slice(0, 7).map((item, index) => (
                             <FAQItem
                                 key={index}
                                 question={item.question}

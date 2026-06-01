@@ -1,0 +1,50 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+
+const Hero = () => {
+  return (
+    <section className="flex overflow-hidden h-screen flex-col bg-[#232427] relative">
+      <div className="flex relative flex-col w-full h-screen max-md:pb-24 max-md:max-w-full">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/ESE/ESE.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <div className="absolute inset-0 bg-black/30" />
+
+        <div className="absolute top-[70%] md:top-[65%] lg:top-[70%] xl:top-[75%] inset-x-0 z-10 flex justify-start w-full">
+          <div className="w-full  px-5 md:ml-10 lg:ml-20">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="flex flex-col gap-[16px] text-white lg:mb-20"
+            >
+              <h1 className="font-montserrat font-lg text-[30px] md:text-[40px] leading-[1.2] md:leading-[100%] tracking-[0.5px] uppercase mb-4 sm:font-bold">
+                JEF SHIELD and JEF E-BUILD
+              </h1>
+
+              <div className=" mt-2  mx-auto w-full">
+                <p className="font-md sm:text-[12px] md:text-[18px] lg:text-[22px]">
+                  Get your Risk Assesment Report, Concept Design, Drawing & Bill of Materials in  99 sec! with a click of a button
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;

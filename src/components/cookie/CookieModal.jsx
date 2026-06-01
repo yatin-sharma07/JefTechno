@@ -33,6 +33,7 @@ export default function CookieModal({
           opacity: visible ? 1 : 0,
           pointerEvents: visible ? "auto" : "none",
           transition: "opacity 0.35s",
+          className: "scrollbar-hide",
         }}
       />
 
@@ -41,13 +42,14 @@ export default function CookieModal({
         role="dialog"
         aria-modal="true"
         aria-label="Cookie Preferences"
+        className="scrollbar-hide"
         style={{
           position: "fixed",
           top: 0,
           left: 0,
           bottom: 0,
           width: "min(480px, 100vw)",
-          background: "#fff",
+          background: "#232427",
           zIndex: 10000,
           display: "flex",
           flexDirection: "column",
@@ -110,6 +112,7 @@ export default function CookieModal({
               onToggleConsent={onToggleConsent}
               onAllowAll={onAllowAll}
               onGoToManage={goToManage}
+              className="scrollbar-hide"
             />
           ) : (
             <CookieManageView

@@ -1,4 +1,5 @@
-import PSS from "./pss";
+
+import PowerSystemStudies from "./solution";
 
 export const metadata = {
     title: 'Power System Studies: Analysis & Solutions | Jef UAE',
@@ -17,7 +18,7 @@ export const metadata = {
 export default function PSSPage() {
     return (
         <>
-            <PSS />
+           <PowerSystemStudies/>
         </>
     );
 }   

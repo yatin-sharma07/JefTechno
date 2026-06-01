@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import MainFooter from '../components/Footer';
 import Script from 'next/script';
 import CookieConsentProvider from "../components/cookie/CookieConsentProvider.jsx";
+import SmoothScroll from '@/components/SmoothScroll';
 
 
 const montserrat = Montserrat({
@@ -63,6 +64,7 @@ export default function RootLayout({ children }) {
         <TranslationProvider>
           <div id="google_translate_element" style={{ display: "none" }}></div>
           <Navbar />
+          <SmoothScroll/>
           {children}
           <MainFooter />
           <CookieConsentProvider />

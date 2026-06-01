@@ -20,7 +20,7 @@ export default function CookieFooterButtons({ onRejectAll, onConfirm }) {
         display: "flex",
         gap: 12,
         flexShrink: 0,
-        background: "#fff",
+        background: "#232427",
       }}
     >
       {/* Reject All */}
@@ -29,7 +29,7 @@ export default function CookieFooterButtons({ onRejectAll, onConfirm }) {
         style={{
           ...btnBase,
           background: "transparent",
-          color: "#1a1a1a",
+          color: "#fff",
           border: "2px solid #1a1a1a",
         }}
         onMouseEnter={(e) => {
